@@ -20,7 +20,53 @@ data class DamageResult(
     val swirledElement: Element? = null
 )
 
+data class DamageSimulation(
+    val targetDamage: Map<String, Int>, // characterId -> damage
+    val reactions: Map<String, String>, // characterId -> reaction name
+    val swirledElement: Element? = null,
+    val canAfford: Boolean = true
+)
+
 object CombatEngine {
+    fun simulateDamage(attacker: Character, defender: Character, match: Match, skillId: String): DamageSimulation {
+        val skill = attacker.skills.find { it.id == skillId } ?: return DamageSimulation(emptyMap(), emptyMap())
+        
+        val reaction = ReactionManager.calculateReaction(defender.appliedElements, skill.element)
+        val targetDamage = mutableMapOf<String, Int>()
+        val reactions = mutableMapOf<String, String>()
+        
+        var mainDamage = skill.baseDamage
+        var swirled: Element? = null
+        
+        if (reaction != null) {
+            mainDamage += reaction.bonusDamage
+            reactions[defender.id] = reaction.name
+            
+            if (reaction.isPiercing) {
+                val opponent = match.players.find { it.characters.contains(defender) }
+                opponent?.characters?.forEach { 
+                    if (it != defender && it.isAlive) {
+                        targetDamage[it.id] = 1
+                    }
+                }
+            }
+            
+            if (reaction.isSwirl) {
+                swirled = reaction.swirledElement
+                val opponent = match.players.find { it.characters.contains(defender) }
+                opponent?.characters?.forEach { 
+                    if (it != defender && it.isAlive) {
+                        targetDamage[it.id] = (targetDamage[it.id] ?: 0) + 1
+                    }
+                }
+            }
+        }
+        
+        targetDamage[defender.id] = mainDamage
+        
+        return DamageSimulation(targetDamage, reactions, swirled)
+    }
+
     fun applyDamage(attacker: Character, defender: Character, damageInfo: DamageInfo, match: Match? = null): DamageResult {
         // 1. Calculate Reaction
         val reaction = ReactionManager.calculateReaction(defender.appliedElements, damageInfo.element)

@@ -108,8 +108,10 @@ object MatchManager {
     }
 
     private fun switchActivePlayer(match: Match) {
+        println("Switching active player. Current: ${match.activePlayerIndex}, Finished: ${match.players.map { it.isFinishedActions }}")
         // If both finished, end Action Phase
         if (match.players.all { it.isFinishedActions }) {
+            println("Both players finished. Ending Action Phase.")
             endActionPhase(match)
             return
         }
@@ -118,7 +120,9 @@ object MatchManager {
         // Only switch if the other player is NOT finished
         if (!match.players[otherIndex].isFinishedActions) {
             match.activePlayerIndex = otherIndex
+            println("Switched to player index: ${match.activePlayerIndex} (${match.players[match.activePlayerIndex].userId})")
         } else {
+            println("Other player finished. Keeping player index: ${match.activePlayerIndex}")
             // Keep current player active because the other is finished
             // and we know not all are finished from the check above
         }

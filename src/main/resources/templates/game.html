@@ -4,6 +4,43 @@
 <div class="h-screen w-screen flex flex-row bg-slate-900 text-white overflow-hidden"
      th:fragment="content" id="game-container">
     
+    <style>
+        .htmx-indicator {
+            display: none;
+        }
+        .htmx-request .htmx-indicator {
+            display: flex;
+        }
+        .htmx-request.htmx-indicator {
+            display: flex;
+        }
+        /* Delay spinner appearing by 1s to avoid flicker on fast actions */
+        #loading-spinner {
+            transition: opacity 1s;
+            opacity: 0;
+        }
+        .htmx-request #loading-spinner {
+            opacity: 1;
+        }
+        .damage-preview-float {
+            animation: float-up 2s ease-out infinite;
+        }
+        @keyframes float-up {
+            0% { transform: translateY(0); opacity: 0; }
+            20% { opacity: 1; }
+            80% { opacity: 1; }
+            100% { transform: translateY(-20px); opacity: 0; }
+        }
+    </style>
+
+    <!-- Global Loading Spinner -->
+    <div id="loading-spinner" class="htmx-indicator fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm pointer-events-none">
+        <div class="flex flex-col items-center gap-4">
+            <div class="w-12 h-12 border-4 border-indigo-500 border-t-transparent rounded-full animate-spin"></div>
+            <span class="text-indigo-400 font-bold tracking-widest animate-pulse">WAITING FOR ACTION...</span>
+        </div>
+    </div>
+    
     <div th:if="${match == null}" class="w-full h-full flex items-center justify-center">
         <p>No active match. Please go back to home.</p>
     </div>
@@ -27,8 +64,9 @@
                     <button hx-post="/game/action/end" 
                             hx-target="#game-container" 
                             hx-swap="outerHTML"
+                            hx-indicator="#loading-spinner"
                             class="px-3 py-1 bg-red-600 hover:bg-red-700 rounded text-sm font-bold disabled:opacity-50"
-                            th:disabled="${match.isForcedSwitchRequired(userId)}">
+                            th:disabled="${match.isForcedSwitchRequired(userId) || match.getActivePlayer().userId != userId}">
                         End Phase
                     </button>
                 </div>
@@ -52,6 +90,17 @@
                         <div th:each="char, iter : ${match.players[1].characters}" 
                              class="relative p-3 border-2 rounded-lg bg-slate-800 flex flex-col items-center w-32"
                              th:classappend="${(iter.index == match.players[1].activeCharacterIndex ? 'border-yellow-400 shadow-[0_0_15px_rgba(250,204,21,0.5)]' : 'border-slate-700') + (char.isAlive ? '' : ' grayscale opacity-50')}">
+                            
+                            <!-- Damage Preview Indicator -->
+                            <div th:if="${preview != null && preview.targetDamage.containsKey(char.id)}" 
+                                 class="absolute -top-10 left-0 right-0 flex flex-col items-center damage-preview-float z-10">
+                                <span class="text-red-500 font-black text-xl drop-shadow-[0_0_5px_rgba(0,0,0,1)]"
+                                      th:text="'-' + ${preview.targetDamage.get(char.id)}"></span>
+                                <span th:if="${preview.reactions.containsKey(char.id)}"
+                                      class="text-xs font-bold text-yellow-400 px-1 bg-slate-900/80 rounded"
+                                      th:text="${preview.reactions.get(char.id)} + '!'"></span>
+                            </div>
+
                             <div class="absolute -top-3 -left-3 w-8 h-8 rounded-full bg-slate-900 border-2 border-red-500 flex items-center justify-center font-bold text-sm"
                                  th:text="${char.currentHp}">10</div>
                             <div th:if="${!char.isAlive}" class="absolute inset-0 flex items-center justify-center bg-black/40 rounded-lg">
@@ -102,7 +151,16 @@
                              th:attr="hx-vals='{&quot;targetIndex&quot;: ' + ${iter.index} + '}'"
                              hx-target="#game-container"
                              hx-swap="outerHTML"
+                             hx-indicator="#loading-spinner"
                              th:if="${char.isAlive || iter.index == match.players[0].activeCharacterIndex}">
+                            
+                            <!-- Damage Preview Indicator (for Piercing/Swirl) -->
+                            <div th:if="${preview != null && preview.targetDamage.containsKey(char.id)}" 
+                                 class="absolute -top-10 left-0 right-0 flex flex-col items-center damage-preview-float z-10">
+                                <span class="text-red-500 font-black text-xl drop-shadow-[0_0_5px_rgba(0,0,0,1)]"
+                                      th:text="'-' + ${preview.targetDamage.get(char.id)}"></span>
+                            </div>
+
                             <div class="absolute -top-3 -left-3 w-8 h-8 rounded-full bg-slate-900 border-2 border-blue-500 flex items-center justify-center font-bold text-sm"
                                  th:text="${char.currentHp}">10</div>
                             <div th:if="${!char.isAlive}" class="absolute inset-0 flex items-center justify-center bg-black/40 rounded-lg">
@@ -134,22 +192,50 @@
                     </div>
 
                     <!-- Action Bar -->
-                    <div class="flex justify-center gap-4 p-4 mt-2 bg-slate-800/50 rounded-lg">
-                        <div th:each="skill : ${match.players[0].getActiveCharacter().skills}"
-                             class="flex flex-col items-center gap-1">
-                            <button hx-post="/game/action/skill"
-                                    th:attr="hx-vals='{&quot;skillId&quot;: &quot;' + ${skill.id} + '&quot;}'"
-                                    hx-target="#game-container"
-                                    hx-swap="outerHTML"
-                                    class="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 rounded font-bold text-sm disabled:opacity-50 disabled:cursor-not-allowed"
-                                    th:disabled="${match.isForcedSwitchRequired(userId) || !match.players[0].getActiveCharacter().isAlive}"
-                                    th:text="${skill.name}">
-                                Skill Name
-                            </button>
-                            <div class="flex gap-1">
-                                <span th:each="cost : ${skill.cost}" class="text-[10px] text-slate-400">
-                                    <span th:text="${cost.amount}"></span><span th:text="${cost.element}"></span>
-                                </span>
+                    <div class="flex flex-col items-center gap-4 p-4 mt-2 bg-slate-800/50 rounded-lg">
+                        
+                        <!-- Confirmation UI -->
+                        <div th:if="${preview != null}" class="flex items-center gap-6 p-4 bg-indigo-900/40 border border-indigo-500/50 rounded-xl animate-in fade-in zoom-in duration-300">
+                            <div class="flex flex-col">
+                                <span class="text-xs text-indigo-300 uppercase font-black tracking-tighter">Confirm Action</span>
+                                <span class="text-lg font-bold text-white" th:text="${match.players[0].getActiveCharacter().skills.?[id == '__${previewSkillId}__'][0].name}">Skill</span>
+                            </div>
+                            <div class="flex gap-2">
+                                <button hx-post="/game/action/skill"
+                                        th:attr="hx-vals='{&quot;skillId&quot;: &quot;' + ${previewSkillId} + '&quot;}'"
+                                        hx-target="#game-container"
+                                        hx-swap="outerHTML"
+                                        hx-indicator="#loading-spinner"
+                                        class="px-6 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg font-black shadow-lg shadow-green-900/20">
+                                    CONFIRM
+                                </button>
+                                <button hx-get="/game"
+                                        hx-target="#game-container"
+                                        hx-swap="outerHTML"
+                                        class="px-6 py-2 bg-slate-700 hover:bg-slate-600 text-slate-300 rounded-lg font-bold">
+                                    CANCEL
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Skill Selection -->
+                        <div th:if="${preview == null}" class="flex justify-center gap-4">
+                            <div th:each="skill : ${match.players[0].getActiveCharacter().skills}"
+                                 class="flex flex-col items-center gap-1">
+                                <button hx-post="/game/action/preview"
+                                        th:attr="hx-vals='{&quot;skillId&quot;: &quot;' + ${skill.id} + '&quot;}'"
+                                        hx-target="#game-container"
+                                        hx-swap="outerHTML"
+                                        class="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 rounded font-bold text-sm disabled:opacity-50 disabled:cursor-not-allowed transition-all active:scale-95"
+                                        th:disabled="${match.isForcedSwitchRequired(userId) || !match.players[0].getActiveCharacter().isAlive || match.getActivePlayer().userId != userId}">
+                                    <span th:text="${skill.name}">Skill Name</span>
+                                    <span class="ml-1 text-indigo-200" th:text="'(' + ${skill.baseDamage} + ')'"></span>
+                                </button>
+                                <div class="flex gap-1">
+                                    <span th:each="cost : ${skill.cost}" class="text-[10px] text-slate-400">
+                                        <span th:text="${cost.amount}"></span><span th:text="${cost.element}"></span>
+                                    </span>
+                                </div>
                             </div>
                         </div>
                     </div>
