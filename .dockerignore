@@ -1,0 +1,13 @@
+.gradle
+build
+!build/libs/*.jar
+.git
+.gitignore
+.idea
+.kotlin
+bin
+out
+Dockerfile
+.dockerignore
+implementation-plan.md
+README.md
