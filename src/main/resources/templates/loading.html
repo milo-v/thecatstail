@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<div th:fragment="content" class="w-full h-full flex relative bg-gray-900"
+     hx-get="/game" hx-trigger="load delay:5s" hx-target="#container" hx-swap="innerHTML">
+
+    <!-- Left Side: Player -->
+    <div class="w-1/2 h-full bg-slate-200 flex flex-col items-center justify-center border-r-4 border-white">
+        <div class="mb-8 text-center">
+            <img th:src="${playerAvatar}" class="w-32 h-32 rounded-full border-4 border-blue-600 shadow-lg mb-4 bg-white" alt="Player Avatar">
+            <h2 class="text-4xl font-bold text-slate-800" th:text="${playerName}">Player</h2>
+        </div>
+        <div class="flex gap-4">
+            <div th:each="char : ${playerDeck}" class="flex flex-col items-center">
+                <div class="w-24 h-32 bg-slate-300 rounded-lg border-2 border-slate-400 flex items-center justify-center shadow-md">
+                    <span class="text-sm font-semibold text-slate-600" th:text="${char}">Char</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Right Side: Opponent -->
+    <div class="w-1/2 h-full bg-slate-300 flex flex-col items-center justify-center border-l-4 border-white">
+        <div class="mb-8 text-center">
+            <img th:src="${opponentAvatar}" class="w-32 h-32 rounded-full border-4 border-red-600 shadow-lg mb-4 bg-white" alt="Opponent Avatar">
+            <h2 class="text-4xl font-bold text-slate-800" th:text="${opponentName}">Opponent</h2>
+        </div>
+        <div class="flex gap-4">
+            <div th:each="char : ${opponentDeck}" class="flex flex-col items-center">
+                <div class="w-24 h-32 bg-slate-400 rounded-lg border-2 border-slate-500 flex items-center justify-center shadow-md">
+                    <span class="text-sm font-semibold text-slate-700" th:text="${char}">Char</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- VS Overlay -->
+    <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+        <span class="text-7xl font-black text-white drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)] italic z-10">VS</span>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,9 @@
+server:
+  port: 8000
+
+spring:
+  application:
+    name: thecatstail
+  output:
+    ansi:
+      enabled: always
