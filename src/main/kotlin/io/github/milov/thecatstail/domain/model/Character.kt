@@ -13,7 +13,8 @@ class Character(
     val skills: List<Skill> = emptyList(),
     var isAlive: Boolean = true,
     var isFront: Boolean = false,
-    val appliedElements: MutableList<Element> = mutableListOf()
+    val appliedElements: MutableList<Element> = mutableListOf(),
+    val activeStatuses: MutableList<CharacterStatus> = mutableListOf()
 ) : DomainEntity(id) {
     fun deepCopy(): Character {
         return Character(
@@ -27,7 +28,8 @@ class Character(
             skills = skills,
             isAlive = isAlive,
             isFront = isFront,
-            appliedElements = appliedElements.toMutableList()
+            appliedElements = appliedElements.toMutableList(),
+            activeStatuses = activeStatuses.map { it.deepCopy() }.toMutableList()
         )
     }
 }

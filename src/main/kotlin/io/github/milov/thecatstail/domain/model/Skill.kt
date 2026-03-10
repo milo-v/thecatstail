@@ -8,7 +8,9 @@ data class Skill(
     val baseDamage: Int = 0,
     val element: Element = Element.UNALIGNED,
     val energyGenerated: Int = 1,
-    val description: String = ""
+    val description: String = "",
+    val summonEffect: Summon? = null,
+    val applyStatus: CharacterStatus? = null
 )
 
 data class DiceCost(

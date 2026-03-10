@@ -16,8 +16,9 @@ object MatchManager {
         when (move) {
             is Move.UseSkill -> handleUseSkill(match, player, move.skillId)
             is Move.SwitchCharacter -> handleSwitchCharacter(match, player, move.targetIndex)
+            is Move.PlayCard -> handlePlayCard(match, player, move.cardId)
+            is Move.ElementalTuning -> handleTuning(match, player, move.cardId, move.targetDieElement)
             is Move.DeclareEnd -> declareEnd(match, userId)
-            else -> {}
         }
     }
 
@@ -31,13 +32,47 @@ object MatchManager {
         payCost(player.dicePool, skill.cost)
         
         // 2. Apply damage
-        val defender = match.players.find { it.userId != player.userId }?.getActiveCharacter() ?: return
-        val damageInfo = DamageInfo(activeChar.id, defender.id, skill.baseDamage, skill.element)
+        val defender = match.getInactivePlayer().getActiveCharacter()
+        
+        // Elemental Override & Bonus Damage from Status
+        var finalElement = skill.element
+        var extraDamage = 0
+        if (skill.type == SkillType.NORMAL_ATTACK) {
+            activeChar.activeStatuses.forEach { status ->
+                status.elementOverride?.let { finalElement = it }
+                extraDamage += status.damageBonus
+            }
+        }
+        
+        val damageInfo = DamageInfo(activeChar.id, defender.id, skill.baseDamage + extraDamage, finalElement)
         val result = CombatEngine.applyDamage(activeChar, defender, damageInfo, match)
         
         match.applyEvent(GameEvent.DamageDealt(defender.name, result.finalDamage, result.reaction, result.isDead))
         
-        // 3. Generate Energy
+        // 3. Summon Effect
+        skill.summonEffect?.let { summonTemplate ->
+            val existing = player.summonsZone.find { it.id == summonTemplate.id }
+            if (existing != null) {
+                existing.usages = summonTemplate.usages // Reset usages or stack? Let's reset for now
+            } else {
+                player.summonsZone.add(summonTemplate.deepCopy())
+                match.applyEvent(GameEvent.SummonCreated(player.userId, summonTemplate.name))
+            }
+        }
+
+        // 4. Status Effect
+        skill.applyStatus?.let { statusTemplate ->
+            val existing = activeChar.activeStatuses.find { it.id == statusTemplate.id }
+            if (existing != null) {
+                existing.durationRounds = statusTemplate.durationRounds
+                existing.usages = statusTemplate.usages
+            } else {
+                activeChar.activeStatuses.add(statusTemplate.deepCopy())
+                match.applyEvent(GameEvent.StatusApplied(activeChar.name, statusTemplate.name))
+            }
+        }
+
+        // 5. Generate Energy
         if (skill.type != SkillType.ELEMENTAL_BURST) {
             activeChar.currentEnergy = minOf(activeChar.currentEnergy + skill.energyGenerated, activeChar.maxEnergy)
             match.applyEvent(GameEvent.EnergyGained(activeChar.name, skill.energyGenerated))
@@ -46,13 +81,136 @@ object MatchManager {
             match.applyEvent(GameEvent.EnergyReset(activeChar.name))
         }
         
-        // 4. Combat action ends turn IF not forced switch on opponent
+        // 6. Combat action ends turn IF not forced switch on opponent
         if (!match.isForcedSwitchRequired(match.getInactivePlayer().userId)) {
             switchActivePlayer(match)
         } else {
             // Wait for opponent to switch
             match.activePlayerIndex = match.players.indexOfFirst { it.userId == match.getInactivePlayer().userId }
         }
+    }
+
+    private fun handlePlayCard(match: Match, player: PlayerState, cardId: String) {
+        val card = player.hand.find { it.id == cardId } ?: return
+        
+        // 1. Pay cost
+        payCost(player.dicePool, card.cost)
+        
+        // 2. Apply effect
+        when (card.type) {
+            ActionCardType.SUPPORT -> {
+                card.supportEffect?.let { supportTemplate ->
+                    player.supportZone.add(supportTemplate.deepCopy())
+                    match.applyEvent(GameEvent.SupportCardPlayed(player.userId, card.name))
+                }
+            }
+            ActionCardType.EVENT -> {
+                // TODO: Event effects
+            }
+            ActionCardType.EQUIPMENT -> {
+                // TODO: Equipment effects
+            }
+        }
+        
+        // 3. Remove from hand
+        player.hand.remove(card)
+        
+        // 4. Playing a card is usually a fast action, so we don't switch player? 
+        // In the original game, some are fast, some are combat. Let's assume fast for now.
+    }
+
+    private fun handleTuning(match: Match, player: PlayerState, cardId: String, targetDieElement: Element) {
+        val card = player.hand.find { it.id == cardId } ?: return
+        
+        // 1. Remove 1 die of target element
+        if (player.dicePool.getOrDefault(targetDieElement, 0) > 0) {
+            player.dicePool[targetDieElement] = player.dicePool[targetDieElement]!! - 1
+            
+            // 2. Add 1 die of active character element
+            val activeCharElement = player.getActiveCharacter().element
+            player.dicePool[activeCharElement] = player.dicePool.getOrDefault(activeCharElement, 0) + 1
+            
+            // 3. Remove card from hand
+            player.hand.remove(card)
+            
+            match.applyEvent(GameEvent.TuningDone(player.userId, card.name, activeCharElement))
+        }
+    }
+
+    private fun processEndPhase(match: Match) {
+        // Triggers summons for both players starting from first player
+        val order = if (match.activePlayerIndex == 0) listOf(0, 1) else listOf(1, 0)
+        
+        for (idx in order) {
+            val player = match.players[idx]
+            val opponent = match.players[(idx + 1) % 2]
+            
+            // 1. Process Statuses expiration
+            player.characters.forEach { char ->
+                val statusIt = char.activeStatuses.iterator()
+                while (statusIt.hasNext()) {
+                    val status = statusIt.next()
+                    status.durationRounds?.let {
+                        val newDuration = it - 1
+                        status.durationRounds = newDuration
+                        if (newDuration <= 0) {
+                            match.applyEvent(GameEvent.StatusExpired(char.name, status.name))
+                            statusIt.remove()
+                        }
+                    }
+                }
+            }
+
+            // 2. Process Summons
+            val it = player.summonsZone.iterator()
+            while (it.hasNext()) {
+                val summon = it.next()
+                match.applyEvent(GameEvent.SummonTriggered(player.userId, summon.name))
+                
+                // Deal damage
+                val defender = opponent.getActiveCharacter()
+                if (defender.isAlive) {
+                    val damageInfo = DamageInfo(summon.id, defender.id, summon.baseDamage, summon.element, isSkill = false)
+                    val result = CombatEngine.applyDamage(null, defender, damageInfo, match)
+                    match.applyEvent(GameEvent.DamageDealt(defender.name, result.finalDamage, result.reaction, result.isDead))
+                }
+                
+                summon.usages -= 1
+                if (summon.usages <= 0) {
+                    match.applyEvent(GameEvent.SummonExpired(player.userId, summon.name))
+                    it.remove()
+                }
+            }
+        }
+    }
+
+    fun startRound(match: Match) {
+        match.applyEvent(GameEvent.RoundStarted(match.roundNumber))
+        match.phase = Phase.ACTION 
+        match.players.forEach { player ->
+            player.dicePool.clear()
+            // player.dicePool[Element.OMNI] = 8 // In real game, dice are rolled
+            // For now, give 8 omni but also draw cards
+            repeat(2) {
+                if (player.deck.isNotEmpty()) {
+                    player.hand.add(player.deck.removeAt(0))
+                }
+            }
+            player.dicePool[Element.OMNI] = 8
+            player.isFinishedActions = false
+            match.applyEvent(GameEvent.DiceRolled(player.userId, List(8) { Element.OMNI }))
+        }
+    }
+
+    fun endActionPhase(match: Match) {
+        match.applyEvent(GameEvent.RoundEnded(match.roundNumber))
+        match.phase = Phase.END
+        
+        processEndPhase(match)
+        
+        match.roundNumber += 1
+        match.activePlayerIndex = match.firstPlayerIndex
+        startRound(match)
     }
 
     private fun handleSwitchCharacter(match: Match, player: PlayerState, targetIndex: Int) {
@@ -108,10 +266,8 @@ object MatchManager {
     }
 
     private fun switchActivePlayer(match: Match) {
-        println("Switching active player. Current: ${match.activePlayerIndex}, Finished: ${match.players.map { it.isFinishedActions }}")
         // If both finished, end Action Phase
         if (match.players.all { it.isFinishedActions }) {
-            println("Both players finished. Ending Action Phase.")
             endActionPhase(match)
             return
         }
@@ -120,31 +276,7 @@ object MatchManager {
         // Only switch if the other player is NOT finished
         if (!match.players[otherIndex].isFinishedActions) {
             match.activePlayerIndex = otherIndex
-            println("Switched to player index: ${match.activePlayerIndex} (${match.players[match.activePlayerIndex].userId})")
-        } else {
-            println("Other player finished. Keeping player index: ${match.activePlayerIndex}")
-            // Keep current player active because the other is finished
-            // and we know not all are finished from the check above
         }
-    }
-
-    fun startRound(match: Match) {
-        match.applyEvent(GameEvent.RoundStarted(match.roundNumber))
-        match.phase = Phase.ACTION 
-        match.players.forEach { player ->
-            player.dicePool.clear()
-            player.dicePool[Element.OMNI] = 8
-            player.isFinishedActions = false
-            match.applyEvent(GameEvent.DiceRolled(player.userId, List(8) { Element.OMNI }))
-        }
-    }
-
-    fun endActionPhase(match: Match) {
-        match.applyEvent(GameEvent.RoundEnded(match.roundNumber))
-        match.phase = Phase.END
-        match.roundNumber += 1
-        match.activePlayerIndex = match.firstPlayerIndex
-        startRound(match)
     }
 
     fun declareEnd(match: Match, userId: String) {

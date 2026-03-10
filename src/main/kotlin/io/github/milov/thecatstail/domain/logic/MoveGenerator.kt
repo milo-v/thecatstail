@@ -58,7 +58,24 @@ object MoveGenerator {
             }
         }
 
-        // 3. Declare End
+        // 3. Play Cards
+        for (card in player.hand) {
+            if (CostValidator.canPay(player.dicePool, card.cost)) {
+                moves.add(Move.PlayCard(card.id))
+            }
+        }
+
+        // 4. Tuning
+        for (card in player.hand) {
+            // Find any non-omni die to discard
+            for (element in player.dicePool.keys) {
+                if (element != Element.OMNI && player.dicePool[element]!! > 0) {
+                    moves.add(Move.ElementalTuning(card.id, element))
+                }
+            }
+        }
+
+        // 5. Declare End
         moves.add(Move.DeclareEnd)
 
         return moves

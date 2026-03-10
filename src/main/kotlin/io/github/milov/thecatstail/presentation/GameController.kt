@@ -3,6 +3,7 @@ package io.github.milov.thecatstail.presentation
 import io.github.milov.thecatstail.application.service.SinglePlayerMatchService
 import io.github.milov.thecatstail.domain.logic.CombatEngine
 import io.github.milov.thecatstail.domain.logic.Move
+import io.github.milov.thecatstail.domain.model.Element
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.GetMapping
@@ -52,6 +53,24 @@ class GameController(private val matchService: SinglePlayerMatchService) {
     fun switchCharacter(@RequestParam targetIndex: Int, model: Model): String {
         val userId = "milo"
         val match = matchService.handleAction(userId, Move.SwitchCharacter(targetIndex))
+        model.addAttribute("match", match)
+        model.addAttribute("userId", userId)
+        return "game :: content"
+    }
+
+    @PostMapping("/action/play")
+    fun playCard(@RequestParam cardId: String, model: Model): String {
+        val userId = "milo"
+        val match = matchService.handleAction(userId, Move.PlayCard(cardId))
+        model.addAttribute("match", match)
+        model.addAttribute("userId", userId)
+        return "game :: content"
+    }
+
+    @PostMapping("/action/tuning")
+    fun tuneCard(@RequestParam cardId: String, @RequestParam element: Element, model: Model): String {
+        val userId = "milo"
+        val match = matchService.handleAction(userId, Move.ElementalTuning(cardId, element))
         model.addAttribute("match", match)
         model.addAttribute("userId", userId)
         return "game :: content"

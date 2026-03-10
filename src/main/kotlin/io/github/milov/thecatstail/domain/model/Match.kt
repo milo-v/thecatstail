@@ -43,6 +43,13 @@ class Match(
                 is GameEvent.EnergyGained -> "${event.characterId} gained ${event.amount} energy."
                 is GameEvent.EnergyReset -> "${event.characterId} used all energy."
                 is GameEvent.MatchEnded -> "Match ended! Winner: ${event.winnerId}."
+                is GameEvent.SummonCreated -> "${event.userId} summoned ${event.summonName}!"
+                is GameEvent.SummonTriggered -> "${event.userId}'s ${event.summonName} triggered."
+                is GameEvent.SummonExpired -> "${event.userId}'s ${event.summonName} expired."
+                is GameEvent.SupportCardPlayed -> "${event.userId} played ${event.cardName}."
+                is GameEvent.TuningDone -> "${event.userId} tuned ${event.cardName} to ${event.targetElement}."
+                is GameEvent.StatusApplied -> "${event.characterId} gained ${event.statusName}."
+                is GameEvent.StatusExpired -> "${event.characterId}'s ${event.statusName} expired."
                 else -> event.toString()
             }
         }

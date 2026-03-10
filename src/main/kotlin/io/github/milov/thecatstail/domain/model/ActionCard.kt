@@ -8,5 +8,6 @@ class ActionCard(
     val type: ActionCardType,
     val subType: Any? = null, // Will hold EquipmentType, SupportType, or EventType
     val cost: List<DiceCost> = emptyList(),
-    val description: String = ""
+    val description: String = "",
+    val supportEffect: SupportCard? = null
 ) : DomainEntity(id)

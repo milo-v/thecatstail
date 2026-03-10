@@ -12,4 +12,11 @@ sealed class GameEvent {
     data class PlayerDeclaredEnd(val userId: String) : GameEvent()
     data class RoundEnded(val roundNumber: Int) : GameEvent()
     data class MatchEnded(val winnerId: String) : GameEvent()
+    data class SummonCreated(val userId: String, val summonName: String) : GameEvent()
+    data class SummonTriggered(val userId: String, val summonName: String) : GameEvent()
+    data class SummonExpired(val userId: String, val summonName: String) : GameEvent()
+    data class SupportCardPlayed(val userId: String, val cardName: String) : GameEvent()
+    data class TuningDone(val userId: String, val cardName: String, val targetElement: Element) : GameEvent()
+    data class StatusApplied(val characterId: String, val statusName: String) : GameEvent()
+    data class StatusExpired(val characterId: String, val statusName: String) : GameEvent()
 }

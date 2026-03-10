@@ -3,6 +3,7 @@ package io.github.milov.thecatstail.domain.logic
 import io.github.milov.thecatstail.domain.model.Character
 import io.github.milov.thecatstail.domain.model.Element
 import io.github.milov.thecatstail.domain.model.Match
+import io.github.milov.thecatstail.domain.model.SkillType
 
 data class DamageInfo(
     val attackerId: String,
@@ -31,11 +32,20 @@ object CombatEngine {
     fun simulateDamage(attacker: Character, defender: Character, match: Match, skillId: String): DamageSimulation {
         val skill = attacker.skills.find { it.id == skillId } ?: return DamageSimulation(emptyMap(), emptyMap())
         
-        val reaction = ReactionManager.calculateReaction(defender.appliedElements, skill.element)
+        var finalElement = skill.element
+        var mainDamage = skill.baseDamage
+        
+        if (skill.type == SkillType.NORMAL_ATTACK) {
+            attacker.activeStatuses.forEach { status ->
+                status.elementOverride?.let { finalElement = it }
+                mainDamage += status.damageBonus
+            }
+        }
+
+        val reaction = ReactionManager.calculateReaction(defender.appliedElements, finalElement)
         val targetDamage = mutableMapOf<String, Int>()
         val reactions = mutableMapOf<String, String>()
         
-        var mainDamage = skill.baseDamage
         var swirled: Element? = null
         
         if (reaction != null) {
@@ -67,7 +77,7 @@ object CombatEngine {
         return DamageSimulation(targetDamage, reactions, swirled)
     }
 
-    fun applyDamage(attacker: Character, defender: Character, damageInfo: DamageInfo, match: Match? = null): DamageResult {
+    fun applyDamage(attacker: Character?, defender: Character, damageInfo: DamageInfo, match: Match? = null): DamageResult {
         // 1. Calculate Reaction
         val reaction = ReactionManager.calculateReaction(defender.appliedElements, damageInfo.element)
         

@@ -7,8 +7,8 @@ data class PlayerState(
     val hand: MutableList<ActionCard> = mutableListOf(),
     val deck: MutableList<ActionCard> = mutableListOf(),
     val dicePool: MutableMap<Element, Int> = mutableMapOf(),
-    val supportZone: MutableList<ActionCard> = mutableListOf(), // Placeholder for now
-    val summonsZone: MutableList<String> = mutableListOf(), // Placeholder for now
+    val supportZone: MutableList<SupportCard> = mutableListOf(),
+    val summonsZone: MutableList<Summon> = mutableListOf(),
     var isFinishedActions: Boolean = false
 ) {
     fun getActiveCharacter(): Character = characters[activeCharacterIndex]
@@ -21,8 +21,8 @@ data class PlayerState(
             hand = hand.toMutableList(),
             deck = deck.toMutableList(),
             dicePool = dicePool.toMutableMap(),
-            supportZone = supportZone.toMutableList(),
-            summonsZone = summonsZone.toMutableList(),
+            supportZone = supportZone.map { it.deepCopy() }.toMutableList(),
+            summonsZone = summonsZone.map { it.deepCopy() }.toMutableList(),
             isFinishedActions = isFinishedActions
         )
     }
