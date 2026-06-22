@@ -3,15 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>The Cat's Tail</title>
+    <script>document.documentElement.setAttribute('data-theme', localStorage.getItem('theme') || 'light');</script>
     <script src="https://unpkg.com/htmx.org@1.9.10"></script>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/css/tokens.css">
 </head>
-<body class="bg-gray-100 h-screen">
+<body class="bg-surface text-primary h-screen">
 <div class="w-full h-full flex items-center justify-center" id="container">
     <button hx-get="/game" hx-swap="outerHTML" hx-target="#container" class="bg-indigo-600 text-white font-bold py-3 px-8 rounded-lg shadow-lg hover:bg-indigo-700 transition transform hover:scale-105">
         Start Single Player
     </button>
 </div>
-
+<button id="theme-toggle" type="button"
+        class="fixed top-2 right-2 z-40 w-8 h-8 rounded-full bg-panel border border-surface text-primary text-[10px] font-bold flex items-center justify-center shadow"
+        aria-label="Toggle color theme">Dark</button>
+<script src="/js/theme.js"></script>
 </body>
 </html>
