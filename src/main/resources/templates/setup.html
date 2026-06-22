@@ -5,25 +5,26 @@
     <title>The Cat's Tail - Setup</title>
     <script src="https://unpkg.com/htmx.org@1.9.10"></script>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/css/tokens.css">
     <style>
-        .char-card.selected { outline: 3px solid #facc15; transform: translateY(-4px); }
-        .card-tile.in-deck { outline: 2px solid #6366f1; }
-        .element-PYRO { background: #ef4444; }
-        .element-HYDRO { background: #3b82f6; }
-        .element-ANEMO { background: #14b8a6; }
-        .element-ELECTRO { background: #a855f7; }
-        .element-DENDRO { background: #22c55e; }
-        .element-CRYO { background: #06b6d4; }
-        .element-GEO { background: #eab308; }
-        .element-OMNI { background: #94a3b8; }
-        .element-UNALIGNED { background: #64748b; }
+        .char-card.selected { outline: 3px solid var(--glow); transform: translateY(-4px); }
+        .card-tile.in-deck { outline: 2px solid var(--accent); }
+        .element-PYRO { background: var(--el-pyro); }
+        .element-HYDRO { background: var(--el-hydro); }
+        .element-ANEMO { background: var(--el-anemo); }
+        .element-ELECTRO { background: var(--el-electro); }
+        .element-DENDRO { background: var(--el-dendro); }
+        .element-CRYO { background: var(--el-cryo); }
+        .element-GEO { background: var(--el-geo); }
+        .element-OMNI { background: linear-gradient(135deg, var(--el-omni-start), var(--el-omni-end)); }
+        .element-UNALIGNED { background: var(--el-unaligned); }
     </style>
 </head>
 <body class="bg-slate-900 text-white min-h-screen">
 <div class="max-w-7xl mx-auto p-6" id="container">
     <header class="flex items-center justify-between mb-6">
         <div>
-            <h1 class="text-3xl font-black text-indigo-400">Match Setup</h1>
+            <h1 class="text-3xl font-display font-black text-indigo-400">Match Setup</h1>
             <p class="text-sm text-slate-400">Pick 3 characters and build a 30-card deck.</p>
         </div>
         <div class="flex items-center gap-3">

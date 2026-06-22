@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>The Cat's Tail — Style Guide</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/css/tokens.css">
+    <style>
+        .swatch { width: 100%; height: 56px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.1); }
+        .section-title { font-family: var(--font-display); }
+    </style>
+</head>
+<body class="bg-slate-900 text-white min-h-screen">
+<div class="max-w-6xl mx-auto p-8 space-y-16">
+
+    <header>
+        <p class="text-xs font-bold tracking-widest text-indigo-400 uppercase">UI Design Guide</p>
+        <h1 class="section-title text-5xl font-black tracking-wide mt-1">The Cat's Tail</h1>
+        <p class="text-sm text-slate-400 mt-2">
+            Living reference for colors, type, and components used across the game board and setup screens.
+            See <code class="text-indigo-300">docs/UI_DESIGN_GUIDE.md</code> for usage notes.
+        </p>
+    </header>
+
+    <!-- TYPOGRAPHY -->
+    <section>
+        <h2 class="section-title text-2xl font-black text-indigo-400 mb-4">Typography</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bg-slate-800 rounded-lg p-4">
+                <p class="text-xs text-slate-400 mb-2">Display — Rajdhani (banners, round counter, victory/defeat)</p>
+                <p class="section-title text-4xl font-black">ROUND 3</p>
+                <p class="section-title text-2xl font-black text-green-400 mt-1">VICTORY</p>
+            </div>
+            <div class="bg-slate-800 rounded-lg p-4">
+                <p class="text-xs text-slate-400 mb-2">Body / UI — Tailwind default sans</p>
+                <p class="font-black text-lg">Confirm Attack</p>
+                <p class="text-sm text-slate-300 mt-1">Select dice to reroll, then confirm.</p>
+            </div>
+            <div class="bg-slate-800 rounded-lg p-4">
+                <p class="text-xs text-slate-400 mb-2">Data / log — monospace</p>
+                <p class="font-mono text-[11px] log-damage">&gt; Klee deals 8 damage</p>
+                <p class="font-mono text-[11px] log-reaction">&gt; Vaporize triggered!</p>
+                <p class="font-mono text-[11px] log-info">&gt; Round 3 begins</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- COLOR: SURFACES & SEMANTIC -->
+    <section>
+        <h2 class="section-title text-2xl font-black text-indigo-400 mb-4">Surfaces &amp; Semantic Colors</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+            <div><div class="swatch" style="background:var(--surface-bg)"></div><p class="text-xs mt-1">surface-bg</p></div>
+            <div><div class="swatch" style="background:var(--surface-panel)"></div><p class="text-xs mt-1">surface-panel</p></div>
+            <div><div class="swatch" style="background:var(--surface-border)"></div><p class="text-xs mt-1">surface-border</p></div>
+            <div><div class="swatch" style="background:var(--accent)"></div><p class="text-xs mt-1">accent</p></div>
+            <div><div class="swatch" style="background:var(--confirm)"></div><p class="text-xs mt-1">confirm</p></div>
+            <div><div class="swatch" style="background:var(--danger)"></div><p class="text-xs mt-1">danger</p></div>
+            <div><div class="swatch" style="background:var(--switch)"></div><p class="text-xs mt-1">switch</p></div>
+            <div><div class="swatch" style="background:var(--caution)"></div><p class="text-xs mt-1">caution</p></div>
+            <div><div class="swatch" style="background:var(--secondary)"></div><p class="text-xs mt-1">secondary</p></div>
+            <div><div class="swatch" style="background:var(--glow)"></div><p class="text-xs mt-1">glow</p></div>
+        </div>
+    </section>
+
+    <!-- COLOR: ELEMENTS -->
+    <section>
+        <h2 class="section-title text-2xl font-black text-indigo-400 mb-4">Elements</h2>
+        <p class="text-sm text-slate-400 mb-4">Solid (badges, dice, borders) and text (floating predicted-element) variants. Single source of truth in <code class="text-indigo-300">tokens.css</code>.</p>
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+            <div class="bg-slate-800 rounded-lg p-3 flex flex-col items-center gap-2">
+                <span class="el-badge el-PYRO text-sm px-3 py-1">PY</span>
+                <span class="text-pyro text-xs font-bold">Pyro text</span>
+            </div>
+            <div class="bg-slate-800 rounded-lg p-3 flex flex-col items-center gap-2">
+                <span class="el-badge el-HYDRO text-sm px-3 py-1">HY</span>
+                <span class="text-hydro text-xs font-bold">Hydro text</span>
+            </div>
+            <div class="bg-slate-800 rounded-lg p-3 flex flex-col items-center gap-2">
+                <span class="el-badge el-ANEMO text-sm px-3 py-1">AN</span>
+                <span class="text-anemo text-xs font-bold">Anemo text</span>
+            </div>
+            <div class="bg-slate-800 rounded-lg p-3 flex flex-col items-center gap-2">
+                <span class="el-badge el-ELECTRO text-sm px-3 py-1">EL</span>
+                <span class="text-electro text-xs font-bold">Electro text</span>
+            </div>
+            <div class="bg-slate-800 rounded-lg p-3 flex flex-col items-center gap-2">
+                <span class="el-badge el-DENDRO text-sm px-3 py-1">DE</span>
+                <span class="text-dendro text-xs font-bold">Dendro text</span>
+            </div>
+            <div class="bg-slate-800 rounded-lg p-3 flex flex-col items-center gap-2">
+                <span class="el-badge el-CRYO text-sm px-3 py-1">CR</span>
+                <span class="text-cryo text-xs font-bold">Cryo text</span>
+            </div>
+            <div class="bg-slate-800 rounded-lg p-3 flex flex-col items-center gap-2">
+                <span class="el-badge el-GEO text-sm px-3 py-1">GE</span>
+                <span class="text-geo text-xs font-bold">Geo text</span>
+            </div>
+            <div class="bg-slate-800 rounded-lg p-3 flex flex-col items-center gap-2">
+                <span class="el-badge el-OMNI text-sm px-3 py-1">OM</span>
+                <span class="text-xs font-bold text-slate-400">Omni (no text variant)</span>
+            </div>
+            <div class="bg-slate-800 rounded-lg p-3 flex flex-col items-center gap-2">
+                <span class="el-badge el-UNALIGNED text-sm px-3 py-1">UN</span>
+                <span class="text-xs font-bold text-slate-400">Unaligned (no text variant)</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- DICE -->
+    <section>
+        <h2 class="section-title text-2xl font-black text-indigo-400 mb-4">Dice</h2>
+        <div class="flex gap-2 flex-wrap">
+            <span class="die el-PYRO">PY</span>
+            <span class="die el-HYDRO">HY</span>
+            <span class="die el-ANEMO">AN</span>
+            <span class="die el-ELECTRO">EL</span>
+            <span class="die el-DENDRO">DE</span>
+            <span class="die el-CRYO">CR</span>
+            <span class="die el-GEO">GE</span>
+            <span class="die el-OMNI">OM</span>
+            <span class="die el-UNALIGNED">UN</span>
+        </div>
+    </section>
+
+    <!-- BUTTONS -->
+    <section>
+        <h2 class="section-title text-2xl font-black text-indigo-400 mb-4">Buttons</h2>
+        <p class="text-sm text-slate-400 mb-4">Color signals intent — pick the one that matches the action, not the one that looks nice.</p>
+        <div class="flex flex-wrap gap-3">
+            <button class="px-6 py-2 rounded-full font-black" style="background:var(--accent-strong)">PRIMARY / SKILL</button>
+            <button class="px-6 py-2 rounded-full font-black" style="background:var(--confirm)">CONFIRM</button>
+            <button class="px-6 py-2 rounded-full font-black" style="background:var(--danger)">END / DANGER</button>
+            <button class="px-6 py-2 rounded-full font-black" style="background:var(--switch)">SWITCH</button>
+            <button class="px-6 py-2 rounded-full font-black" style="background:var(--caution)">REROLL</button>
+            <button class="px-6 py-2 rounded-full font-bold" style="background:var(--secondary)">CANCEL</button>
+        </div>
+    </section>
+
+    <!-- CHARACTER CARD -->
+    <section>
+        <h2 class="section-title text-2xl font-black text-indigo-400 mb-4">Character Card</h2>
+        <div class="flex gap-6 items-start">
+            <div class="relative p-2 border-2 rounded-lg bg-slate-800 flex flex-col items-center w-28 card-glow-active">
+                <div class="absolute -top-3 -left-3 w-8 h-8 rounded-full bg-slate-900 border-2 border-blue-500 flex items-center justify-center font-bold text-sm">8</div>
+                <span class="absolute -top-2 -right-2 el-badge el-PYRO">PY</span>
+                <div class="w-full h-32 rounded-md mb-1 bg-slate-700 flex items-center justify-center text-slate-500 text-xs">portrait</div>
+                <span class="font-bold text-xs">Klee</span>
+                <div class="hp-bar-bg w-full"><div class="hp-bar-fill" style="width: 80%"></div></div>
+                <div class="flex gap-1 mt-1">
+                    <span class="text-[10px] leading-none" style="color: var(--glow)">●</span>
+                    <span class="text-[10px] leading-none" style="color: var(--glow)">●</span>
+                    <span class="text-[10px] leading-none text-slate-600">○</span>
+                </div>
+                <div class="flex flex-wrap gap-0.5 mt-1 justify-center">
+                    <span class="el-badge el-PYRO">PY</span>
+                </div>
+                <div class="flex flex-col gap-0.5 mt-1 w-full px-1">
+                    <div class="text-[7px] bg-indigo-900/40 border border-indigo-500/30 rounded flex justify-between px-1">
+                        <span>Armor</span><span>2</span>
+                    </div>
+                </div>
+            </div>
+            <div class="relative p-2 border-2 border-slate-700 rounded-lg bg-slate-800 flex flex-col items-center w-28">
+                <div class="absolute -top-3 -left-3 w-8 h-8 rounded-full bg-slate-900 border-2 border-blue-500 flex items-center justify-center font-bold text-sm">2</div>
+                <span class="absolute -top-2 -right-2 el-badge el-HYDRO">HY</span>
+                <div class="w-full h-32 rounded-md mb-1 bg-slate-700 flex items-center justify-center text-slate-500 text-xs">portrait</div>
+                <span class="font-bold text-xs">Mona</span>
+                <div class="hp-bar-bg w-full"><div class="hp-bar-fill low" style="width: 20%"></div></div>
+                <p class="text-[9px] text-slate-500 mt-1">low HP — glow off, not active</p>
+            </div>
+            <div class="flex flex-col gap-3">
+                <div class="support-slot border-solid bg-slate-800/80 border-indigo-500/50">
+                    <span class="text-[8px] text-center px-1">Liben</span>
+                    <span class="text-xs font-bold text-indigo-400">2</span>
+                </div>
+                <div class="summon-slot border-solid bg-slate-800/80 border-red-500/50">
+                    <span class="text-[8px] text-center px-1">Oz</span>
+                    <span class="text-xs font-bold text-red-400">1</span>
+                </div>
+                <div class="support-slot border-dashed">
+                    <span class="text-[8px] text-slate-500">empty</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HAND CARD -->
+    <section>
+        <h2 class="section-title text-2xl font-black text-indigo-400 mb-4">Hand Card</h2>
+        <div class="w-20 h-28 bg-slate-800 border border-slate-600 rounded-md p-1 flex flex-col justify-between">
+            <div class="flex justify-between items-start">
+                <div class="w-5 h-5 rounded-full bg-indigo-600 text-[10px] flex items-center justify-center font-bold">3</div>
+                <span class="text-[8px] text-slate-200">SUP</span>
+            </div>
+            <span class="text-[10px] font-bold text-center leading-tight">Liyue Harbor</span>
+            <div class="h-1/3"></div>
+        </div>
+    </section>
+
+    <!-- LOG -->
+    <section>
+        <h2 class="section-title text-2xl font-black text-indigo-400 mb-4">Event Log</h2>
+        <div class="w-64 h-28 bg-slate-800/50 rounded overflow-y-auto p-2 text-[10px] font-mono border border-slate-700/50">
+            <div class="mb-1 log-skill">&gt; Klee uses Jumpy Dumpty</div>
+            <div class="mb-1 log-damage">&gt; Mona takes 8 damage</div>
+            <div class="mb-1 log-reaction">&gt; Vaporize triggered!</div>
+            <div class="mb-1 log-switch">&gt; Switched to Mona</div>
+            <div class="mb-1 log-energy">&gt; Klee gains 1 energy</div>
+            <div class="mb-1 log-info">&gt; Round 3 begins</div>
+        </div>
+    </section>
+
+    <!-- Z-INDEX TIERS -->
+    <section>
+        <h2 class="section-title text-2xl font-black text-indigo-400 mb-4">Overlay Tiers</h2>
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-3 text-center">
+            <div class="bg-slate-800 rounded p-3"><p class="font-bold text-sm">HUD</p><p class="text-xs text-slate-400">z 10–40</p></div>
+            <div class="bg-slate-800 rounded p-3"><p class="font-bold text-sm">Banner</p><p class="text-xs text-slate-400">z 50</p></div>
+            <div class="bg-slate-800 rounded p-3"><p class="font-bold text-sm">Preview</p><p class="text-xs text-slate-400">z 100</p></div>
+            <div class="bg-slate-800 rounded p-3"><p class="font-bold text-sm">Phase overlay</p><p class="text-xs text-slate-400">z 150–200</p></div>
+            <div class="bg-slate-800 rounded p-3"><p class="font-bold text-sm">Result</p><p class="text-xs text-slate-400">z 300</p></div>
+        </div>
+    </section>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,112 @@
+/*
+ * Design tokens for The Cat's Tail.
+ * Single source of truth for colors used across game.html, setup.html,
+ * and styleguide.html. See docs/UI_DESIGN_GUIDE.md for usage guidance.
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&display=swap');
+
+:root {
+    /* Surfaces */
+    --surface-bg: #0f172a;
+    --surface-panel: #1e293b;
+    --surface-border: #334155;
+    --text-muted: #94a3b8;
+
+    /* Accent / brand */
+    --accent: #6366f1;
+    --accent-strong: #4f46e5;
+
+    /* Semantic actions */
+    --confirm: #16a34a;
+    --danger: #dc2626;
+    --switch: #2563eb;
+    --caution: #ca8a04;
+    --secondary: #334155;
+
+    /* Glow / highlight */
+    --glow: #facc15;
+
+    /* Elements — bg variant (solid badges, dice, borders) */
+    --el-pyro: #ef4444;
+    --el-hydro: #3b82f6;
+    --el-anemo: #14b8a6;
+    --el-electro: #a855f7;
+    --el-dendro: #22c55e;
+    --el-cryo: #67e8f9;
+    --el-geo: #eab308;
+    --el-omni-start: #fde68a;
+    --el-omni-end: #ffffff;
+    --el-unaligned: #94a3b8;
+
+    /* Elements — light text variant (floating predicted-element text over art) */
+    --el-pyro-text: #ff9999;
+    --el-hydro-text: #00ccff;
+    --el-anemo-text: #7fffd4;
+    --el-electro-text: #ffacff;
+    --el-dendro-text: #77ff33;
+    --el-cryo-text: #99ffff;
+    --el-geo-text: #ffe699;
+
+    /* Display typeface for banners, round counter, phase headers */
+    --font-display: 'Rajdhani', sans-serif;
+}
+
+.font-display {
+    font-family: var(--font-display);
+}
+
+/* Predicted-element floating text (light variant) */
+.text-pyro { color: var(--el-pyro-text); }
+.text-hydro { color: var(--el-hydro-text); }
+.text-anemo { color: var(--el-anemo-text); }
+.text-electro { color: var(--el-electro-text); }
+.text-dendro { color: var(--el-dendro-text); }
+.text-cryo { color: var(--el-cryo-text); }
+.text-geo { color: var(--el-geo-text); }
+
+/* Element badges / dice / borders (solid variant) */
+.el-PYRO { background: var(--el-pyro); color: #fff; }
+.el-HYDRO { background: var(--el-hydro); color: #fff; }
+.el-ANEMO { background: var(--el-anemo); color: #0f172a; }
+.el-ELECTRO { background: var(--el-electro); color: #fff; }
+.el-DENDRO { background: var(--el-dendro); color: #0f172a; }
+.el-CRYO { background: var(--el-cryo); color: #0f172a; }
+.el-GEO { background: var(--el-geo); color: #0f172a; }
+.el-OMNI { background: linear-gradient(135deg, var(--el-omni-start), var(--el-omni-end)); color: #78350f; }
+.el-UNALIGNED { background: var(--el-unaligned); color: #0f172a; }
+
+.el-badge {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-width: 18px; height: 18px; padding: 0 6px;
+    border-radius: 9999px; font-size: 9px; font-weight: 800;
+    text-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.die {
+    width: 28px; height: 28px; border-radius: 50%;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 9px; font-weight: 900;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+/* Active-character / dice-select glow */
+.card-glow-active { box-shadow: 0 0 15px rgba(250, 204, 21, 0.5); border-color: var(--glow) !important; }
+
+/* HP bar */
+.hp-bar-bg {
+    height: 4px; width: 100%; background: rgba(15, 23, 42, 0.7);
+    border-radius: 2px; overflow: hidden; margin-top: 2px;
+}
+.hp-bar-fill { height: 100%; background: linear-gradient(90deg, #16a34a, #84cc16); transition: width 0.3s; }
+.hp-bar-fill.low { background: linear-gradient(90deg, #dc2626, #f59e0b); }
+
+/* Log entry colors */
+.log-damage { color: #f87171; }
+.log-reaction { color: #fb923c; font-weight: bold; }
+.log-switch { color: #60a5fa; }
+.log-energy { color: #34d399; }
+.log-skill { color: #c7d2fe; }
+.log-info { color: var(--text-muted); }

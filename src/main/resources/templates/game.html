@@ -9,8 +9,7 @@
         .htmx-request .htmx-indicator { display: flex; }
         #loading-spinner { transition: opacity 0.5s; opacity: 0; }
         .htmx-request #loading-spinner { opacity: 1; }
-        
-        .card-glow-active { box-shadow: 0 0 15px rgba(250,204,21,0.5); border-color: #facc15 !important; }
+
         .damage-preview-float { animation: float-up 2s ease-out infinite; }
         @keyframes float-up {
             0% { transform: translateY(0); opacity: 0; }
@@ -31,56 +30,6 @@
             font-size: 40px; font-weight: 900; opacity: 0.4; pointer-events: none;
             text-shadow: 0 0 10px currentColor;
         }
-        .text-cryo { color: #99FFFFFF; }
-        .text-hydro { color: #00CCFFFF; }
-        .text-pyro { color: #FF9999FF; }
-        .text-electro { color: #FFACFFFF; }
-        .text-anemo { color: #7FFFD4FF; }
-        .text-geo { color: #FFE699FF; }
-        .text-dendro { color: #77FF33FF; }
-
-        /* Element badge backgrounds */
-        .el-badge {
-            display: inline-flex; align-items: center; justify-content: center;
-            min-width: 18px; height: 18px; padding: 0 6px;
-            border-radius: 9999px; font-size: 9px; font-weight: 800;
-            color: #0f172a; text-shadow: 0 0 1px rgba(255,255,255,0.5);
-            border: 1px solid rgba(0,0,0,0.3);
-        }
-        .el-PYRO { background: #ef4444; color: #fff; }
-        .el-HYDRO { background: #3b82f6; color: #fff; }
-        .el-ANEMO { background: #14b8a6; color: #0f172a; }
-        .el-ELECTRO { background: #a855f7; color: #fff; }
-        .el-DENDRO { background: #22c55e; color: #0f172a; }
-        .el-CRYO { background: #67e8f9; color: #0f172a; }
-        .el-GEO { background: #eab308; color: #0f172a; }
-        .el-OMNI { background: linear-gradient(135deg,#fde68a,#fff); color: #78350f; }
-        .el-UNALIGNED { background: #94a3b8; color: #0f172a; }
-
-        /* Dice as circular badges */
-        .die {
-            width: 28px; height: 28px; border-radius: 50%;
-            display: inline-flex; align-items: center; justify-content: center;
-            font-size: 9px; font-weight: 900;
-            border: 2px solid rgba(255,255,255,0.3);
-            box-shadow: 0 1px 3px rgba(0,0,0,0.4);
-        }
-
-        /* Log entry colors */
-        .log-damage { color: #f87171; }
-        .log-reaction { color: #fb923c; font-weight: bold; }
-        .log-switch { color: #60a5fa; }
-        .log-energy { color: #34d399; }
-        .log-skill { color: #c7d2fe; }
-        .log-info { color: #94a3b8; }
-
-        /* HP bar */
-        .hp-bar-bg {
-            height: 4px; width: 100%; background: rgba(15,23,42,0.7);
-            border-radius: 2px; overflow: hidden; margin-top: 2px;
-        }
-        .hp-bar-fill { height: 100%; background: linear-gradient(90deg,#16a34a,#84cc16); transition: width 0.3s; }
-        .hp-bar-fill.low { background: linear-gradient(90deg,#dc2626,#f59e0b); }
     </style>
 
     <!-- Global Loading Spinner -->
@@ -98,7 +47,7 @@
     <div th:if="${match != null}" class="flex flex-col w-full h-full">
 
         <!-- TURN INDICATOR BANNER -->
-        <div class="absolute top-0 left-1/2 -translate-x-1/2 z-[80] mt-1 px-4 py-1 rounded-b-lg font-black text-xs tracking-widest shadow-lg"
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 z-[80] mt-1 px-4 py-1 rounded-b-lg font-display font-black text-xs tracking-widest shadow-lg"
              th:classappend="${match.getActivePlayer().userId == userId} ? 'bg-green-600 text-white' : 'bg-slate-700 text-slate-300'"
              th:text="${match.getActivePlayer().userId == userId} ? 'YOUR TURN' : 'OPPONENT TURN'">
             YOUR TURN
@@ -107,7 +56,7 @@
         <!-- MULLIGAN OVERLAY -->
         <div th:if="${match.winner == null && match.mulliganDone[userId] != true}"
              class="absolute inset-0 z-[200] bg-black/80 flex flex-col items-center justify-center gap-6 p-8">
-            <h2 class="text-3xl font-black text-indigo-400">Mulligan</h2>
+            <h2 class="text-3xl font-display font-black text-indigo-400">Mulligan</h2>
             <p class="text-sm text-slate-300">Select cards to return to the bottom of your deck.</p>
             <form hx-post="/game/action/mulligan" hx-target="#game-container" hx-swap="outerHTML"
                   class="flex flex-col items-center gap-4">
@@ -126,7 +75,7 @@
         <!-- ROLL PHASE OVERLAY -->
         <div th:if="${match.winner == null && match.mulliganDone[userId] == true && match.phase.name() == 'ROLL' && match.rolledDice[userId] != null}"
              class="absolute inset-0 z-[150] bg-black/80 flex flex-col items-center justify-center gap-4 p-8">
-            <h2 class="text-3xl font-black text-indigo-400">Dice Roll Phase</h2>
+            <h2 class="text-3xl font-display font-black text-indigo-400">Dice Roll Phase</h2>
             <p class="text-sm text-slate-300">Select dice to reroll, then confirm.</p>
             <form hx-post="/game/action/reroll" hx-target="#game-container" hx-swap="outerHTML"
                   class="flex flex-col items-center gap-3">
@@ -147,7 +96,7 @@
         <!-- GAME OVER OVERLAY -->
         <div th:if="${match.winner != null}"
              class="absolute inset-0 z-[300] bg-black/90 flex flex-col items-center justify-center gap-8">
-            <h1 class="text-6xl font-black"
+            <h1 class="text-6xl font-display font-black"
                 th:classappend="${match.winner == userId} ? 'text-green-400' : 'text-red-400'"
                 th:text="${match.winner == userId ? 'VICTORY' : 'DEFEAT'}">VICTORY</h1>
             <p class="text-xl text-slate-200">Winner: <span th:text="${match.winner}">user</span></p>
@@ -493,7 +442,7 @@
 
             <!-- ROUND INFO (Top Left) -->
             <div class="absolute top-4 left-4 flex flex-col">
-                <span class="text-2xl font-black text-indigo-500">ROUND <span th:text="${match.roundNumber}">1</span></span>
+                <span class="text-2xl font-display font-black text-indigo-500">ROUND <span th:text="${match.roundNumber}">1</span></span>
                 <span class="text-xs font-bold text-slate-500" th:text="${match.phase}">PHASE</span>
                 <a href="/game/setup"
                    class="mt-2 text-[11px] font-bold bg-slate-700 hover:bg-slate-600 text-white rounded px-2 py-1 text-center">
