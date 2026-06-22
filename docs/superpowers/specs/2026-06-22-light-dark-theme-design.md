@@ -9,7 +9,8 @@ The app currently has one hardcoded dark theme (`bg-slate-900` + white text, app
 - Element colors (Pyro/Hydro/Anemo/Electro/Dendro/Cryo/Geo/Omni/Unaligned), the indigo accent, and the semantic action colors (confirm/danger/switch/caution/secondary) are unchanged in both themes — they're already the app's settled visual spine (see `docs/UI_DESIGN_GUIDE.md`) and read fine on both backgrounds.
 - Only **neutral** tokens flip: page/panel backgrounds, borders, primary/muted text.
 - Full-bleed modal scrims (mulligan, dice-roll, game-over — currently literal `bg-black/80`–`/90`) are left as-is in both themes. They're independent dramatic overlays, not part of the base surface.
-- Pages touched: `game.html` (+ `game_page.html` wrapper), `setup.html`, `home.html`, `loading.html`, `styleguide.html`.
+- Pages touched: `game.html` (+ `game_page.html` wrapper), `setup.html`, `home.html`, `styleguide.html`.
+- `loading.html` is excluded: it's a bare fragment with no `<head>` of its own, isn't currently linked from any route, and already uses its own intentional light slate palette unrelated to the dark theme being toggled here.
 
 ## Token changes (`tokens.css`)
 
