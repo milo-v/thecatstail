@@ -6,7 +6,7 @@ Reference implementation: `src/main/resources/static/css/tokens.css`. Live demo:
 
 ## Principles
 
-- **The board is a HUD, not a brochure.** Dark surfaces (`slate-900`/`slate-800`), low-chrome panels, and small bold labels — the UI should feel like a tactical overlay on top of character art, not a marketing page.
+- **The board is a HUD, not a brochure.** Low-chrome panels and small bold labels — the UI should feel like a tactical overlay on top of character art, not a marketing page. The app ships two themes: a warm beige/yellow light theme (the default) and a dark slate theme, switchable at any time via a persistent toggle button. Both should read as the same tactical HUD, just lit differently — surfaces and borders shift hue/value between themes, but panel density, chrome, and label treatment don't.
 - **Element color is the spine.** The nine elements (Pyro, Hydro, Anemo, Electro, Dendro, Cryo, Geo, Omni, Unaligned) are the single most distinctive, recurring visual language in the app — dice, badges, predicted-element text, character borders. Every other color (accent, semantic) exists to support it, not compete with it. There must be exactly one definition per element color, in `tokens.css`.
 - **Bold sans for data, condensed display for moments.** Default Tailwind sans (`font-black`, `tracking-widest`) carries labels, numbers, and HUD text — it's compact and reads well at small sizes. A single display face (Rajdhani) is reserved for the handful of moments where the game wants to feel like it's making an announcement: round counter, phase banners, mulligan/dice-roll headers, victory/defeat. Don't spread it onto buttons or body text — restraint is what makes it land.
 - **Motion is functional, not decorative.** The only animations in the app communicate game state changes (damage floating up, a spinner during HTMX requests). New motion should follow that pattern — tied to something happening, not ambient flourish.
@@ -17,12 +17,25 @@ All values below are CSS custom properties in `tokens.css`. Use the variable, ne
 
 ### Surfaces
 
-| Token | Value | Use |
-|---|---|---|
-| `--surface-bg` | `#0f172a` (slate-900) | Page/board background |
-| `--surface-panel` | `#1e293b` (slate-800) | Cards, panels, hand cards |
-| `--surface-border` | `#334155` (slate-700) | Default borders |
-| `--text-muted` | `#94a3b8` (slate-400) | Secondary/caption text |
+Surface and text tokens are theme-aware: light values live in `:root` (default), dark values override them in `[data-theme="dark"]`. See "Light/dark theme" below for the mechanism.
+
+| Token | Light (default) | Dark | Use |
+|---|---|---|---|
+| `--surface-bg` | `#f3e8d2` | `#0f172a` (slate-900) | Page/board background |
+| `--surface-panel` | `#ead9b4` | `#1e293b` (slate-800) | Cards, panels, hand cards |
+| `--surface-border` | `#cdb888` | `#334155` (slate-700) | Default borders |
+| `--text-primary` | `#3a2f1f` | `#ffffff` | Primary text |
+| `--text-muted` | `#8a7a5c` | `#94a3b8` (slate-400) | Secondary/caption text |
+
+### Light/dark theme
+
+Theme is controlled by a `data-theme="light"|"dark"` attribute on `<html>`. `tokens.css` defines light values as the `:root` defaults and overrides the theme-aware tokens (`--surface-bg`, `--surface-panel`, `--surface-border`, `--text-primary`, `--text-muted`) inside a `[data-theme="dark"]` block:
+
+```css
+[data-theme="dark"] { --surface-bg: #0f172a; /* …and the other theme-aware tokens */ }
+```
+
+A fixed top-right button (`#theme-toggle`, present on every full page) flips the attribute and persists the choice to `localStorage`, so the selected theme survives reloads and applies before first paint. Non-theme-aware tokens (accent, semantic actions, element colors, glow) are intentionally unchanged across themes — only neutral surfaces and text shift.
 
 ### Accent & semantic actions
 
