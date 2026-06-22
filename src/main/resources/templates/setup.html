@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>The Cat's Tail - Setup</title>
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .char-card.selected { outline: 3px solid #facc15; transform: translateY(-4px); }
+        .card-tile.in-deck { outline: 2px solid #6366f1; }
+        .element-PYRO { background: #ef4444; }
+        .element-HYDRO { background: #3b82f6; }
+        .element-ANEMO { background: #14b8a6; }
+        .element-ELECTRO { background: #a855f7; }
+        .element-DENDRO { background: #22c55e; }
+        .element-CRYO { background: #06b6d4; }
+        .element-GEO { background: #eab308; }
+        .element-OMNI { background: #94a3b8; }
+        .element-UNALIGNED { background: #64748b; }
+    </style>
+</head>
+<body class="bg-slate-900 text-white min-h-screen">
+<div class="max-w-7xl mx-auto p-6" id="container">
+    <header class="flex items-center justify-between mb-6">
+        <div>
+            <h1 class="text-3xl font-black text-indigo-400">Match Setup</h1>
+            <p class="text-sm text-slate-400">Pick 3 characters and build a 30-card deck.</p>
+        </div>
+        <div class="flex items-center gap-3">
+            <button type="button"
+                    onclick="quickStart()"
+                    class="bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-2 px-4 rounded">
+                Quick Start
+            </button>
+            <button type="button"
+                    id="start-btn"
+                    onclick="submitSetup()"
+                    disabled
+                    class="bg-indigo-600 hover:bg-indigo-500 disabled:bg-slate-700 disabled:text-slate-400 text-white font-bold py-2 px-4 rounded">
+                Start Match
+            </button>
+        </div>
+    </header>
+
+    <div th:if="${errors}" class="mb-4 bg-red-900/40 border border-red-500 rounded p-3">
+        <p class="font-bold text-red-300 mb-1">Deck validation errors:</p>
+        <ul class="list-disc pl-5 text-sm text-red-200">
+            <li th:each="e : ${errors}" th:text="${e}"></li>
+        </ul>
+    </div>
+
+    <section class="mb-8">
+        <div class="flex items-baseline justify-between mb-3">
+            <h2 class="text-xl font-bold">Characters
+                <span class="text-sm text-slate-400">(<span id="char-count">0</span>/3)</span>
+            </h2>
+        </div>
+        <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-9 gap-3">
+            <div th:each="c : ${characters}"
+                 class="char-card cursor-pointer bg-slate-800 rounded p-2 text-center transition"
+                 th:attr="data-char-id=${c.id}, data-char-name=${c.name}"
+                 onclick="toggleCharacter(this)">
+                <div class="relative aspect-[3/4] mb-1 bg-slate-700 rounded overflow-hidden">
+                    <img th:src="${c.imageUrl}" alt=""
+                         class="w-full h-full object-cover"
+                         onerror="this.src='/images/placeholder.png'" />
+                    <span class="absolute top-1 right-1 text-[10px] font-bold px-1 rounded"
+                          th:classappend="'element-' + ${c.element}"
+                          th:text="${c.element}"></span>
+                </div>
+                <div class="text-xs font-semibold truncate" th:text="${c.name}"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="mb-8">
+        <div class="flex items-baseline justify-between mb-3">
+            <h2 class="text-xl font-bold">Deck
+                <span class="text-sm text-slate-400">(<span id="deck-count">0</span>/30)</span>
+            </h2>
+            <button type="button" onclick="clearDeck()"
+                    class="text-xs bg-slate-700 hover:bg-slate-600 px-2 py-1 rounded">Clear deck</button>
+        </div>
+        <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-2 max-h-[420px] overflow-y-auto p-1 bg-slate-950/40 rounded">
+            <div th:each="card : ${cards}"
+                 class="card-tile cursor-pointer bg-slate-800 rounded p-2 text-center hover:bg-slate-700 transition"
+                 th:attr="data-card-id=${card.id}, data-card-name=${card.name}, data-talent=${card.isTalent}"
+                 onclick="addCard(this)">
+                <div class="aspect-[3/4] bg-slate-700 rounded mb-1 overflow-hidden">
+                    <img th:src="${card.imageUrl}" alt=""
+                         class="w-full h-full object-cover"
+                         onerror="this.src='/images/placeholder.png'" />
+                </div>
+                <div class="text-[10px] font-semibold truncate" th:text="${card.name}"></div>
+                <div class="text-[9px] text-indigo-400">x<span class="count">0</span></div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<script>
+    const selectedChars = new Set();
+    const deckCounts = new Map(); // cardId -> count
+
+    function updateStartButton() {
+        const ok = selectedChars.size === 3;
+        document.getElementById('start-btn').disabled = !ok;
+    }
+
+    function toggleCharacter(el) {
+        const id = el.dataset.charId;
+        if (selectedChars.has(id)) {
+            selectedChars.delete(id);
+            el.classList.remove('selected');
+        } else {
+            if (selectedChars.size >= 3) return;
+            selectedChars.add(id);
+            el.classList.add('selected');
+        }
+        document.getElementById('char-count').textContent = selectedChars.size;
+        updateStartButton();
+    }
+
+    function addCard(el) {
+        const id = el.dataset.cardId;
+        const isTalent = el.dataset.talent === 'true';
+        const total = Array.from(deckCounts.values()).reduce((a, b) => a + b, 0);
+        if (total >= 30) return;
+        const current = deckCounts.get(id) || 0;
+        const limit = isTalent ? 1 : 2;
+        if (current >= limit) return;
+        deckCounts.set(id, current + 1);
+        el.classList.add('in-deck');
+        el.querySelector('.count').textContent = current + 1;
+        document.getElementById('deck-count').textContent = total + 1;
+    }
+
+    function clearDeck() {
+        deckCounts.clear();
+        document.querySelectorAll('.card-tile').forEach(el => {
+            el.classList.remove('in-deck');
+            el.querySelector('.count').textContent = '0';
+        });
+        document.getElementById('deck-count').textContent = '0';
+    }
+
+    function buildForm(quickStart) {
+        const fd = new FormData();
+        selectedChars.forEach(id => fd.append('characterIds', id));
+        if (quickStart) {
+            fd.append('quickStart', 'true');
+        } else {
+            deckCounts.forEach((count, id) => {
+                for (let i = 0; i < count; i++) fd.append('cardIds', id);
+            });
+        }
+        return fd;
+    }
+
+    function submitSetup() {
+        const fd = buildForm(false);
+        postForm(fd);
+    }
+
+    function quickStart() {
+        if (selectedChars.size !== 3) {
+            alert('Select 3 characters first.');
+            return;
+        }
+        const fd = buildForm(true);
+        postForm(fd);
+    }
+
+    function postForm(fd) {
+        fetch('/game/setup', { method: 'POST', body: fd, redirect: 'follow' })
+            .then(r => {
+                if (r.redirected) {
+                    window.location.href = r.url;
+                } else {
+                    return r.text().then(html => { document.body.innerHTML = html; });
+                }
+            });
+    }
+</script>
+</body>
+</html>

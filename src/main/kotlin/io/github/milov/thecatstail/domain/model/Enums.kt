@@ -5,7 +5,7 @@ enum class Element {
 }
 
 enum class SkillType {
-    NORMAL_ATTACK, ELEMENTAL_SKILL, ELEMENTAL_BURST
+    NORMAL_ATTACK, ELEMENTAL_SKILL, ELEMENTAL_BURST, PASSIVE
 }
 
 enum class ActionCardType {

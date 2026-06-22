@@ -1,0 +1,2584 @@
+[
+  {
+    "id": 1101,
+    "name": "Ganyu",
+    "shareid": 1,
+    "hp": 10,
+    "maxenergy": 3,
+    "tags": [
+      "GCG_TAG_ELEMENT_CRYO",
+      "GCG_TAG_WEAPON_BOW",
+      "GCG_TAG_NATION_LIYUE"
+    ],
+    "tagstext": [
+      "Cryo",
+      "Bow",
+      "Liyue"
+    ],
+    "storytitle": "\"Plenilune Gaze\" Ganyu",
+    "storytext": "\"This press release is due tomorrow... I suppose I could work through the night and get it done.\"",
+    "source": "Reward for inviting Ganyu to a duel at The Cat's Tail and claiming victory in a Friendly Fracas with her",
+    "skills": [
+      {
+        "id": 11011,
+        "name": "Liutian Archery",
+        "descriptionraw": "Deals $[D__KEY__DAMAGE] $[D__KEY__ELEMENT].",
+        "basedamage": 2,
+        "baseelement": "GCG_ELEMENT_NONE",
+        "descriptionreplaced": "Deals 2 {SPRITE_PRESET#2100}<color=#FFFFFFFF>Physical DMG</color>.",
+        "description": "Deals 2 Physical DMG.",
+        "typetag": "GCG_SKILL_TAG_A",
+        "type": "Normal Attack",
+        "playcost": [
+          {
+            "costtype": "GCG_COST_DICE_CRYO",
+            "count": 1
+          },
+          {
+            "costtype": "GCG_COST_DICE_VOID",
+            "count": 2
+          }
+        ]
+      },
+      {
+        "id": 11012,
+        "name": "Trail of the Qilin",
+        "descriptionraw": "Deals $[D__KEY__DAMAGE] $[D__KEY__ELEMENT], creates 1 <color=#FFFFFFFF>$[C111012]</color>.",
+        "basedamage": 1,
+        "baseelement": "GCG_ELEMENT_CRYO",
+        "descriptionreplaced": "Deals 1 {SPRITE_PRESET#2101}<color=#99FFFFFF>Cryo DMG</color>, creates 1 <color=#FFFFFFFF>Ice Lotus</color>.",
+        "description": "Deals 1 Cryo DMG, creates 1 Ice Lotus.",
+        "typetag": "GCG_SKILL_TAG_E",
+        "type": "Elemental Skill",
+        "playcost": [
+          {
+            "costtype": "GCG_COST_DICE_CRYO",
+            "count": 3
+          }
+        ]
+      },
+      {
+        "id": 11013,
+        "name": "Frostflake Arrow",
+        "descriptionraw": "Deals $[D__KEY__DAMAGE] $[D__KEY__ELEMENT], deals 2 $[K5] to all opposing characters on standby.",
+        "basedamage": 2,
+        "baseelement": "GCG_ELEMENT_CRYO",
+        "descriptionreplaced": "Deals 2 {SPRITE_PRESET#2101}<color=#99FFFFFF>Cryo DMG</color>, deals 2 <color=#FFFFFFFF>Piercing DMG</color> to all opposing characters on standby.",
+        "description": "Deals 2 Cryo DMG, deals 2 Piercing DMG to all opposing characters on standby.",
+        "typetag": "GCG_SKILL_TAG_A",
+        "type": "Normal Attack",
+        "playcost": [
+          {
+            "costtype": "GCG_COST_DICE_CRYO",
+            "count": 5
+          }
+        ]
+      },
+      {
+        "id": 11014,
+        "name": "Celestial Shower",
+        "descriptionraw": "Deals $[D__KEY__DAMAGE] $[D__KEY__ELEMENT], deals 1 $[K5] to all opposing characters on standby, summons 1 <color=#FFFFFFFF>$[C111011]</color>.",
+        "basedamage": 2,
+        "baseelement": "GCG_ELEMENT_CRYO",
+        "descriptionreplaced": "Deals 2 {SPRITE_PRESET#2101}<color=#99FFFFFF>Cryo DMG</color>, deals 1 <color=#FFFFFFFF>Piercing DMG</color> to all opposing characters on standby, summons 1 <color=#FFFFFFFF>Sacred Cryo Pearl</color>.",
+        "description": "Deals 2 Cryo DMG, deals 1 Piercing DMG to all opposing characters on standby, summons 1 Sacred Cryo Pearl.",
+        "typetag": "GCG_SKILL_TAG_Q",
+        "type": "Elemental Burst",
+        "playcost": [
+          {
+            "costtype": "GCG_COST_DICE_CRYO",
+            "count": 3
+          },
+          {
+            "costtype": "GCG_COST_ENERGY",
+            "count": 3
+          }
+        ]
+      }
+    ],
+    "image": {
+      "filename_tagsicon": [
+        "UI_Gcg_Tag_Element_Ice",
+        "UI_Gcg_Tag_Weapon_Bow",
+        "UI_Gcg_Tag_Faction_Liyue"
+      ],
+      "filename_cardface": "UI_Gcg_CardFace_Char_Avatar_Ganyu",
+      "filename_cardface_golden": "UI_Gcg_CardFace_Char_Avatar_Ganyu_Golden",
+      "filename_cardface_HD": "UI_Gcg_CardFace_Char_Avatar_Ganyu_HD",
+      "filename_icon": "UI_Gcg_Char_AvatarIcon_Ganyu"
+    }
+  },
+  {
+    "id": 1102,
+    "name": "Diona",
+    "shareid": 2,
+    "hp": 10,
+    "maxenergy": 3,
+    "tags": [
+      "GCG_TAG_ELEMENT_CRYO",
+      "GCG_TAG_WEAPON_BOW",
+      "GCG_TAG_NATION_MONDSTADT"
+    ],
+    "tagstext": [
+      "Cryo",
+      "Bow",
+      "Mondstadt"
+    ],
+    "storytitle": "\"Kätzlein Cocktail\" Diona",
+    "storytext": "Dedicating 1% of her energy to mixing drinks, and 99% to... refusing to accept failure.",
+    "source": "Reward for inviting Diona to a duel at The Cat's Tail and claiming victory in a Friendly Fracas with her",
+    "skills": [
+      {
+        "id": 11021,
+        "name": "Kätzlein Style",
+        "descriptionraw": "Deals $[D__KEY__DAMAGE] $[D__KEY__ELEMENT].",
+        "basedamage": 2,
+        "baseelement": "GCG_ELEMENT_NONE",
+        "descriptionreplaced": "Deals 2 {SPRITE_PRESET#2100}<color=#FFFFFFFF>Physical DMG</color>.",
+        "description": "Deals 2 Physical DMG.",
+        "typetag": "GCG_SKILL_TAG_A",
+        "type": "Normal Attack",
+        "playcost": [
+          {
+            "costtype": "GCG_COST_DICE_CRYO",
+            "count": 1
+          },
+          {
+            "costtype": "GCG_COST_DICE_VOID",
+            "count": 2
+          }
+        ]
+      },
+      {
+        "id": 11022,
+        "name": "Icy Paws",
+        "descriptionraw": "Deals $[D__KEY__DAMAGE] $[D__KEY__ELEMENT], creates 1 <color=#FFFFFFFF>$[C111021]</color>.",
+        "basedamage": 2,
+        "baseelement": "GCG_ELEMENT_CRYO",
+        "descriptionreplaced": "Deals 2 {SPRITE_PRESET#2101}<color=#99FFFFFF>Cryo DMG</color>, creates 1 <color=#FFFFFFFF>Cat-Claw Shield</color>.",
+        "description": "Deals 2 Cryo DMG, creates 1 Cat-Claw Shield.",
+        "typetag": "GCG_SKILL_TAG_E",
+        "type": "Elemental Skill",
+        "playcost": [
+          {
+            "costtype": "GCG_COST_DICE_CRYO",
+            "count": 3
+          }
+        ]
+      },
+      {
+        "id": 11023,
+        "name": "Signature Mix",
+        "descriptionraw": "Deals $[D__KEY__DAMAGE] $[D__KEY__ELEMENT], heals this character for 2 HP, summons 1 <color=#FFFFFFFF>$[C111023]</color>.",
+        "basedamage": 1,
+        "baseelement": "GCG_ELEMENT_CRYO",
+        "descriptionreplaced": "Deals 1 {SPRITE_PRESET#2101}<color=#99FFFFFF>Cryo DMG</color>, heals this character for 2 HP, summons 1 <color=#FFFFFFFF>Drunken Mist</color>.",
+        "description": "Deals 1 Cryo DMG, heals this character for 2 HP, summons 1 Drunken Mist.",
+        "typetag": "GCG_SKILL_TAG_Q",
+        "type": "Elemental Burst",
+        "playcost": [
+          {
+            "costtype": "GCG_COST_DICE_CRYO",
+            "count": 3
+          },
+          {
+            "costtype": "GCG_COST_ENERGY",
+            "count": 3
+          }
+        ]
+      }
+    ],
+    "image": {
+      "filename_tagsicon": [
+        "UI_Gcg_Tag_Element_Ice",
+        "UI_Gcg_Tag_Weapon_Bow",
+        "UI_Gcg_Tag_Faction_Mondstadt"
+      ],
+      "filename_cardface": "UI_Gcg_CardFace_Char_Avatar_Diona",
+      "filename_cardface_golden": "UI_Gcg_CardFace_Char_Avatar_Diona_Golden",
+      "filename_cardface_HD": "UI_Gcg_CardFace_Char_Avatar_Diona_HD",
+      "filename_icon": "UI_Gcg_Char_AvatarIcon_Diona"
+    }
+  },
+  {
+    "id": 1103,
+    "name": "Kaeya",
+    "shareid": 3,
+    "hp": 10,
+    "maxenergy": 2,
+    "tags": [
+      "GCG_TAG_ELEMENT_CRYO",
+      "GCG_TAG_WEAPON_SWORD",
+      "GCG_TAG_NATION_MONDSTADT"
+    ],
+    "tagstext": [
+      "Cryo",
+      "Sword",
+      "Mondstadt"
+    ],
+    "storytitle": "\"Frostwind Swordsman\" Kaeya",
+    "storytext": "Specializes in awakening knightly virtues in others.",
+    "source": "Obtained from the initial deck",
+    "skills": [
+      {
+        "id": 11031,
+        "name": "Ceremonial Bladework",
+        "descriptionraw": "Deals $[D__KEY__DAMAGE] $[D__KEY__ELEMENT].",
+        "basedamage": 2,
+        "baseelement": "GCG_ELEMENT_NONE",
+        "descriptionreplaced": "Deals 2 {SPRITE_PRESET#2100}<color=#FFFFFFFF>Physical DMG</color>.",
+        "description": "Deals 2 Physical DMG.",
+        "typetag": "GCG_SKILL_TAG_A",
+        "type": "Normal Attack",
+        "playcost": [
+          {
+            "costtype": "GCG_COST_DICE_CRYO",
+            "count": 1
+          },
+          {
+            "costtype": "GCG_COST_DICE_VOID",
+            "count": 2
+          }
+        ]
+      },
+      {
+        "id": 11032,
+        "name": "Frostgnaw",
+        "descriptionraw": "Deals $[D__KEY__DAMAGE] $[D__KEY__ELEMENT].",
+        "basedamage": 3,
+        "baseelement": "GCG_ELEMENT_CRYO",
+        "descriptionreplaced": "Deals 3 {SPRITE_PRESET#2101}<color=#99FFFFFF>Cryo DMG</color>.",
+        "description": "Deals 3 Cryo DMG.",
+        "typetag": "GCG_SKILL_TAG_E",
+        "type": "Elemental Skill",
+        "playcost": [
+          {
+            "costtype": "GCG_COST_DICE_CRYO",
+            "count": 3
+          }
+        ]
+      },
+      {
+        "id": 11033,
+        "name": "Glacial Waltz",
+        "descriptionraw": "Deals $[D__KEY__DAMAGE] $[D__KEY__ELEMENT], creates 1 <color=#FFFFFFFF>$[C111031]</color>.",
+        "basedamage": 1,
+        "baseelement": "GCG_ELEMENT_CRYO",
+        "descriptionreplaced": "Deals 1 {SPRITE_PRESET#2101}<color=#99FFFFFF>Cryo DMG</color>, creates 1 <color=#FFFFFFFF>Icicle</color>.",
+        "description": "Deals 1 Cryo DMG, creates 1 Icicle.",
+        "typetag": "GCG_SKILL_TAG_Q",
+        "type": "Elemental Burst",
+        "playcost": [
+          {
+            "costtype": "GCG_COST_DICE_CRYO",
+            "count": 4
+          },
+          {
+            "costtype": "GCG_COST_ENERGY",
+            "count": 2
+          }
+        ]
+      }
+    ],
+    "image": {
+      "filename_tagsicon": [
+        "UI_Gcg_Tag_Element_Ice",
+        "UI_Gcg_Tag_Weapon_Sword",
+        "UI_Gcg_Tag_Faction_Mondstadt"
+      ],
+      "filename_cardface": "UI_Gcg_CardFace_Char_Avatar_Kaeya",
+      "filename_cardface_golden": "UI_Gcg_CardFace_Char_Avatar_Kaeya_Golden",
+      "filename_cardface_HD": "UI_Gcg_CardFace_Char_Avatar_Kaeya_HD",
+      "filename_icon": "UI_Gcg_Char_AvatarIcon_Kaeya"
+    }
+  },
+  {
+    "id": 1104,
+    "name": "Chongyun",
+    "shareid": 4,
+    "hp": 10,
+    "maxenergy": 3,
+    "tags": [
+      "GCG_TAG_ELEMENT_CRYO",
+      "GCG_TAG_WEAPON_CLAYMORE",
+      "GCG_TAG_NATION_LIYUE"
+    ],
+    "tagstext": [
+      "Cryo",
+      "Claymore",
+      "Liyue"
+    ],
+    "storytitle": "\"Frozen Ardor\" Chongyun",
+    "storytext": "\"Ugh, summer... Please pass us by in peace...\"",
+    "source": "Reward for inviting Chongyun to a duel at The Cat's Tail and claiming victory in a Friendly Fracas with him",
+    "skills": [
+      {
+        "id": 11041,
+        "name": "Demonbane",
+        "descriptionraw": "Deals $[D__KEY__DAMAGE] $[D__KEY__ELEMENT].",
+        "basedamage": 2,
+        "baseelement": "GCG_ELEMENT_NONE",
+        "descriptionreplaced": "Deals 2 {SPRITE_PRESET#2100}<color=#FFFFFFFF>Physical DMG</color>.",
+        "description": "Deals 2 Physical DMG.",
+        "typetag": "GCG_SKILL_TAG_A",
+        "type": "Normal Attack",
+        "playcost": [
+          {
+            "costtype": "GCG_COST_DICE_CRYO",
+            "count": 1
+          },
+          {
+            "costtype": "GCG_COST_DICE_VOID",
+            "count": 2
+          }
+        ]
+      },
+      {
+        "id": 11042,
+        "name": "Chonghua's Layered Frost",
+        "descriptionraw": "Deals $[D__KEY__DAMAGE] $[D__KEY__ELEMENT], creates 1 <color=#FFFFFFFF>$[C111041]</color>.",
+        "basedamage": 3,
+        "baseelement": "GCG_ELEMENT_CRYO",
+        "descriptionreplaced": "Deals 3 {SPRITE_PRESET#2101}<color=#99FFFFFF>Cryo DMG</color>, creates 1 <color=#FFFFFFFF>Chonghua Frost Field</color>.",
+        "description": "Deals 3 Cryo DMG, creates 1 Chonghua Frost Field.",
+        "typetag": "GCG_SKILL_TAG_E",
+        "type": "Elemental Skill",
+        "playcost": [
+          {
+            "costtype": "GCG_COST_DICE_CRYO",
+            "count": 3
+          }
+        ]
+      },
+      {
+        "id": 11043,
+        "name": "Cloud-Parting Star",
+        "descriptionraw": "Deals $[D__KEY__DAMAGE] $[D__KEY__ELEMENT].",
+        "basedamage": 7,
+        "baseelement": "GCG_ELEMENT_CRYO",
+        "descriptionreplaced": "Deals 7 {SPRITE_PRESET#2101}<color=#99FFFFFF>Cryo DMG</color>.",
+        "description": "Deals 7 Cryo DMG.",
+        "typetag": "GCG_SKILL_TAG_Q",
+        "type": "Elemental Burst",
+        "playcost": [
+          {
+            "costtype": "GCG_COST_DICE_CRYO",
+            "count": 3
+          },
+          {
+            "costtype": "GCG_COST_ENERGY",
+            "count": 3
+          }
+        ]
+      }
+    ],
+    "image": {
+      "filename_tagsicon": [
+        "UI_Gcg_Tag_Element_Ice",
+        "UI_Gcg_Tag_Weapon_Claymore",
+        "UI_Gcg_Tag_Faction_Liyue"
+      ],
+      "filename_cardface": "UI_Gcg_CardFace_Char_Avatar_Chongyun",
+      "filename_cardface_golden": "UI_Gcg_CardFace_Char_Avatar_Chongyun_Golden",
+      "filename_cardface_HD": "UI_Gcg_CardFace_Char_Avatar_Chongyun_HD",
+      "filename_icon": "UI_Gcg_Char_AvatarIcon_Chongyun"
+    }
+  },
+  {
+    "id": 1105,
+    "name": "Kamisato Ayaka",
+    "shareid": 5,
+    "hp": 10,
+    "maxenergy": 3,
+    "tags": [
+      "GCG_TAG_ELEMENT_CRYO",
+      "GCG_TAG_WEAPON_SWORD",
+      "GCG_TAG_NATION_INAZUMA"
+    ],
+    "tagstext": [
+      "Cryo",
+      "Sword",
+      "Inazuma"
+    ],
+    "storytitle": "\"Frostflake Heron\" Kamisato Ayaka",
+    "storytext": "As graceful as the frost drifting in the wind, as elegant as a heron perched in a courtyard.",
+    "source": "Reward for inviting Kamisato Ayaka to a duel at The Cat's Tail and claiming victory in a Friendly Fracas with her",
+    "skills": [
+      {
+        "id": 11051,
+        "name": "Kamisato Art: Kabuki",
+        "descriptionraw": "Deals $[D__KEY__DAMAGE] $[D__KEY__ELEMENT].",
+        "basedamage": 2,
+        "baseelement": "GCG_ELEMENT_NONE",
+        "descriptionreplaced": "Deals 2 {SPRITE_PRESET#2100}<color=#FFFFFFFF>Physical DMG</color>.",
+        "description": "Deals 2 Physical DMG.",
+        "typetag": "GCG_SKILL_TAG_A",
+        "type": "Normal Attack",
+        "playcost": [
+          {
+            "costtype": "GCG_COST_DICE_CRYO",
+            "count": 1
+          },
+          {
+            "costtype": "GCG_COST_DICE_VOID",
+            "count": 2
+          }
+        ]
+      },
+      {
+        "id": 11052,
+        "name": "Kamisato Art: Hyouka",
+        "descriptionraw": "Deals $[D__KEY__DAMAGE] $[D__KEY__ELEMENT].",
+        "basedamage": 3,
+        "baseelement": "GCG_ELEMENT_CRYO",
+        "descriptionreplaced": "Deals 3 {SPRITE_PRESET#2101}<color=#99FFFFFF>Cryo DMG</color>.",
+        "description": "Deals 3 Cryo DMG.",
+        "typetag": "GCG_SKILL_TAG_E",
+        "type": "Elemental Skill",
+        "playcost": [
+          {
+            "costtype": "GCG_COST_DICE_CRYO",
+            "count": 3
+          }
+        ]
+      },
+      {
+        "id": 11053,
+        "name": "Kamisato Art: Soumetsu",
+        "descriptionraw": "Deals $[D__KEY__DAMAGE] $[D__KEY__ELEMENT], summons 1 <color=#FFFFFFFF>$[C111051]</color>.",
+        "basedamage": 4,
+        "baseelement": "GCG_ELEMENT_CRYO",
+        "descriptionreplaced": "Deals 4 {SPRITE_PRESET#2101}<color=#99FFFFFF>Cryo DMG</color>, summons 1 <color=#FFFFFFFF>Frostflake Seki no To</color>.",
+        "description": "Deals 4 Cryo DMG, summons 1 Frostflake Seki no To.",
+        "typetag": "GCG_SKILL_TAG_Q",
+        "type": "Elemental Burst",
+        "playcost": [
+          {
+            "costtype": "GCG_COST_DICE_CRYO",
+            "count": 3
+          },
+          {
+            "costtype": "GCG_COST_ENERGY",
+            "count": 3
+          }
+        ]
+      },
+      {
+        "id": 11054,
+        "name": "Kamisato Art: Senho",
+        "descriptionraw": "(Passive) When switched to be the active character, this character gains <color=#FFFFFFFF>$[C111052]</color>.",
+        "descriptionreplaced": "(Passive) When switched to be the active character, this character gains <color=#FFFFFFFF>Cryo Elemental Infusion</color>.",
+        "description": "(Passive) When switched to be the active character, this character gains Cryo Elemental Infusion.",
+        "typetag": "GCG_SKILL_TAG_PASSIVE",
+        "type": "Passive Skill",
+        "playcost": []
+      }
+    ],
+    "image": {
+      "filename_tagsicon": [
+        "UI_Gcg_Tag_Element_Ice",
+        "UI_Gcg_Tag_Weapon_Sword",
+        "UI_Gcg_Tag_Faction_Inazuma"
+      ],
+      "filename_cardface": "UI_Gcg_CardFace_Char_Avatar_Ayaka",
+      "filename_cardface_golden": "UI_Gcg_CardFace_Char_Avatar_Ayaka_Golden",
+      "filename_cardface_HD": "UI_Gcg_CardFace_Char_Avatar_Ayaka_HD",
+      "filename_icon": "UI_Gcg_Char_AvatarIcon_Ayaka"
+    }
+  },
+  {
+    "id": 1201,
+    "name": "Barbara",
+    "shareid": 9,
+    "hp": 10,
+    "maxenergy": 3,
+    "tags": [
+      "GCG_TAG_ELEMENT_HYDRO",
+      "GCG_TAG_WEAPON_CATALYST",
+      "GCG_TAG_NATION_MONDSTADT"
+    ],
+    "tagstext": [
+      "Hydro",
+      "Catalyst",
+      "Mondstadt"
+    ],
+    "storytitle": "\"Shining Idol\" Barbara",
+    "storytext": "Ready to heal hearts and soothe souls at any time.",
+    "source": "Reward for inviting Barbara to a duel at The Cat's Tail and claiming victory in a Friendly Fracas with her",
+    "skills": [
+      {
+        "id": 12011,
+        "name": "Whisper of Water",
+        "descriptionraw": "Deals $[D__KEY__DAMAGE] $[D__KEY__ELEMENT].",
+        "basedamage": 1,
+        "baseelement": "GCG_ELEMENT_HYDRO",
+        "descriptionreplaced": "Deals 1 {SPRITE_PRESET#2102}<color=#80C0FFFF>Hydro DMG</color>.",
+        "description": "Deals 1 Hydro DMG.",
+        "typetag": "GCG_SKILL_TAG_A",
+        "type": "Normal Attack",
+        "playcost": [
+          {
+            "costtype": "GCG_COST_DICE_HYDRO",
+            "count": 1
+          },
+          {
+            "costtype": "GCG_COST_DICE_VOID",
+            "count": 2
+          }
+        ]
+      },
+      {
+        "id": 12012,
+        "name": "Let the Show Begin♪",
+        "descriptionraw": "Deals $[D__KEY__DAMAGE] $[D__KEY__ELEMENT], summons 1 <color=#FFFFFFFF>$[C112011]</color>.",
+        "basedamage": 1,
+        "baseelement": "GCG_ELEMENT_HYDRO",
+        "descriptionreplaced": "Deals 1 {SPRITE_PRESET#2102}<color=#80C0FFFF>Hydro DMG</color>, summons 1 <color=#FFFFFFFF>Melody Loop</color>.",
+        "description": "Deals 1 Hydro DMG, summons 1 Melody Loop.",
+        "typetag": "GCG_SKILL_TAG_E",
+        "type": "Elemental Skill",
+        "playcost": [
+          {
+            "costtype": "GCG_COST_DICE_HYDRO",
+            "count": 3
+          }
+        ]
+      },
+      {
+        "id": 12013,
+        "name": "Shining Miracle♪",
+        "descriptionraw": "Heals all of your characters for 4 HP.",
+        "descriptionreplaced": "Heals all of your characters for 4 HP.",
+        "description": "Heals all of your characters for 4 HP.",
+        "typetag": "GCG_SKILL_TAG_Q",
+        "type": "Elemental Burst",
+        "playcost": [
+          {
+            "costtype": "GCG_COST_DICE_HYDRO",
+            "count": 3
+          },
+          {
+            "costtype": "GCG_COST_ENERGY",
+            "count": 3
+          }
+        ]
+      }
+    ],
+    "image": {
+      "filename_tagsicon": [
+        "UI_Gcg_Tag_Element_Water",
+        "UI_Gcg_Tag_Weapon_Catalyst",
+        "UI_Gcg_Tag_Faction_Mondstadt"
+      ],
+      "filename_cardface": "UI_Gcg_CardFace_Char_Avatar_Barbara",
+      "filename_cardface_golden": "UI_Gcg_CardFace_Char_Avatar_Barbara_Golden",
+      "filename_cardface_HD": "UI_Gcg_CardFace_Char_Avatar_Barbara_HD",
+      "filename_icon": "UI_Gcg_Char_AvatarIcon_Barbara"
+    }
+  },
+  {
+    "id": 1202,
+    "name": "Xingqiu",
+    "shareid": 10,
+    "hp": 10,
+    "maxenergy": 2,
+    "tags": [
+      "GCG_TAG_ELEMENT_HYDRO",
+      "GCG_TAG_WEAPON_SWORD",
+      "GCG_TAG_NATION_LIYUE"
+    ],
+    "tagstext": [
+      "Hydro",
+      "Sword",
+      "Liyue"
+    ],
+    "storytitle": "\"Juvenile Galant\" Xingqiu",
+    "storytext": "\"Is it just me, or are the protagonists in novels nowadays all students of some private school or another...\"",
+    "source": "Reward for inviting Xingqiu to a duel at The Cat's Tail and claiming victory in a Friendly Fracas with him",
+    "skills": [
+      {
+        "id": 12021,
+        "name": "Guhua Style",
+        "descriptionraw": "Deals $[D__KEY__DAMAGE] $[D__KEY__ELEMENT].",
+        "basedamage": 2,
+        "baseelement": "GCG_ELEMENT_NONE",
+        "descriptionreplaced": "Deals 2 {SPRITE_PRESET#2100}<color=#FFFFFFFF>Physical DMG</color>.",
+        "description": "Deals 2 Physical DMG.",
+        "typetag": "GCG_SKILL_TAG_A",
+        "type": "Normal Attack",
+        "playcost": [
+          {
+            "costtype": "GCG_COST_DICE_HYDRO",
+            "count": 1
+          },
+          {
+            "costtype": "GCG_COST_DICE_VOID",
+            "count": 2
+          }
+        ]
+      },
+      {
+        "id": 12022,
+        "name": "Fatal Rainscreen",
+        "descriptionraw": "Deals $[D__KEY__DAMAGE] $[D__KEY__ELEMENT], grants this character $[K202], creates 1 <color=#FFFFFFFF>$[C112021]</color>.",
+        "basedamage": 2,
+        "baseelement": "GCG_ELEMENT_HYDRO",
+        "descriptionreplaced": "Deals 2 {SPRITE_PRESET#2102}<color=#80C0FFFF>Hydro DMG</color>, grants this character <color=#80C0FFFF>{SPRITE_PRESET#2102}Hydro Application</color>, creates 1 <color=#FFFFFFFF>Rain Sword</color>.",
+        "description": "Deals 2 Hydro DMG, grants this character Hydro Application, creates 1 Rain Sword.",
+        "typetag": "GCG_SKILL_TAG_E",
+        "type": "Elemental Skill",
+        "playcost": [
+          {
+            "costtype": "GCG_COST_DICE_HYDRO",
+            "count": 3
+          }
+        ]
+      },
+      {
+        "id": 12023,
+        "name": "Raincutter",
+        "descriptionraw": "Deals $[D__KEY__DAMAGE] $[D__KEY__ELEMENT], grants this character $[K202], creates 1 <color=#FFFFFFFF>$[C112022]</color>.",
+        "basedamage": 2,
+        "baseelement": "GCG_ELEMENT_HYDRO",
+        "descriptionreplaced": "Deals 2 {SPRITE_PRESET#2102}<color=#80C0FFFF>Hydro DMG</color>, grants this character <color=#80C0FFFF>{SPRITE_PRESET#2102}Hydro Application</color>, creates 1 <color=#FFFFFFFF>Rainbow Bladework</color>.",
+        "description": "Deals 2 Hydro DMG, grants this character Hydro Application, creates 1 Rainbow Bladework.",
+        "typetag": "GCG_SKILL_TAG_Q",
+        "type": "Elemental Burst",
+        "playcost": [
+          {
+            "costtype": "GCG_COST_DICE_HYDRO",
+            "count": 3
+          },
+          {
+            "costtype": "GCG_COST_ENERGY",
+            "count": 2
+          }
+        ]
+      }
+    ],
+    "image": {
+      "filename_tagsicon": [
+        "UI_Gcg_Tag_Element_Water",
+        "UI_Gcg_Tag_Weapon_Sword",
+        "UI_Gcg_Tag_Faction_Liyue"
+      ],
+      "filename_cardface": "UI_Gcg_CardFace_Char_Avatar_Xingqiu",
+      "filename_cardface_golden": "UI_Gcg_CardFace_Char_Avatar_Xingqiu_Golden",
+      "filename_cardface_HD": "UI_Gcg_CardFace_Char_Avatar_Xingqiu_HD",
+      "filename_icon": "UI_Gcg_Char_AvatarIcon_Xingqiu"
+    }
+  },
+  {
+    "id": 1203,
+    "name": "Mona",
+    "shareid": 11,
+    "hp": 10,
+    "maxenergy": 3,
+    "tags": [
+      "GCG_TAG_ELEMENT_HYDRO",
+      "GCG_TAG_WEAPON_CATALYST",
+      "GCG_TAG_NATION_MONDSTADT"
+    ],
+    "tagstext": [
+      "Hydro",
+      "Catalyst",
+      "Mondstadt"
+    ],
+    "storytitle": "\"Astral Reflection\" Mona",
+    "storytext": "Victory or defeat — it has all been written in the stars.",
+    "source": "Reward for inviting Mona to a duel at The Cat's Tail and claiming victory in a Friendly Fracas with her",
+    "skills": [
+      {
+        "id": 12031,
+        "name": "Ripple of Fate",
+        "descriptionraw": "Deals $[D__KEY__DAMAGE] $[D__KEY__ELEMENT].",
+        "basedamage": 1,
+        "baseelement": "GCG_ELEMENT_HYDRO",
+        "descriptionreplaced": "Deals 1 {SPRITE_PRESET#2102}<color=#80C0FFFF>Hydro DMG</color>.",
+        "description": "Deals 1 Hydro DMG.",
+        "typetag": "GCG_SKILL_TAG_A",
+        "type": "Normal Attack",
+        "playcost": [
+          {
+            "costtype": "GCG_COST_DICE_HYDRO",
+            "count": 1
+          },
+          {
+            "costtype": "GCG_COST_DICE_VOID",
+            "count": 2
+          }
+        ]
+      },
+      {
+        "id": 12032,
+        "name": "Mirror Reflection of Doom",
+        "descriptionraw": "Deals $[D__KEY__DAMAGE] $[D__KEY__ELEMENT], summons 1 <color=#FFFFFFFF>$[C112031]</color>.",
+        "basedamage": 1,
+        "baseelement": "GCG_ELEMENT_HYDRO",
+        "descriptionreplaced": "Deals 1 {SPRITE_PRESET#2102}<color=#80C0FFFF>Hydro DMG</color>, summons 1 <color=#FFFFFFFF>Reflection</color>.",
+        "description": "Deals 1 Hydro DMG, summons 1 Reflection.",
+        "typetag": "GCG_SKILL_TAG_E",
+        "type": "Elemental Skill",
+        "playcost": [
+          {
+            "costtype": "GCG_COST_DICE_HYDRO",
+            "count": 3
+          }
+        ]
+      },
+      {
+        "id": 12033,
+        "name": "Stellaris Phantasm",
+        "descriptionraw": "Deals $[D__KEY__DAMAGE] $[D__KEY__ELEMENT], creates 1 <color=#FFFFFFFF>$[C112032]</color>.",
+        "basedamage": 4,
+        "baseelement": "GCG_ELEMENT_HYDRO",
+        "descriptionreplaced": "Deals 4 {SPRITE_PRESET#2102}<color=#80C0FFFF>Hydro DMG</color>, creates 1 <color=#FFFFFFFF>Illusory Bubble</color>.",
+        "description": "Deals 4 Hydro DMG, creates 1 Illusory Bubble.",
+        "typetag": "GCG_SKILL_TAG_Q",
+        "type": "Elemental Burst",
+        "playcost": [
+          {
+            "costtype": "GCG_COST_DICE_HYDRO",
+            "count": 3
+          },
+          {
+            "costtype": "GCG_COST_ENERGY",
+            "count": 3
+          }
+        ]
+      },
+      {
+        "id": 12034,
+        "name": "Illusory Torrent",
+        "descriptionraw": "(Passive) <color=#FFFFFFFF>When you perform \"Switch Character\" while Mona is your active character:</color> This switch is considered a $[K2] instead of a $[K1]. (Once per Round)",
+        "descriptionreplaced": "(Passive) <color=#FFFFFFFF>When you perform \"Switch Character\" while Mona is your active character:</color> This switch is considered a <color=#FFFFFFFF>Fast Action</color> instead of a <color=#FFFFFFFF>Combat Action</color>. (Once per Round)",
+        "description": "(Passive) When you perform \"Switch Character\" while Mona is your active character: This switch is considered a Fast Action instead of a Combat Action. (Once per Round)",
+        "typetag": "GCG_SKILL_TAG_PASSIVE",
+        "type": "Passive Skill",
+        "playcost": []
+      }
+    ],
+    "image": {
+      "filename_tagsicon": [
+        "UI_Gcg_Tag_Element_Water",
+        "UI_Gcg_Tag_Weapon_Catalyst",
+        "UI_Gcg_Tag_Faction_Mondstadt"
+      ],
+      "filename_cardface": "UI_Gcg_CardFace_Char_Avatar_Mona",
+      "filename_cardface_golden": "UI_Gcg_CardFace_Char_Avatar_Mona_Golden",
+      "filename_cardface_HD": "UI_Gcg_CardFace_Char_Avatar_Mona_HD",
+      "filename_icon": "UI_Gcg_Char_AvatarIcon_Mona"
+    }
+  },
+  {
+    "id": 1301,
+    "name": "Diluc",
+    "shareid": 17,
+    "hp": 10,
+    "maxenergy": 3,
+    "tags": [
+      "GCG_TAG_ELEMENT_PYRO",
+      "GCG_TAG_WEAPON_CLAYMORE",
+      "GCG_TAG_NATION_MONDSTADT"
+    ],
+    "tagstext": [
+      "Pyro",
+      "Claymore",
+      "Mondstadt"
+    ],
+    "storytitle": "\"Dark Side of Dawn\" Diluc",
+    "storytext": "His heart is his greatest foe.",
+    "source": "Obtained from the initial deck",
+    "skills": [
+      {
+        "id": 13011,
+        "name": "Tempered Sword",
+        "descriptionraw": "Deals $[D__KEY__DAMAGE] $[D__KEY__ELEMENT].",
+        "basedamage": 2,
+        "baseelement": "GCG_ELEMENT_NONE",
+        "descriptionreplaced": "Deals 2 {SPRITE_PRESET#2100}<color=#FFFFFFFF>Physical DMG</color>.",
+        "description": "Deals 2 Physical DMG.",
+        "typetag": "GCG_SKILL_TAG_A",
+        "type": "Normal Attack",
+        "playcost": [
+          {
+            "costtype": "GCG_COST_DICE_PYRO",
+            "count": 1
+          },
+          {
+            "costtype": "GCG_COST_DICE_VOID",
+            "count": 2
+          }
+        ]
+      },
+      {
+        "id": 13012,
+        "name": "Searing Onslaught",
+        "descriptionraw": "Deals $[D__KEY__DAMAGE] $[D__KEY__ELEMENT]. For the third use of this Skill each Round, deals +2 DMG.",
+        "basedamage": 3,
+        "baseelement": "GCG_ELEMENT_PYRO",
+        "descriptionreplaced": "Deals 3 {SPRITE_PRESET#2103}<color=#FF9999FF>Pyro DMG</color>. For the third use of this Skill each Round, deals +2 DMG.",
+        "description": "Deals 3 Pyro DMG. For the third use of this Skill each Round, deals +2 DMG.",
+        "typetag": "GCG_SKILL_TAG_E",
+        "type": "Elemental Skill",
+        "playcost": [
+          {
+            "costtype": "GCG_COST_DICE_PYRO",
+            "count": 3
+          }
+        ]
+      },
+      {
+        "id": 13013,
+        "name": "Dawn",
+        "descriptionraw": "Deals $[D__KEY__DAMAGE] $[D__KEY__ELEMENT]. This character gains <color=#FFFFFFFF>$[C113011]</color>.",
+        "basedamage": 8,
+        "baseelement": "GCG_ELEMENT_PYRO",
+        "descriptionreplaced": "Deals 8 {SPRITE_PRESET#2103}<color=#FF9999FF>Pyro DMG</color>. This character gains <color=#FFFFFFFF>Pyro Infusion</color>.",
+        "description": "Deals 8 Pyro DMG. This character gains Pyro Infusion.",
+        "typetag": "GCG_SKILL_TAG_Q",
+        "type": "Elemental Burst",
+        "playcost": [
+          {
+            "costtype": "GCG_COST_DICE_PYRO",
+            "count": 4
+          },
+          {
+            "costtype": "GCG_COST_ENERGY",
+            "count": 3
+          }
+        ]
+      }
+    ],
+    "image": {
+      "filename_tagsicon": [
+        "UI_Gcg_Tag_Element_Fire",
+        "UI_Gcg_Tag_Weapon_Claymore",
+        "UI_Gcg_Tag_Faction_Mondstadt"
+      ],
+      "filename_cardface": "UI_Gcg_CardFace_Char_Avatar_Diluc",
+      "filename_cardface_golden": "UI_Gcg_CardFace_Char_Avatar_Diluc_Golden",
+      "filename_cardface_HD": "UI_Gcg_CardFace_Char_Avatar_Diluc_HD",
+      "filename_icon": "UI_Gcg_Char_AvatarIcon_Diluc"
+    }
+  },
+  {
+    "id": 1302,
+    "name": "Xiangling",
+    "shareid": 18,
+    "hp": 10,
+    "maxenergy": 2,
+    "tags": [
+      "GCG_TAG_ELEMENT_PYRO",
+      "GCG_TAG_WEAPON_POLE",
+      "GCG_TAG_NATION_LIYUE"
+    ],
+    "tagstext": [
+      "Pyro",
+      "Polearm",
+      "Liyue"
+    ],
+    "storytitle": "\"Exquisite Delicacy\" Xiangling",
+    "storytext": "As a chef, she is practically omnipotent.",
+    "source": "Reward for inviting Xiangling to a duel at The Cat's Tail and claiming victory in a Friendly Fracas with her",
+    "skills": [
+      {
+        "id": 13021,
+        "name": "Dough-Fu",
+        "descriptionraw": "Deals $[D__KEY__DAMAGE] $[D__KEY__ELEMENT].",
+        "basedamage": 2,
+        "baseelement": "GCG_ELEMENT_NONE",
+        "descriptionreplaced": "Deals 2 {SPRITE_PRESET#2100}<color=#FFFFFFFF>Physical DMG</color>.",
+        "description": "Deals 2 Physical DMG.",
+        "typetag": "GCG_SKILL_TAG_A",
+        "type": "Normal Attack",
+        "playcost": [
+          {
+            "costtype": "GCG_COST_DICE_PYRO",
+            "count": 1
+          },
+          {
+            "costtype": "GCG_COST_DICE_VOID",
+            "count": 2
+          }
+        ]
+      },
+      {
+        "id": 13022,
+        "name": "Guoba Attack",
+        "descriptionraw": "Summons 1 <color=#FFFFFFFF>$[C113021]</color>.",
+        "descriptionreplaced": "Summons 1 <color=#FFFFFFFF>Guoba</color>.",
+        "description": "Summons 1 Guoba.",
+        "typetag": "GCG_SKILL_TAG_E",
+        "type": "Elemental Skill",
+        "playcost": [
+          {
+            "costtype": "GCG_COST_DICE_PYRO",
+            "count": 3
+          }
+        ]
+      },
+      {
+        "id": 13023,
+        "name": "Pyronado",
+        "descriptionraw": "Deals $[D__KEY__DAMAGE] $[D__KEY__ELEMENT], creates 1 <color=#FFFFFFFF>$[C113022]</color>.",
+        "basedamage": 3,
+        "baseelement": "GCG_ELEMENT_PYRO",
+        "descriptionreplaced": "Deals 3 {SPRITE_PRESET#2103}<color=#FF9999FF>Pyro DMG</color>, creates 1 <color=#FFFFFFFF>Pyronado</color>.",
+        "description": "Deals 3 Pyro DMG, creates 1 Pyronado.",
+        "typetag": "GCG_SKILL_TAG_Q",
+        "type": "Elemental Burst",
+        "playcost": [
+          {
+            "costtype": "GCG_COST_DICE_PYRO",
+            "count": 4
+          },
+          {
+            "costtype": "GCG_COST_ENERGY",
+            "count": 2
+          }
+        ]
+      }
+    ],
+    "image": {
+      "filename_tagsicon": [
+        "UI_Gcg_Tag_Element_Fire",
+        "UI_Gcg_Tag_Weapon_Polearm",
+        "UI_Gcg_Tag_Faction_Liyue"
+      ],
+      "filename_cardface": "UI_Gcg_CardFace_Char_Avatar_Xiangling",
+      "filename_cardface_golden": "UI_Gcg_CardFace_Char_Avatar_Xiangling_Golden",
+      "filename_cardface_HD": "UI_Gcg_CardFace_Char_Avatar_Xiangling_HD",
+      "filename_icon": "UI_Gcg_Char_AvatarIcon_Xiangling"
+    }
+  },
+  {
+    "id": 1303,
+    "name": "Bennett",
+    "shareid": 19,
+    "hp": 10,
+    "maxenergy": 2,
+    "tags": [
+      "GCG_TAG_ELEMENT_PYRO",
+      "GCG_TAG_WEAPON_SWORD",
+      "GCG_TAG_NATION_MONDSTADT"
+    ],
+    "tagstext": [
+      "Pyro",
+      "Sword",
+      "Mondstadt"
+    ],
+    "storytitle": "\"Trial by Fire\" Bennett",
+    "storytext": "Once you know that you will certainly lose, then you must certainly know the way to win.",
+    "source": "Reward for inviting Bennett to a duel at The Cat's Tail and claiming victory in a Friendly Fracas with him",
+    "skills": [
+      {
+        "id": 13031,
+        "name": "Strike of Fortune",
+        "descriptionraw": "Deals $[D__KEY__DAMAGE] $[D__KEY__ELEMENT].",
+        "basedamage": 2,
+        "baseelement": "GCG_ELEMENT_NONE",
+        "descriptionreplaced": "Deals 2 {SPRITE_PRESET#2100}<color=#FFFFFFFF>Physical DMG</color>.",
+        "description": "Deals 2 Physical DMG.",
+        "typetag": "GCG_SKILL_TAG_A",
+        "type": "Normal Attack",
+        "playcost": [
+          {
+            "costtype": "GCG_COST_DICE_PYRO",
+            "count": 1
+          },
+          {
+            "costtype": "GCG_COST_DICE_VOID",
+            "count": 2
+          }
+        ]
+      },
+      {
+        "id": 13032,
+        "name": "Passion Overload",
+        "descriptionraw": "Deals $[D__KEY__DAMAGE] $[D__KEY__ELEMENT].",
+        "basedamage": 3,
+        "baseelement": "GCG_ELEMENT_PYRO",
+        "descriptionreplaced": "Deals 3 {SPRITE_PRESET#2103}<color=#FF9999FF>Pyro DMG</color>.",
+        "description": "Deals 3 Pyro DMG.",
+        "typetag": "GCG_SKILL_TAG_E",
+        "type": "Elemental Skill",
+        "playcost": [
+          {
+            "costtype": "GCG_COST_DICE_PYRO",
+            "count": 3
+          }
+        ]
+      },
+      {
+        "id": 13033,
+        "name": "Fantastic Voyage",
+        "descriptionraw": "Deals $[D__KEY__DAMAGE] $[D__KEY__ELEMENT], creates 1 <color=#FFFFFFFF>$[C113031]</color>.",
+        "basedamage": 2,
+        "baseelement": "GCG_ELEMENT_PYRO",
+        "descriptionreplaced": "Deals 2 {SPRITE_PRESET#2103}<color=#FF9999FF>Pyro DMG</color>, creates 1 <color=#FFFFFFFF>Inspiration Field</color>.",
+        "description": "Deals 2 Pyro DMG, creates 1 Inspiration Field.",
+        "typetag": "GCG_SKILL_TAG_Q",
+        "type": "Elemental Burst",
+        "playcost": [
+          {
+            "costtype": "GCG_COST_DICE_PYRO",
+            "count": 4
+          },
+          {
+            "costtype": "GCG_COST_ENERGY",
+            "count": 2
+          }
+        ]
+      }
+    ],
+    "image": {
+      "filename_tagsicon": [
+        "UI_Gcg_Tag_Element_Fire",
+        "UI_Gcg_Tag_Weapon_Sword",
+        "UI_Gcg_Tag_Faction_Mondstadt"
+      ],
+      "filename_cardface": "UI_Gcg_CardFace_Char_Avatar_Bennett",
+      "filename_cardface_golden": "UI_Gcg_CardFace_Char_Avatar_Bennett_Golden",
+      "filename_cardface_HD": "UI_Gcg_CardFace_Char_Avatar_Bennett_HD",
+      "filename_icon": "UI_Gcg_Char_AvatarIcon_Bennett"
+    }
+  },
+  {
+    "id": 1305,
+    "name": "Yoimiya",
+    "shareid": 21,
+    "hp": 10,
+    "maxenergy": 3,
+    "tags": [
+      "GCG_TAG_ELEMENT_PYRO",
+      "GCG_TAG_WEAPON_BOW",
+      "GCG_TAG_NATION_INAZUMA"
+    ],
+    "tagstext": [
+      "Pyro",
+      "Bow",
+      "Inazuma"
+    ],
+    "storytitle": "\"Frolicking Flames\" Yoimiya",
+    "storytext": "Captain and Vanguard of Team Naganohara for the 11th Hanamizaka Street Invitational.",
+    "source": "Reward for inviting Yoimiya to a duel at The Cat's Tail and claiming victory in a Friendly Fracas with her",
+    "skills": [
+      {
+        "id": 13051,
+        "name": "Firework Flare-Up",
+        "descriptionraw": "Deals $[D__KEY__DAMAGE] $[D__KEY__ELEMENT].",
+        "basedamage": 2,
+        "baseelement": "GCG_ELEMENT_NONE",
+        "descriptionreplaced": "Deals 2 {SPRITE_PRESET#2100}<color=#FFFFFFFF>Physical DMG</color>.",
+        "description": "Deals 2 Physical DMG.",
+        "typetag": "GCG_SKILL_TAG_A",
+        "type": "Normal Attack",
+        "playcost": [
+          {
+            "costtype": "GCG_COST_DICE_PYRO",
+            "count": 1
+          },
+          {
+            "costtype": "GCG_COST_DICE_VOID",
+            "count": 2
+          }
+        ]
+      },
+      {
+        "id": 13052,
+        "name": "Niwabi Fire-Dance",
+        "descriptionraw": "This character gains <color=#FFFFFFFF>$[C113051]</color>. (This Skill does not grant {SPRITE_PRESET#1110}Energy)",
+        "descriptionreplaced": "This character gains <color=#FFFFFFFF>Niwabi Enshou</color>. (This Skill does not grant {SPRITE_PRESET#1110}Energy)",
+        "description": "This character gains Niwabi Enshou. (This Skill does not grant Energy)",
+        "typetag": "GCG_SKILL_TAG_E",
+        "type": "Elemental Skill",
+        "playcost": [
+          {
+            "costtype": "GCG_COST_DICE_PYRO",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "id": 13053,
+        "name": "Ryuukin Saxifrage",
+        "descriptionraw": "Deals $[D__KEY__DAMAGE] $[D__KEY__ELEMENT], creates 1 <color=#FFFFFFFF>$[C113052]</color>.",
+        "basedamage": 3,
+        "baseelement": "GCG_ELEMENT_PYRO",
+        "descriptionreplaced": "Deals 3 {SPRITE_PRESET#2103}<color=#FF9999FF>Pyro DMG</color>, creates 1 <color=#FFFFFFFF>Aurous Blaze</color>.",
+        "description": "Deals 3 Pyro DMG, creates 1 Aurous Blaze.",
+        "typetag": "GCG_SKILL_TAG_Q",
+        "type": "Elemental Burst",
+        "playcost": [
+          {
+            "costtype": "GCG_COST_DICE_PYRO",
+            "count": 3
+          },
+          {
+            "costtype": "GCG_COST_ENERGY",
+            "count": 3
+          }
+        ]
+      }
+    ],
+    "image": {
+      "filename_tagsicon": [
+        "UI_Gcg_Tag_Element_Fire",
+        "UI_Gcg_Tag_Weapon_Bow",
+        "UI_Gcg_Tag_Faction_Inazuma"
+      ],
+      "filename_cardface": "UI_Gcg_CardFace_Char_Avatar_Yoimiya",
+      "filename_cardface_golden": "UI_Gcg_CardFace_Char_Avatar_Yoimiya_Golden",
+      "filename_cardface_HD": "UI_Gcg_CardFace_Char_Avatar_Yoimiya_HD",
+      "filename_icon": "UI_Gcg_Char_AvatarIcon_Yoimiya"
+    }
+  },
+  {
+    "id": 1401,
+    "name": "Fischl",
+    "shareid": 26,
+    "hp": 10,
+    "maxenergy": 3,
+    "tags": [
+      "GCG_TAG_ELEMENT_ELECTRO",
+      "GCG_TAG_WEAPON_BOW",
+      "GCG_TAG_NATION_MONDSTADT"
+    ],
+    "tagstext": [
+      "Electro",
+      "Bow",
+      "Mondstadt"
+    ],
+    "storytitle": "\"Fischl, Prinzessin der Verurteilung!\" Fischl",
+    "storytext": "\"Oz, mine familiar, spread thine wings and weave for me a new fate in the gloom of this night!\"\n\"Mein Fräulein, you cannot expect me to fetch you a replacement card...\"",
+    "source": "Reward for inviting Fischl to a duel at The Cat's Tail and claiming victory in a Friendly Fracas with her",
+    "skills": [
+      {
+        "id": 14011,
+        "name": "Bolts of Downfall",
+        "descriptionraw": "Deals $[D__KEY__DAMAGE] $[D__KEY__ELEMENT].",
+        "basedamage": 2,
+        "baseelement": "GCG_ELEMENT_NONE",
+        "descriptionreplaced": "Deals 2 {SPRITE_PRESET#2100}<color=#FFFFFFFF>Physical DMG</color>.",
+        "description": "Deals 2 Physical DMG.",
+        "typetag": "GCG_SKILL_TAG_A",
+        "type": "Normal Attack",
+        "playcost": [
+          {
+            "costtype": "GCG_COST_DICE_ELECTRO",
+            "count": 1
+          },
+          {
+            "costtype": "GCG_COST_DICE_VOID",
+            "count": 2
+          }
+        ]
+      },
+      {
+        "id": 14012,
+        "name": "Nightrider",
+        "descriptionraw": "Deals $[D__KEY__DAMAGE] $[D__KEY__ELEMENT], summons 1 <color=#FFFFFFFF>$[C114011]</color>.",
+        "basedamage": 1,
+        "baseelement": "GCG_ELEMENT_ELECTRO",
+        "descriptionreplaced": "Deals 1 {SPRITE_PRESET#2104}<color=#FFACFFFF>Electro DMG</color>, summons 1 <color=#FFFFFFFF>Oz</color>.",
+        "description": "Deals 1 Electro DMG, summons 1 Oz.",
+        "typetag": "GCG_SKILL_TAG_E",
+        "type": "Elemental Skill",
+        "playcost": [
+          {
+            "costtype": "GCG_COST_DICE_ELECTRO",
+            "count": 3
+          }
+        ]
+      },
+      {
+        "id": 14013,
+        "name": "Midnight Phantasmagoria",
+        "descriptionraw": "Deals $[D__KEY__DAMAGE] $[D__KEY__ELEMENT], deals 2 <color=#FFFFFFFF>$[K5]</color> to all opposing characters on standby.",
+        "basedamage": 4,
+        "baseelement": "GCG_ELEMENT_ELECTRO",
+        "descriptionreplaced": "Deals 4 {SPRITE_PRESET#2104}<color=#FFACFFFF>Electro DMG</color>, deals 2 <color=#FFFFFFFF><color=#FFFFFFFF>Piercing DMG</color></color> to all opposing characters on standby.",
+        "description": "Deals 4 Electro DMG, deals 2 Piercing DMG to all opposing characters on standby.",
+        "typetag": "GCG_SKILL_TAG_Q",
+        "type": "Elemental Burst",
+        "playcost": [
+          {
+            "costtype": "GCG_COST_DICE_ELECTRO",
+            "count": 3
+          },
+          {
+            "costtype": "GCG_COST_ENERGY",
+            "count": 3
+          }
+        ]
+      }
+    ],
+    "image": {
+      "filename_tagsicon": [
+        "UI_Gcg_Tag_Element_Electric",
+        "UI_Gcg_Tag_Weapon_Bow",
+        "UI_Gcg_Tag_Faction_Mondstadt"
+      ],
+      "filename_cardface": "UI_Gcg_CardFace_Char_Avatar_Fischl",
+      "filename_cardface_golden": "UI_Gcg_CardFace_Char_Avatar_Fischl_Golden",
+      "filename_cardface_HD": "UI_Gcg_CardFace_Char_Avatar_Fischl_HD",
+      "filename_icon": "UI_Gcg_Char_AvatarIcon_Fischl"
+    }
+  },
+  {
+    "id": 1402,
+    "name": "Razor",
+    "shareid": 27,
+    "hp": 10,
+    "maxenergy": 2,
+    "tags": [
+      "GCG_TAG_ELEMENT_ELECTRO",
+      "GCG_TAG_WEAPON_CLAYMORE",
+      "GCG_TAG_NATION_MONDSTADT"
+    ],
+    "tagstext": [
+      "Electro",
+      "Claymore",
+      "Mondstadt"
+    ],
+    "storytitle": "\"Wolf Boy\" Razor",
+    "storytext": "\"Cards, hard.\"\n\"But... friends...\"",
+    "source": "Reward for inviting Razor to a duel at The Cat's Tail and claiming victory in a Friendly Fracas with him",
+    "skills": [
+      {
+        "id": 14021,
+        "name": "Steel Fang",
+        "descriptionraw": "Deals $[D__KEY__DAMAGE] $[D__KEY__ELEMENT].",
+        "basedamage": 2,
+        "baseelement": "GCG_ELEMENT_NONE",
+        "descriptionreplaced": "Deals 2 {SPRITE_PRESET#2100}<color=#FFFFFFFF>Physical DMG</color>.",
+        "description": "Deals 2 Physical DMG.",
+        "typetag": "GCG_SKILL_TAG_A",
+        "type": "Normal Attack",
+        "playcost": [
+          {
+            "costtype": "GCG_COST_DICE_ELECTRO",
+            "count": 1
+          },
+          {
+            "costtype": "GCG_COST_DICE_VOID",
+            "count": 2
+          }
+        ]
+      },
+      {
+        "id": 14022,
+        "name": "Claw and Thunder",
+        "descriptionraw": "Deals $[D__KEY__DAMAGE] $[D__KEY__ELEMENT].",
+        "basedamage": 3,
+        "baseelement": "GCG_ELEMENT_ELECTRO",
+        "descriptionreplaced": "Deals 3 {SPRITE_PRESET#2104}<color=#FFACFFFF>Electro DMG</color>.",
+        "description": "Deals 3 Electro DMG.",
+        "typetag": "GCG_SKILL_TAG_E",
+        "type": "Elemental Skill",
+        "playcost": [
+          {
+            "costtype": "GCG_COST_DICE_ELECTRO",
+            "count": 3
+          }
+        ]
+      },
+      {
+        "id": 14023,
+        "name": "Lightning Fang",
+        "descriptionraw": "Deals $[D__KEY__DAMAGE] $[D__KEY__ELEMENT]. This character gains <color=#FFFFFFFF>$[C114021]</color>.",
+        "basedamage": 3,
+        "baseelement": "GCG_ELEMENT_ELECTRO",
+        "descriptionreplaced": "Deals 3 {SPRITE_PRESET#2104}<color=#FFACFFFF>Electro DMG</color>. This character gains <color=#FFFFFFFF>The Wolf Within</color>.",
+        "description": "Deals 3 Electro DMG. This character gains The Wolf Within.",
+        "typetag": "GCG_SKILL_TAG_Q",
+        "type": "Elemental Burst",
+        "playcost": [
+          {
+            "costtype": "GCG_COST_DICE_ELECTRO",
+            "count": 3
+          },
+          {
+            "costtype": "GCG_COST_ENERGY",
+            "count": 2
+          }
+        ]
+      }
+    ],
+    "image": {
+      "filename_tagsicon": [
+        "UI_Gcg_Tag_Element_Electric",
+        "UI_Gcg_Tag_Weapon_Claymore",
+        "UI_Gcg_Tag_Faction_Mondstadt"
+      ],
+      "filename_cardface": "UI_Gcg_CardFace_Char_Avatar_Razor",
+      "filename_cardface_golden": "UI_Gcg_CardFace_Char_Avatar_Razor_Golden",
+      "filename_cardface_HD": "UI_Gcg_CardFace_Char_Avatar_Razor_HD",
+      "filename_icon": "UI_Gcg_Char_AvatarIcon_Razor"
+    }
+  },
+  {
+    "id": 1403,
+    "name": "Keqing",
+    "shareid": 28,
+    "hp": 10,
+    "maxenergy": 3,
+    "tags": [
+      "GCG_TAG_ELEMENT_ELECTRO",
+      "GCG_TAG_WEAPON_SWORD",
+      "GCG_TAG_NATION_LIYUE"
+    ],
+    "tagstext": [
+      "Electro",
+      "Sword",
+      "Liyue"
+    ],
+    "storytitle": "\"Driving Thunder\" Keqing",
+    "storytext": "She can build decks heretofore not conceived and win battles in which victory is unthinkable.",
+    "source": "Reward for inviting Keqing to a duel at The Cat's Tail and claiming victory in a Friendly Fracas with her",
+    "skills": [
+      {
+        "id": 14031,
+        "name": "Yunlai Swordsmanship",
+        "descriptionraw": "Deals $[D__KEY__DAMAGE] $[D__KEY__ELEMENT].",
+        "basedamage": 2,
+        "baseelement": "GCG_ELEMENT_NONE",
+        "descriptionreplaced": "Deals 2 {SPRITE_PRESET#2100}<color=#FFFFFFFF>Physical DMG</color>.",
+        "description": "Deals 2 Physical DMG.",
+        "typetag": "GCG_SKILL_TAG_A",
+        "type": "Normal Attack",
+        "playcost": [
+          {
+            "costtype": "GCG_COST_DICE_ELECTRO",
+            "count": 1
+          },
+          {
+            "costtype": "GCG_COST_DICE_VOID",
+            "count": 2
+          }
+        ]
+      },
+      {
+        "id": 14032,
+        "name": "Stellar Restoration",
+        "descriptionraw": "Deals $[D__KEY__DAMAGE] $[D__KEY__ELEMENT], creates 1 <color=#FFFFFFFF>$[C114031]</color>.",
+        "basedamage": 3,
+        "baseelement": "GCG_ELEMENT_ELECTRO",
+        "descriptionreplaced": "Deals 3 {SPRITE_PRESET#2104}<color=#FFACFFFF>Electro DMG</color>, creates 1 <color=#FFFFFFFF>Lightning Stiletto</color>.",
+        "description": "Deals 3 Electro DMG, creates 1 Lightning Stiletto.",
+        "typetag": "GCG_SKILL_TAG_E",
+        "type": "Elemental Skill",
+        "playcost": [
+          {
+            "costtype": "GCG_COST_DICE_ELECTRO",
+            "count": 3
+          }
+        ]
+      },
+      {
+        "id": 14033,
+        "name": "Starward Sword",
+        "descriptionraw": "Deals $[D__KEY__DAMAGE] $[D__KEY__ELEMENT], deals <color=#FFFFFFFF>3 $[K5]</color> to all opposing characters on standby.",
+        "basedamage": 4,
+        "baseelement": "GCG_ELEMENT_ELECTRO",
+        "descriptionreplaced": "Deals 4 {SPRITE_PRESET#2104}<color=#FFACFFFF>Electro DMG</color>, deals <color=#FFFFFFFF>3 <color=#FFFFFFFF>Piercing DMG</color></color> to all opposing characters on standby.",
+        "description": "Deals 4 Electro DMG, deals 3 Piercing DMG to all opposing characters on standby.",
+        "typetag": "GCG_SKILL_TAG_Q",
+        "type": "Elemental Burst",
+        "playcost": [
+          {
+            "costtype": "GCG_COST_DICE_ELECTRO",
+            "count": 4
+          },
+          {
+            "costtype": "GCG_COST_ENERGY",
+            "count": 3
+          }
+        ]
+      }
+    ],
+    "image": {
+      "filename_tagsicon": [
+        "UI_Gcg_Tag_Element_Electric",
+        "UI_Gcg_Tag_Weapon_Sword",
+        "UI_Gcg_Tag_Faction_Liyue"
+      ],
+      "filename_cardface": "UI_Gcg_CardFace_Char_Avatar_Keqing",
+      "filename_cardface_golden": "UI_Gcg_CardFace_Char_Avatar_Keqing_Golden",
+      "filename_cardface_HD": "UI_Gcg_CardFace_Char_Avatar_Keqing_HD",
+      "filename_icon": "UI_Gcg_Char_AvatarIcon_Keqing"
+    }
+  },
+  {
+    "id": 1404,
+    "name": "Cyno",
+    "shareid": 29,
+    "hp": 10,
+    "maxenergy": 2,
+    "tags": [
+      "GCG_TAG_ELEMENT_ELECTRO",
+      "GCG_TAG_WEAPON_POLE",
+      "GCG_TAG_NATION_SUMERU"
+    ],
+    "tagstext": [
+      "Electro",
+      "Polearm",
+      "Sumeru"
+    ],
+    "storytitle": "\"Judicator of Secrets\" Cyno",
+    "storytext": "The card bears the General Mahamatra's ardent fondness, which reminds one of the scorching sun hanging above the desert.",
+    "source": "Reward for inviting Cyno to a duel at The Cat's Tail and claiming victory in a Friendly Fracas with him",
+    "skills": [
+      {
+        "id": 14041,
+        "name": "Invoker's Spear",
+        "descriptionraw": "Deals $[D__KEY__DAMAGE] $[D__KEY__ELEMENT].",
+        "basedamage": 2,
+        "baseelement": "GCG_ELEMENT_NONE",
+        "descriptionreplaced": "Deals 2 {SPRITE_PRESET#2100}<color=#FFFFFFFF>Physical DMG</color>.",
+        "description": "Deals 2 Physical DMG.",
+        "typetag": "GCG_SKILL_TAG_A",
+        "type": "Normal Attack",
+        "playcost": [
+          {
+            "costtype": "GCG_COST_DICE_ELECTRO",
+            "count": 1
+          },
+          {
+            "costtype": "GCG_COST_DICE_VOID",
+            "count": 2
+          }
+        ]
+      },
+      {
+        "id": 14042,
+        "name": "Secret Rite: Chasmic Soulfarer",
+        "descriptionraw": "Deals $[D__KEY__DAMAGE] $[D__KEY__ELEMENT].\\n<color=#FFFFFFFF>$[C114041]</color>'s Indwelling Level +1.",
+        "basedamage": 3,
+        "baseelement": "GCG_ELEMENT_ELECTRO",
+        "descriptionreplaced": "Deals 3 {SPRITE_PRESET#2104}<color=#FFACFFFF>Electro DMG</color>.\\n<color=#FFFFFFFF>Pactsworn Pathclearer</color>'s Indwelling Level +1.",
+        "description": "Deals 3 Electro DMG.\nPactsworn Pathclearer's Indwelling Level +1.",
+        "typetag": "GCG_SKILL_TAG_E",
+        "type": "Elemental Skill",
+        "playcost": [
+          {
+            "costtype": "GCG_COST_DICE_ELECTRO",
+            "count": 3
+          }
+        ]
+      },
+      {
+        "id": 14043,
+        "name": "Sacred Rite: Wolf's Swiftness",
+        "descriptionraw": "Deals $[D__KEY__DAMAGE] $[D__KEY__ELEMENT].\\n<color=#FFFFFFFF>$[C114041]</color>'s Indwelling Level +2.",
+        "basedamage": 4,
+        "baseelement": "GCG_ELEMENT_ELECTRO",
+        "descriptionreplaced": "Deals 4 {SPRITE_PRESET#2104}<color=#FFACFFFF>Electro DMG</color>.\\n<color=#FFFFFFFF>Pactsworn Pathclearer</color>'s Indwelling Level +2.",
+        "description": "Deals 4 Electro DMG.\nPactsworn Pathclearer's Indwelling Level +2.",
+        "typetag": "GCG_SKILL_TAG_Q",
+        "type": "Elemental Burst",
+        "playcost": [
+          {
+            "costtype": "GCG_COST_DICE_ELECTRO",
+            "count": 4
+          },
+          {
+            "costtype": "GCG_COST_ENERGY",
+            "count": 2
+          }
+        ]
+      },
+      {
+        "id": 14044,
+        "name": "Lawful Enforcer",
+        "descriptionraw": "(Passive) When the battle begins, this character gains <color=#FFFFFFFF>$[C114041]</color>.",
+        "descriptionreplaced": "(Passive) When the battle begins, this character gains <color=#FFFFFFFF>Pactsworn Pathclearer</color>.",
+        "description": "(Passive) When the battle begins, this character gains Pactsworn Pathclearer.",
+        "typetag": "GCG_SKILL_TAG_PASSIVE",
+        "type": "Passive Skill",
+        "playcost": []
+      }
+    ],
+    "image": {
+      "filename_tagsicon": [
+        "UI_Gcg_Tag_Element_Electric",
+        "UI_Gcg_Tag_Weapon_Polearm",
+        "UI_Gcg_Tag_Faction_Sumeru"
+      ],
+      "filename_cardface": "UI_Gcg_CardFace_Char_Avatar_Cyno",
+      "filename_cardface_golden": "UI_Gcg_CardFace_Char_Avatar_Cyno_Golden",
+      "filename_cardface_HD": "UI_Gcg_CardFace_Char_Avatar_Cyno_HD",
+      "filename_icon": "UI_Gcg_Char_AvatarIcon_Cyno"
+    }
+  },
+  {
+    "id": 1501,
+    "name": "Sucrose",
+    "shareid": 36,
+    "hp": 10,
+    "maxenergy": 2,
+    "tags": [
+      "GCG_TAG_ELEMENT_ANEMO",
+      "GCG_TAG_WEAPON_CATALYST",
+      "GCG_TAG_NATION_MONDSTADT"
+    ],
+    "tagstext": [
+      "Anemo",
+      "Catalyst",
+      "Mondstadt"
+    ],
+    "storytitle": "\"Harmless Sweetie\" Sucrose",
+    "storytext": "\"You can't rate the strength of an as-yet untested deck!\"",
+    "source": "Obtained from the initial deck",
+    "skills": [
+      {
+        "id": 15011,
+        "name": "Wind Spirit Creation",
+        "descriptionraw": "Deals $[D__KEY__DAMAGE] $[D__KEY__ELEMENT].",
+        "basedamage": 1,
+        "baseelement": "GCG_ELEMENT_ANEMO",
+        "descriptionreplaced": "Deals 1 {SPRITE_PRESET#2105}<color=#80FFD7FF>Anemo DMG</color>.",
+        "description": "Deals 1 Anemo DMG.",
+        "typetag": "GCG_SKILL_TAG_A",
+        "type": "Normal Attack",
+        "playcost": [
+          {
+            "costtype": "GCG_COST_DICE_ANEMO",
+            "count": 1
+          },
+          {
+            "costtype": "GCG_COST_DICE_VOID",
+            "count": 2
+          }
+        ]
+      },
+      {
+        "id": 15012,
+        "name": "Astable Anemohypostasis Creation - 6308",
+        "descriptionraw": "Deals $[D__KEY__DAMAGE] $[D__KEY__ELEMENT], the target is forcibly switched to the previous character.",
+        "basedamage": 3,
+        "baseelement": "GCG_ELEMENT_ANEMO",
+        "descriptionreplaced": "Deals 3 {SPRITE_PRESET#2105}<color=#80FFD7FF>Anemo DMG</color>, the target is forcibly switched to the previous character.",
+        "description": "Deals 3 Anemo DMG, the target is forcibly switched to the previous character.",
+        "typetag": "GCG_SKILL_TAG_E",
+        "type": "Elemental Skill",
+        "playcost": [
+          {
+            "costtype": "GCG_COST_DICE_ANEMO",
+            "count": 3
+          }
+        ]
+      },
+      {
+        "id": 15013,
+        "name": "Forbidden Creation - Isomer 75 / Type II",
+        "descriptionraw": "Deals $[D__KEY__DAMAGE] $[D__KEY__ELEMENT], summons 1 <color=#FFFFFFFF>$[C115011]</color>.",
+        "basedamage": 1,
+        "baseelement": "GCG_ELEMENT_ANEMO",
+        "descriptionreplaced": "Deals 1 {SPRITE_PRESET#2105}<color=#80FFD7FF>Anemo DMG</color>, summons 1 <color=#FFFFFFFF>Large Wind Spirit</color>.",
+        "description": "Deals 1 Anemo DMG, summons 1 Large Wind Spirit.",
+        "typetag": "GCG_SKILL_TAG_Q",
+        "type": "Elemental Burst",
+        "playcost": [
+          {
+            "costtype": "GCG_COST_DICE_ANEMO",
+            "count": 3
+          },
+          {
+            "costtype": "GCG_COST_ENERGY",
+            "count": 2
+          }
+        ]
+      }
+    ],
+    "image": {
+      "filename_tagsicon": [
+        "UI_Gcg_Tag_Element_Wind",
+        "UI_Gcg_Tag_Weapon_Catalyst",
+        "UI_Gcg_Tag_Faction_Mondstadt"
+      ],
+      "filename_cardface": "UI_Gcg_CardFace_Char_Avatar_Sucrose",
+      "filename_cardface_golden": "UI_Gcg_CardFace_Char_Avatar_Sucrose_Golden",
+      "filename_cardface_HD": "UI_Gcg_CardFace_Char_Avatar_Sucrose_HD",
+      "filename_icon": "UI_Gcg_Char_AvatarIcon_Sucrose"
+    }
+  },
+  {
+    "id": 1502,
+    "name": "Jean",
+    "shareid": 37,
+    "hp": 10,
+    "maxenergy": 2,
+    "tags": [
+      "GCG_TAG_ELEMENT_ANEMO",
+      "GCG_TAG_WEAPON_SWORD",
+      "GCG_TAG_NATION_MONDSTADT"
+    ],
+    "tagstext": [
+      "Anemo",
+      "Sword",
+      "Mondstadt"
+    ],
+    "storytitle": "\"Dandelion Knight\" Jean",
+    "storytext": "Never believes that she has done well enough — not until final victory is hers, anyway.",
+    "source": "Reward for inviting Jean to a duel at The Cat's Tail and claiming victory in a Friendly Fracas with her",
+    "skills": [
+      {
+        "id": 15021,
+        "name": "Favonius Bladework",
+        "descriptionraw": "Deals $[D__KEY__DAMAGE] $[D__KEY__ELEMENT].",
+        "basedamage": 2,
+        "baseelement": "GCG_ELEMENT_NONE",
+        "descriptionreplaced": "Deals 2 {SPRITE_PRESET#2100}<color=#FFFFFFFF>Physical DMG</color>.",
+        "description": "Deals 2 Physical DMG.",
+        "typetag": "GCG_SKILL_TAG_A",
+        "type": "Normal Attack",
+        "playcost": [
+          {
+            "costtype": "GCG_COST_DICE_ANEMO",
+            "count": 1
+          },
+          {
+            "costtype": "GCG_COST_DICE_VOID",
+            "count": 2
+          }
+        ]
+      },
+      {
+        "id": 15022,
+        "name": "Gale Blade",
+        "descriptionraw": "Deals $[D__KEY__DAMAGE] $[D__KEY__ELEMENT], the target is forcibly switched to the next character.",
+        "basedamage": 3,
+        "baseelement": "GCG_ELEMENT_ANEMO",
+        "descriptionreplaced": "Deals 3 {SPRITE_PRESET#2105}<color=#80FFD7FF>Anemo DMG</color>, the target is forcibly switched to the next character.",
+        "description": "Deals 3 Anemo DMG, the target is forcibly switched to the next character.",
+        "typetag": "GCG_SKILL_TAG_E",
+        "type": "Elemental Skill",
+        "playcost": [
+          {
+            "costtype": "GCG_COST_DICE_ANEMO",
+            "count": 3
+          }
+        ]
+      },
+      {
+        "id": 15023,
+        "name": "Dandelion Breeze",
+        "descriptionraw": "Heals all your characters for 2 HP, summons 1 <color=#FFFFFFFF>$[C115021]</color>.",
+        "descriptionreplaced": "Heals all your characters for 2 HP, summons 1 <color=#FFFFFFFF>Dandelion Field</color>.",
+        "description": "Heals all your characters for 2 HP, summons 1 Dandelion Field.",
+        "typetag": "GCG_SKILL_TAG_Q",
+        "type": "Elemental Burst",
+        "playcost": [
+          {
+            "costtype": "GCG_COST_DICE_ANEMO",
+            "count": 4
+          },
+          {
+            "costtype": "GCG_COST_ENERGY",
+            "count": 2
+          }
+        ]
+      }
+    ],
+    "image": {
+      "filename_tagsicon": [
+        "UI_Gcg_Tag_Element_Wind",
+        "UI_Gcg_Tag_Weapon_Sword",
+        "UI_Gcg_Tag_Faction_Mondstadt"
+      ],
+      "filename_cardface": "UI_Gcg_CardFace_Char_Avatar_Qin",
+      "filename_cardface_golden": "UI_Gcg_CardFace_Char_Avatar_Qin_Golden",
+      "filename_cardface_HD": "UI_Gcg_CardFace_Char_Avatar_Qin_HD",
+      "filename_icon": "UI_Gcg_Char_AvatarIcon_Qin"
+    }
+  },
+  {
+    "id": 1601,
+    "name": "Ningguang",
+    "shareid": 42,
+    "hp": 10,
+    "maxenergy": 3,
+    "tags": [
+      "GCG_TAG_ELEMENT_GEO",
+      "GCG_TAG_WEAPON_CATALYST",
+      "GCG_TAG_NATION_LIYUE"
+    ],
+    "tagstext": [
+      "Geo",
+      "Catalyst",
+      "Liyue"
+    ],
+    "storytitle": "\"Eclipsing Star\" Ningguang",
+    "storytext": "The greatest secret she keeps is that she keeps a great many of Liyue's secrets.",
+    "source": "Reward for inviting Ningguang to a duel at The Cat's Tail and claiming victory in a Friendly Fracas with her",
+    "skills": [
+      {
+        "id": 16011,
+        "name": "Sparkling Scatter",
+        "descriptionraw": "Deals $[D__KEY__DAMAGE] $[D__KEY__ELEMENT].",
+        "basedamage": 1,
+        "baseelement": "GCG_ELEMENT_GEO",
+        "descriptionreplaced": "Deals 1 {SPRITE_PRESET#2106}<color=#FFE699FF>Geo DMG</color>.",
+        "description": "Deals 1 Geo DMG.",
+        "typetag": "GCG_SKILL_TAG_A",
+        "type": "Normal Attack",
+        "playcost": [
+          {
+            "costtype": "GCG_COST_DICE_GEO",
+            "count": 1
+          },
+          {
+            "costtype": "GCG_COST_DICE_VOID",
+            "count": 2
+          }
+        ]
+      },
+      {
+        "id": 16012,
+        "name": "Jade Screen",
+        "descriptionraw": "Deals $[D__KEY__DAMAGE] $[D__KEY__ELEMENT], creates 1 <color=#FFFFFFFF>$[C116011]</color>.",
+        "basedamage": 2,
+        "baseelement": "GCG_ELEMENT_GEO",
+        "descriptionreplaced": "Deals 2 {SPRITE_PRESET#2106}<color=#FFE699FF>Geo DMG</color>, creates 1 <color=#FFFFFFFF>Jade Screen</color>.",
+        "description": "Deals 2 Geo DMG, creates 1 Jade Screen.",
+        "typetag": "GCG_SKILL_TAG_E",
+        "type": "Elemental Skill",
+        "playcost": [
+          {
+            "costtype": "GCG_COST_DICE_GEO",
+            "count": 3
+          }
+        ]
+      },
+      {
+        "id": 16013,
+        "name": "Starshatter",
+        "descriptionraw": "Deals $[D__KEY__DAMAGE] $[D__KEY__ELEMENT]. If <color=#FFFFFFFF>$[C116011]</color> is on the field, deals +2 DMG.",
+        "basedamage": 6,
+        "baseelement": "GCG_ELEMENT_GEO",
+        "descriptionreplaced": "Deals 6 {SPRITE_PRESET#2106}<color=#FFE699FF>Geo DMG</color>. If <color=#FFFFFFFF>Jade Screen</color> is on the field, deals +2 DMG.",
+        "description": "Deals 6 Geo DMG. If Jade Screen is on the field, deals +2 DMG.",
+        "typetag": "GCG_SKILL_TAG_Q",
+        "type": "Elemental Burst",
+        "playcost": [
+          {
+            "costtype": "GCG_COST_DICE_GEO",
+            "count": 3
+          },
+          {
+            "costtype": "GCG_COST_ENERGY",
+            "count": 3
+          }
+        ]
+      }
+    ],
+    "image": {
+      "filename_tagsicon": [
+        "UI_Gcg_Tag_Element_Rock",
+        "UI_Gcg_Tag_Weapon_Catalyst",
+        "UI_Gcg_Tag_Faction_Liyue"
+      ],
+      "filename_cardface": "UI_Gcg_CardFace_Char_Avatar_Ningguang",
+      "filename_cardface_golden": "UI_Gcg_CardFace_Char_Avatar_Ningguang_Golden",
+      "filename_cardface_HD": "UI_Gcg_CardFace_Char_Avatar_Ningguang_HD",
+      "filename_icon": "UI_Gcg_Char_AvatarIcon_Ningguang"
+    }
+  },
+  {
+    "id": 1602,
+    "name": "Noelle",
+    "shareid": 43,
+    "hp": 10,
+    "maxenergy": 2,
+    "tags": [
+      "GCG_TAG_ELEMENT_GEO",
+      "GCG_TAG_WEAPON_CLAYMORE",
+      "GCG_TAG_NATION_MONDSTADT"
+    ],
+    "tagstext": [
+      "Geo",
+      "Claymore",
+      "Mondstadt"
+    ],
+    "storytitle": "\"Chivalric Blossom\" Noelle",
+    "storytext": "You can leave arranging the table to her — really, you can.",
+    "source": "Reward for inviting Noelle to a duel at The Cat's Tail and claiming victory in a Friendly Fracas with her",
+    "skills": [
+      {
+        "id": 16021,
+        "name": "Favonius Bladework - Maid",
+        "descriptionraw": "Deals $[D__KEY__DAMAGE] $[D__KEY__ELEMENT].",
+        "basedamage": 2,
+        "baseelement": "GCG_ELEMENT_NONE",
+        "descriptionreplaced": "Deals 2 {SPRITE_PRESET#2100}<color=#FFFFFFFF>Physical DMG</color>.",
+        "description": "Deals 2 Physical DMG.",
+        "typetag": "GCG_SKILL_TAG_A",
+        "type": "Normal Attack",
+        "playcost": [
+          {
+            "costtype": "GCG_COST_DICE_GEO",
+            "count": 1
+          },
+          {
+            "costtype": "GCG_COST_DICE_VOID",
+            "count": 2
+          }
+        ]
+      },
+      {
+        "id": 16022,
+        "name": "Breastplate",
+        "descriptionraw": "Deals $[D__KEY__DAMAGE] $[D__KEY__ELEMENT], creates 1 <color=#FFFFFFFF>$[C116021]</color>.",
+        "basedamage": 1,
+        "baseelement": "GCG_ELEMENT_GEO",
+        "descriptionreplaced": "Deals 1 {SPRITE_PRESET#2106}<color=#FFE699FF>Geo DMG</color>, creates 1 <color=#FFFFFFFF>Full Plate</color>.",
+        "description": "Deals 1 Geo DMG, creates 1 Full Plate.",
+        "typetag": "GCG_SKILL_TAG_E",
+        "type": "Elemental Skill",
+        "playcost": [
+          {
+            "costtype": "GCG_COST_DICE_GEO",
+            "count": 3
+          }
+        ]
+      },
+      {
+        "id": 16023,
+        "name": "Sweeping Time",
+        "descriptionraw": "Deals $[D__KEY__DAMAGE] $[D__KEY__ELEMENT]. This character gains <color=#FFFFFFFF>$[C116022]</color>.",
+        "basedamage": 4,
+        "baseelement": "GCG_ELEMENT_GEO",
+        "descriptionreplaced": "Deals 4 {SPRITE_PRESET#2106}<color=#FFE699FF>Geo DMG</color>. This character gains <color=#FFFFFFFF>Sweeping Time</color>.",
+        "description": "Deals 4 Geo DMG. This character gains Sweeping Time.",
+        "typetag": "GCG_SKILL_TAG_Q",
+        "type": "Elemental Burst",
+        "playcost": [
+          {
+            "costtype": "GCG_COST_DICE_GEO",
+            "count": 4
+          },
+          {
+            "costtype": "GCG_COST_ENERGY",
+            "count": 2
+          }
+        ]
+      }
+    ],
+    "image": {
+      "filename_tagsicon": [
+        "UI_Gcg_Tag_Element_Rock",
+        "UI_Gcg_Tag_Weapon_Claymore",
+        "UI_Gcg_Tag_Faction_Mondstadt"
+      ],
+      "filename_cardface": "UI_Gcg_CardFace_Char_Avatar_Noel",
+      "filename_cardface_golden": "UI_Gcg_CardFace_Char_Avatar_Noel_Golden",
+      "filename_cardface_HD": "UI_Gcg_CardFace_Char_Avatar_Noel_HD",
+      "filename_icon": "UI_Gcg_Char_AvatarIcon_Noel"
+    }
+  },
+  {
+    "id": 1701,
+    "name": "Collei",
+    "shareid": 47,
+    "hp": 10,
+    "maxenergy": 2,
+    "tags": [
+      "GCG_TAG_ELEMENT_DENDRO",
+      "GCG_TAG_WEAPON_BOW",
+      "GCG_TAG_NATION_SUMERU"
+    ],
+    "tagstext": [
+      "Dendro",
+      "Bow",
+      "Sumeru"
+    ],
+    "storytitle": "\"Sprout of Rebirth\" Collei",
+    "storytext": "\"'Shouting the name of your card loudly will increase its power many-fold'... You've got to be kidding, right?\"",
+    "source": "Reward for inviting Collei to a duel at The Cat's Tail and claiming victory in a Friendly Fracas with her",
+    "skills": [
+      {
+        "id": 17011,
+        "name": "Supplicant's Bowmanship",
+        "descriptionraw": "Deals $[D__KEY__DAMAGE] $[D__KEY__ELEMENT].",
+        "basedamage": 2,
+        "baseelement": "GCG_ELEMENT_NONE",
+        "descriptionreplaced": "Deals 2 {SPRITE_PRESET#2100}<color=#FFFFFFFF>Physical DMG</color>.",
+        "description": "Deals 2 Physical DMG.",
+        "typetag": "GCG_SKILL_TAG_A",
+        "type": "Normal Attack",
+        "playcost": [
+          {
+            "costtype": "GCG_COST_DICE_DENDRO",
+            "count": 1
+          },
+          {
+            "costtype": "GCG_COST_DICE_VOID",
+            "count": 2
+          }
+        ]
+      },
+      {
+        "id": 17012,
+        "name": "Floral Brush",
+        "descriptionraw": "Deals $[D__KEY__DAMAGE] $[D__KEY__ELEMENT].",
+        "basedamage": 3,
+        "baseelement": "GCG_ELEMENT_DENDRO",
+        "descriptionreplaced": "Deals 3 {SPRITE_PRESET#2107}<color=#7EC236FF>Dendro DMG</color>.",
+        "description": "Deals 3 Dendro DMG.",
+        "typetag": "GCG_SKILL_TAG_E",
+        "type": "Elemental Skill",
+        "playcost": [
+          {
+            "costtype": "GCG_COST_DICE_DENDRO",
+            "count": 3
+          }
+        ]
+      },
+      {
+        "id": 17013,
+        "name": "Trump-Card Kitty",
+        "descriptionraw": "Deals $[D__KEY__DAMAGE] $[D__KEY__ELEMENT], summons 1 <color=#FFFFFFFF>$[C117011]</color>.",
+        "basedamage": 2,
+        "baseelement": "GCG_ELEMENT_DENDRO",
+        "descriptionreplaced": "Deals 2 {SPRITE_PRESET#2107}<color=#7EC236FF>Dendro DMG</color>, summons 1 <color=#FFFFFFFF>Cuilein-Anbar</color>.",
+        "description": "Deals 2 Dendro DMG, summons 1 Cuilein-Anbar.",
+        "typetag": "GCG_SKILL_TAG_Q",
+        "type": "Elemental Burst",
+        "playcost": [
+          {
+            "costtype": "GCG_COST_DICE_DENDRO",
+            "count": 3
+          },
+          {
+            "costtype": "GCG_COST_ENERGY",
+            "count": 2
+          }
+        ]
+      }
+    ],
+    "image": {
+      "filename_tagsicon": [
+        "UI_Gcg_Tag_Element_Grass",
+        "UI_Gcg_Tag_Weapon_Bow",
+        "UI_Gcg_Tag_Faction_Sumeru"
+      ],
+      "filename_cardface": "UI_Gcg_CardFace_Char_Avatar_Collei",
+      "filename_cardface_golden": "UI_Gcg_CardFace_Char_Avatar_Collei_Golden",
+      "filename_cardface_HD": "UI_Gcg_CardFace_Char_Avatar_Collei_HD",
+      "filename_icon": "UI_Gcg_Char_AvatarIcon_Collei"
+    }
+  },
+  {
+    "id": 2201,
+    "name": "Rhodeia of Loch",
+    "shareid": 53,
+    "hp": 10,
+    "maxenergy": 3,
+    "tags": [
+      "GCG_TAG_ELEMENT_HYDRO",
+      "GCG_TAG_WEAPON_NONE",
+      "GCG_TAG_CAMP_MONSTER"
+    ],
+    "tagstext": [
+      "Hydro",
+      "Other Weapons",
+      "Monster"
+    ],
+    "storytitle": "\"Lady of Clear Waters\" Rhodeia",
+    "storytext": "\"As long as rain falls and rivers flow... water will exist forever... \"",
+    "source": "Reward for accepting the Tavern Challenge at The Cat's Tail and claiming victory in a Friendly Fracas with Rhodeia of Loch",
+    "skills": [
+      {
+        "id": 22011,
+        "name": "Surge",
+        "descriptionraw": "Deals $[D__KEY__DAMAGE] $[D__KEY__ELEMENT].",
+        "basedamage": 1,
+        "baseelement": "GCG_ELEMENT_HYDRO",
+        "descriptionreplaced": "Deals 1 {SPRITE_PRESET#2102}<color=#80C0FFFF>Hydro DMG</color>.",
+        "description": "Deals 1 Hydro DMG.",
+        "typetag": "GCG_SKILL_TAG_A",
+        "type": "Normal Attack",
+        "playcost": [
+          {
+            "costtype": "GCG_COST_DICE_HYDRO",
+            "count": 1
+          },
+          {
+            "costtype": "GCG_COST_DICE_VOID",
+            "count": 2
+          }
+        ]
+      },
+      {
+        "id": 22012,
+        "name": "Oceanid Mimic Summoning",
+        "descriptionraw": "Randomly summons 1 <color=#FFFFFFFF>$[C122010]</color> (Prioritizes summoning a different type from preexisting ones, at most 2 types of $[C122010] can exist at the same time in the summons area).",
+        "descriptionreplaced": "Randomly summons 1 <color=#FFFFFFFF>Oceanid Mimic</color> (Prioritizes summoning a different type from preexisting ones, at most 2 types of Oceanid Mimic can exist at the same time in the summons area).",
+        "description": "Randomly summons 1 Oceanid Mimic (Prioritizes summoning a different type from preexisting ones, at most 2 types of Oceanid Mimic can exist at the same time in the summons area).",
+        "typetag": "GCG_SKILL_TAG_E",
+        "type": "Elemental Skill",
+        "playcost": [
+          {
+            "costtype": "GCG_COST_DICE_HYDRO",
+            "count": 3
+          }
+        ]
+      },
+      {
+        "id": 22013,
+        "name": "The Myriad Wilds",
+        "descriptionraw": "Randomly summons 2 <color=#FFFFFFFF>$[C122010]</color> (Prioritizes summoning a different type from preexisting ones, at most 2 types of $[C122010] can exist at the same time in the summons area).",
+        "descriptionreplaced": "Randomly summons 2 <color=#FFFFFFFF>Oceanid Mimic</color> (Prioritizes summoning a different type from preexisting ones, at most 2 types of Oceanid Mimic can exist at the same time in the summons area).",
+        "description": "Randomly summons 2 Oceanid Mimic (Prioritizes summoning a different type from preexisting ones, at most 2 types of Oceanid Mimic can exist at the same time in the summons area).",
+        "typetag": "GCG_SKILL_TAG_E",
+        "type": "Elemental Skill",
+        "playcost": [
+          {
+            "costtype": "GCG_COST_DICE_HYDRO",
+            "count": 5
+          }
+        ]
+      },
+      {
+        "id": 22014,
+        "name": "Tide and Torrent",
+        "descriptionraw": "Deals $[D__KEY__DAMAGE] $[D__KEY__ELEMENT]. For each friendly Summon on the field, deals +1 additional DMG.",
+        "basedamage": 4,
+        "baseelement": "GCG_ELEMENT_HYDRO",
+        "descriptionreplaced": "Deals 4 {SPRITE_PRESET#2102}<color=#80C0FFFF>Hydro DMG</color>. For each friendly Summon on the field, deals +1 additional DMG.",
+        "description": "Deals 4 Hydro DMG. For each friendly Summon on the field, deals +1 additional DMG.",
+        "typetag": "GCG_SKILL_TAG_Q",
+        "type": "Elemental Burst",
+        "playcost": [
+          {
+            "costtype": "GCG_COST_DICE_HYDRO",
+            "count": 3
+          },
+          {
+            "costtype": "GCG_COST_ENERGY",
+            "count": 3
+          }
+        ]
+      }
+    ],
+    "image": {
+      "filename_tagsicon": [
+        "UI_Gcg_Tag_Element_Water",
+        "UI_Gcg_Tag_Weapon_None",
+        "UI_Gcg_Tag_Faction_Monster"
+      ],
+      "filename_cardface": "UI_Gcg_CardFace_Char_Monster_Oceanid",
+      "filename_cardface_golden": "UI_Gcg_CardFace_Char_Monster_Oceanid_Golden",
+      "filename_cardface_HD": "UI_Gcg_CardFace_Char_Monster_Oceanid_HD",
+      "filename_icon": "UI_Gcg_Char_MonsterIcon_Oceanid"
+    }
+  },
+  {
+    "id": 2202,
+    "name": "Mirror Maiden",
+    "shareid": 54,
+    "hp": 10,
+    "maxenergy": 2,
+    "tags": [
+      "GCG_TAG_ELEMENT_HYDRO",
+      "GCG_TAG_WEAPON_NONE",
+      "GCG_TAG_CAMP_FATUI"
+    ],
+    "tagstext": [
+      "Hydro",
+      "Other Weapons",
+      "Fatui"
+    ],
+    "storytitle": "\"Snezhnayan Maiden\" Mirror Envoy",
+    "storytext": "All secrets shall be concealed within the mirror of glaring brightness...",
+    "source": "Reward for accepting the Tavern Challenge at The Cat's Tail and claiming victory in a Friendly Fracas with Fatui Mirror Maiden",
+    "skills": [
+      {
+        "id": 22021,
+        "name": "Water Ball",
+        "descriptionraw": "Deals $[D__KEY__DAMAGE] $[D__KEY__ELEMENT].",
+        "basedamage": 1,
+        "baseelement": "GCG_ELEMENT_HYDRO",
+        "descriptionreplaced": "Deals 1 {SPRITE_PRESET#2102}<color=#80C0FFFF>Hydro DMG</color>.",
+        "description": "Deals 1 Hydro DMG.",
+        "typetag": "GCG_SKILL_TAG_A",
+        "type": "Normal Attack",
+        "playcost": [
+          {
+            "costtype": "GCG_COST_DICE_HYDRO",
+            "count": 1
+          },
+          {
+            "costtype": "GCG_COST_DICE_VOID",
+            "count": 2
+          }
+        ]
+      },
+      {
+        "id": 22022,
+        "name": "Influx Blast",
+        "descriptionraw": "Deals $[D__KEY__DAMAGE] $[D__KEY__ELEMENT]. The target character receives <color=#FFFFFFFF>$[C122021]</color>.",
+        "basedamage": 3,
+        "baseelement": "GCG_ELEMENT_HYDRO",
+        "descriptionreplaced": "Deals 3 {SPRITE_PRESET#2102}<color=#80C0FFFF>Hydro DMG</color>. The target character receives <color=#FFFFFFFF>Refraction</color>.",
+        "description": "Deals 3 Hydro DMG. The target character receives Refraction.",
+        "typetag": "GCG_SKILL_TAG_E",
+        "type": "Elemental Skill",
+        "playcost": [
+          {
+            "costtype": "GCG_COST_DICE_HYDRO",
+            "count": 3
+          }
+        ]
+      },
+      {
+        "id": 22023,
+        "name": "Rippled Reflection",
+        "descriptionraw": "Deals $[D__KEY__DAMAGE] $[D__KEY__ELEMENT].",
+        "basedamage": 5,
+        "baseelement": "GCG_ELEMENT_HYDRO",
+        "descriptionreplaced": "Deals 5 {SPRITE_PRESET#2102}<color=#80C0FFFF>Hydro DMG</color>.",
+        "description": "Deals 5 Hydro DMG.",
+        "typetag": "GCG_SKILL_TAG_Q",
+        "type": "Elemental Burst",
+        "playcost": [
+          {
+            "costtype": "GCG_COST_DICE_HYDRO",
+            "count": 3
+          },
+          {
+            "costtype": "GCG_COST_ENERGY",
+            "count": 2
+          }
+        ]
+      }
+    ],
+    "image": {
+      "filename_tagsicon": [
+        "UI_Gcg_Tag_Element_Water",
+        "UI_Gcg_Tag_Weapon_None",
+        "UI_Gcg_Tag_Faction_Fatui"
+      ],
+      "filename_cardface": "UI_Gcg_CardFace_Char_Monster_Maidenwater",
+      "filename_cardface_golden": "UI_Gcg_CardFace_Char_Monster_Maidenwater_Golden",
+      "filename_cardface_HD": "UI_Gcg_CardFace_Char_Monster_Maidenwater_HD",
+      "filename_icon": "UI_Gcg_Char_MonsterIcon_Maidenwater"
+    }
+  },
+  {
+    "id": 2301,
+    "name": "Fatui Pyro Agent",
+    "shareid": 55,
+    "hp": 9,
+    "maxenergy": 2,
+    "tags": [
+      "GCG_TAG_ELEMENT_PYRO",
+      "GCG_TAG_WEAPON_NONE",
+      "GCG_TAG_CAMP_FATUI"
+    ],
+    "tagstext": [
+      "Pyro",
+      "Other Weapons",
+      "Fatui"
+    ],
+    "storytitle": "\"Blade of Settlement\" Agent",
+    "storytext": "\"There is no running from your debt, be you living or otherwise.\"",
+    "source": "Reward for accepting the Tavern Challenge at The Cat's Tail and claiming victory in a Friendly Fracas with Fatui Pyro Agent",
+    "skills": [
+      {
+        "id": 23011,
+        "name": "Thrust",
+        "descriptionraw": "Deals $[D__KEY__DAMAGE] $[D__KEY__ELEMENT].",
+        "basedamage": 2,
+        "baseelement": "GCG_ELEMENT_NONE",
+        "descriptionreplaced": "Deals 2 {SPRITE_PRESET#2100}<color=#FFFFFFFF>Physical DMG</color>.",
+        "description": "Deals 2 Physical DMG.",
+        "typetag": "GCG_SKILL_TAG_A",
+        "type": "Normal Attack",
+        "playcost": [
+          {
+            "costtype": "GCG_COST_DICE_PYRO",
+            "count": 1
+          },
+          {
+            "costtype": "GCG_COST_DICE_VOID",
+            "count": 2
+          }
+        ]
+      },
+      {
+        "id": 23012,
+        "name": "Prowl",
+        "descriptionraw": "Deals $[D__KEY__DAMAGE] $[D__KEY__ELEMENT]. This character gains <color=#FFFFFFFF>$[C123011]</color>.",
+        "basedamage": 1,
+        "baseelement": "GCG_ELEMENT_PYRO",
+        "descriptionreplaced": "Deals 1 {SPRITE_PRESET#2103}<color=#FF9999FF>Pyro DMG</color>. This character gains <color=#FFFFFFFF>Stealth</color>.",
+        "description": "Deals 1 Pyro DMG. This character gains Stealth.",
+        "typetag": "GCG_SKILL_TAG_E",
+        "type": "Elemental Skill",
+        "playcost": [
+          {
+            "costtype": "GCG_COST_DICE_PYRO",
+            "count": 3
+          }
+        ]
+      },
+      {
+        "id": 23013,
+        "name": "Blade Ablaze",
+        "descriptionraw": "Deals $[D__KEY__DAMAGE] $[D__KEY__ELEMENT].",
+        "basedamage": 5,
+        "baseelement": "GCG_ELEMENT_PYRO",
+        "descriptionreplaced": "Deals 5 {SPRITE_PRESET#2103}<color=#FF9999FF>Pyro DMG</color>.",
+        "description": "Deals 5 Pyro DMG.",
+        "typetag": "GCG_SKILL_TAG_Q",
+        "type": "Elemental Burst",
+        "playcost": [
+          {
+            "costtype": "GCG_COST_DICE_PYRO",
+            "count": 3
+          },
+          {
+            "costtype": "GCG_COST_ENERGY",
+            "count": 2
+          }
+        ]
+      },
+      {
+        "id": 23014,
+        "name": "Stealth Master",
+        "descriptionraw": "(Passive) When the battle begins, this character gains <color=#FFFFFFFF>$[C123011]</color>.",
+        "descriptionreplaced": "(Passive) When the battle begins, this character gains <color=#FFFFFFFF>Stealth</color>.",
+        "description": "(Passive) When the battle begins, this character gains Stealth.",
+        "typetag": "GCG_SKILL_TAG_PASSIVE",
+        "type": "Passive Skill",
+        "playcost": []
+      }
+    ],
+    "image": {
+      "filename_tagsicon": [
+        "UI_Gcg_Tag_Element_Fire",
+        "UI_Gcg_Tag_Weapon_None",
+        "UI_Gcg_Tag_Faction_Fatui"
+      ],
+      "filename_cardface": "UI_Gcg_CardFace_Char_Monster_Fatuus",
+      "filename_cardface_golden": "UI_Gcg_CardFace_Char_Monster_Fatuus_Golden",
+      "filename_cardface_HD": "UI_Gcg_CardFace_Char_Monster_Fatuus_HD",
+      "filename_icon": "UI_Gcg_Char_MonsterIcon_Fatuus"
+    }
+  },
+  {
+    "id": 2501,
+    "name": "Maguu Kenki",
+    "shareid": 58,
+    "hp": 10,
+    "maxenergy": 3,
+    "tags": [
+      "GCG_TAG_ELEMENT_ANEMO",
+      "GCG_TAG_WEAPON_NONE",
+      "GCG_TAG_CAMP_MONSTER"
+    ],
+    "tagstext": [
+      "Anemo",
+      "Other Weapons",
+      "Monster"
+    ],
+    "storytitle": "\"Ingenious Machine\" Maguu Kenki",
+    "storytext": "Even today, it still patrols the place where fate was severed.",
+    "source": "Reward for accepting the Tavern Challenge at The Cat's Tail and claiming victory in a Friendly Fracas with Maguu Kenki",
+    "skills": [
+      {
+        "id": 25011,
+        "name": "Ichimonji",
+        "descriptionraw": "Deals $[D__KEY__DAMAGE] $[D__KEY__ELEMENT].",
+        "basedamage": 2,
+        "baseelement": "GCG_ELEMENT_NONE",
+        "descriptionreplaced": "Deals 2 {SPRITE_PRESET#2100}<color=#FFFFFFFF>Physical DMG</color>.",
+        "description": "Deals 2 Physical DMG.",
+        "typetag": "GCG_SKILL_TAG_A",
+        "type": "Normal Attack",
+        "playcost": [
+          {
+            "costtype": "GCG_COST_DICE_ANEMO",
+            "count": 1
+          },
+          {
+            "costtype": "GCG_COST_DICE_VOID",
+            "count": 2
+          }
+        ]
+      },
+      {
+        "id": 25012,
+        "name": "Blustering Blade",
+        "descriptionraw": "Summons 1 <color=#FFFFFFFF>$[C125011]</color>.",
+        "descriptionreplaced": "Summons 1 <color=#FFFFFFFF>Shadowsword: Lone Gale</color>.",
+        "description": "Summons 1 Shadowsword: Lone Gale.",
+        "typetag": "GCG_SKILL_TAG_E",
+        "type": "Elemental Skill",
+        "playcost": [
+          {
+            "costtype": "GCG_COST_DICE_ANEMO",
+            "count": 3
+          }
+        ]
+      },
+      {
+        "id": 25013,
+        "name": "Frosty Assault",
+        "descriptionraw": "Summons 1 <color=#FFFFFFFF>$[C125012]</color>.",
+        "descriptionreplaced": "Summons 1 <color=#FFFFFFFF>Shadowsword: Galloping Frost</color>.",
+        "description": "Summons 1 Shadowsword: Galloping Frost.",
+        "typetag": "GCG_SKILL_TAG_E",
+        "type": "Elemental Skill",
+        "playcost": [
+          {
+            "costtype": "GCG_COST_DICE_CRYO",
+            "count": 3
+          }
+        ]
+      },
+      {
+        "id": 25014,
+        "name": "Pseudo Tengu Sweeper",
+        "descriptionraw": "Deals $[D__KEY__DAMAGE] $[D__KEY__ELEMENT], triggers the effect(s) of all your <color=#FFFFFFFF>Shadowsword</color> Summon(s). (Does not consume their Usages)",
+        "basedamage": 4,
+        "baseelement": "GCG_ELEMENT_ANEMO",
+        "descriptionreplaced": "Deals 4 {SPRITE_PRESET#2105}<color=#80FFD7FF>Anemo DMG</color>, triggers the effect(s) of all your <color=#FFFFFFFF>Shadowsword</color> Summon(s). (Does not consume their Usages)",
+        "description": "Deals 4 Anemo DMG, triggers the effect(s) of all your Shadowsword Summon(s). (Does not consume their Usages)",
+        "typetag": "GCG_SKILL_TAG_Q",
+        "type": "Elemental Burst",
+        "playcost": [
+          {
+            "costtype": "GCG_COST_DICE_ANEMO",
+            "count": 3
+          },
+          {
+            "costtype": "GCG_COST_ENERGY",
+            "count": 3
+          }
+        ]
+      }
+    ],
+    "image": {
+      "filename_tagsicon": [
+        "UI_Gcg_Tag_Element_Wind",
+        "UI_Gcg_Tag_Weapon_None",
+        "UI_Gcg_Tag_Faction_Monster"
+      ],
+      "filename_cardface": "UI_Gcg_CardFace_Char_Monster_Ningyo",
+      "filename_cardface_golden": "UI_Gcg_CardFace_Char_Monster_Ningyo_Golden",
+      "filename_cardface_HD": "UI_Gcg_CardFace_Char_Monster_Ningyo_HD",
+      "filename_icon": "UI_Gcg_Char_MonsterIcon_Ningyo"
+    }
+  },
+  {
+    "id": 2601,
+    "name": "Stonehide Lawachurl",
+    "shareid": 59,
+    "hp": 8,
+    "maxenergy": 2,
+    "tags": [
+      "GCG_TAG_ELEMENT_GEO",
+      "GCG_TAG_WEAPON_NONE",
+      "GCG_TAG_CAMP_MONSTER",
+      "GCG_TAG_CAMP_HILICHURL"
+    ],
+    "tagstext": [
+      "Geo",
+      "Other Weapons",
+      "Monster",
+      "Hilichurl"
+    ],
+    "storytitle": "\"Vale-Crosser\" Stonehide Lawachurl",
+    "storytext": "Go around — the way ahead is the realm of the \"king.\"",
+    "source": "Reward for accepting the Tavern Challenge at The Cat's Tail and claiming victory in a Friendly Fracas with Stonehide Lawachurl",
+    "skills": [
+      {
+        "id": 26011,
+        "name": "Plama Lawa",
+        "descriptionraw": "Deals $[D__KEY__DAMAGE] $[D__KEY__ELEMENT].",
+        "basedamage": 2,
+        "baseelement": "GCG_ELEMENT_NONE",
+        "descriptionreplaced": "Deals 2 {SPRITE_PRESET#2100}<color=#FFFFFFFF>Physical DMG</color>.",
+        "description": "Deals 2 Physical DMG.",
+        "typetag": "GCG_SKILL_TAG_A",
+        "type": "Normal Attack",
+        "playcost": [
+          {
+            "costtype": "GCG_COST_DICE_GEO",
+            "count": 1
+          },
+          {
+            "costtype": "GCG_COST_DICE_VOID",
+            "count": 2
+          }
+        ]
+      },
+      {
+        "id": 26012,
+        "name": "Movo Lawa",
+        "descriptionraw": "Deals $[D__KEY__DAMAGE] $[D__KEY__ELEMENT].",
+        "basedamage": 3,
+        "baseelement": "GCG_ELEMENT_NONE",
+        "descriptionreplaced": "Deals 3 {SPRITE_PRESET#2100}<color=#FFFFFFFF>Physical DMG</color>.",
+        "description": "Deals 3 Physical DMG.",
+        "typetag": "GCG_SKILL_TAG_E",
+        "type": "Elemental Skill",
+        "playcost": [
+          {
+            "costtype": "GCG_COST_DICE_GEO",
+            "count": 3
+          }
+        ]
+      },
+      {
+        "id": 26013,
+        "name": "Upa Shato",
+        "descriptionraw": "Deals $[D__KEY__DAMAGE] $[D__KEY__ELEMENT].",
+        "basedamage": 5,
+        "baseelement": "GCG_ELEMENT_NONE",
+        "descriptionreplaced": "Deals 5 {SPRITE_PRESET#2100}<color=#FFFFFFFF>Physical DMG</color>.",
+        "description": "Deals 5 Physical DMG.",
+        "typetag": "GCG_SKILL_TAG_Q",
+        "type": "Elemental Burst",
+        "playcost": [
+          {
+            "costtype": "GCG_COST_DICE_GEO",
+            "count": 3
+          },
+          {
+            "costtype": "GCG_COST_ENERGY",
+            "count": 2
+          }
+        ]
+      },
+      {
+        "id": 26014,
+        "name": "Infused Stonehide",
+        "descriptionraw": "(Passive) When the battle begins, this character gains <color=#FFFFFFFF>$[C126011]</color> and <color=#FFFFFFFF>$[C126012]</color>.",
+        "descriptionreplaced": "(Passive) When the battle begins, this character gains <color=#FFFFFFFF>Stonehide</color> and <color=#FFFFFFFF>Stone Force</color>.",
+        "description": "(Passive) When the battle begins, this character gains Stonehide and Stone Force.",
+        "typetag": "GCG_SKILL_TAG_PASSIVE",
+        "type": "Passive Skill",
+        "playcost": []
+      }
+    ],
+    "image": {
+      "filename_tagsicon": [
+        "UI_Gcg_Tag_Element_Rock",
+        "UI_Gcg_Tag_Weapon_None",
+        "UI_Gcg_Tag_Faction_Monster",
+        "UI_Gcg_Tag_Faction_Hili"
+      ],
+      "filename_cardface": "UI_Gcg_CardFace_Char_Monster_Bruterock",
+      "filename_cardface_golden": "UI_Gcg_CardFace_Char_Monster_Bruterock_Golden",
+      "filename_cardface_HD": "UI_Gcg_CardFace_Char_Monster_Bruterock_HD",
+      "filename_icon": "UI_Gcg_Char_MonsterIcon_Bruterock"
+    }
+  },
+  {
+    "id": 2701,
+    "name": "Jadeplume Terrorshroom",
+    "shareid": 60,
+    "hp": 10,
+    "maxenergy": 2,
+    "tags": [
+      "GCG_TAG_ELEMENT_DENDRO",
+      "GCG_TAG_WEAPON_NONE",
+      "GCG_TAG_CAMP_MONSTER"
+    ],
+    "tagstext": [
+      "Dendro",
+      "Other Weapons",
+      "Monster"
+    ],
+    "storytitle": "\"Lord of Fungi\" Jadeplume Terrorshroom",
+    "storytext": "If you keep silent and listen closely, you can hear the sound of the ruler of the Shroom-Kin inspecting its territory...",
+    "source": "Reward for accepting the Tavern Challenge at The Cat's Tail and claiming victory in a Friendly Fracas with Jadeplume Terrorshroom",
+    "skills": [
+      {
+        "id": 27011,
+        "name": "Majestic Dance",
+        "descriptionraw": "Deals $[D__KEY__DAMAGE] $[D__KEY__ELEMENT].",
+        "basedamage": 2,
+        "baseelement": "GCG_ELEMENT_NONE",
+        "descriptionreplaced": "Deals 2 {SPRITE_PRESET#2100}<color=#FFFFFFFF>Physical DMG</color>.",
+        "description": "Deals 2 Physical DMG.",
+        "typetag": "GCG_SKILL_TAG_A",
+        "type": "Normal Attack",
+        "playcost": [
+          {
+            "costtype": "GCG_COST_DICE_DENDRO",
+            "count": 1
+          },
+          {
+            "costtype": "GCG_COST_DICE_VOID",
+            "count": 2
+          }
+        ]
+      },
+      {
+        "id": 27012,
+        "name": "Volatile Spore Cloud",
+        "descriptionraw": "Deals $[D__KEY__DAMAGE] $[D__KEY__ELEMENT].",
+        "basedamage": 3,
+        "baseelement": "GCG_ELEMENT_DENDRO",
+        "descriptionreplaced": "Deals 3 {SPRITE_PRESET#2107}<color=#7EC236FF>Dendro DMG</color>.",
+        "description": "Deals 3 Dendro DMG.",
+        "typetag": "GCG_SKILL_TAG_E",
+        "type": "Elemental Skill",
+        "playcost": [
+          {
+            "costtype": "GCG_COST_DICE_DENDRO",
+            "count": 3
+          }
+        ]
+      },
+      {
+        "id": 27013,
+        "name": "Feather Spreading",
+        "descriptionraw": "Deals $[D__KEY__DAMAGE] $[D__KEY__ELEMENT], then consumes all <color=#FFFFFFFF>$[C127011]</color> stacks. For each stack consumed, this instance deals +1 DMG.",
+        "basedamage": 4,
+        "baseelement": "GCG_ELEMENT_DENDRO",
+        "descriptionreplaced": "Deals 4 {SPRITE_PRESET#2107}<color=#7EC236FF>Dendro DMG</color>, then consumes all <color=#FFFFFFFF>Radical Vitality</color> stacks. For each stack consumed, this instance deals +1 DMG.",
+        "description": "Deals 4 Dendro DMG, then consumes all Radical Vitality stacks. For each stack consumed, this instance deals +1 DMG.",
+        "typetag": "GCG_SKILL_TAG_Q",
+        "type": "Elemental Burst",
+        "playcost": [
+          {
+            "costtype": "GCG_COST_DICE_DENDRO",
+            "count": 3
+          },
+          {
+            "costtype": "GCG_COST_ENERGY",
+            "count": 2
+          }
+        ]
+      },
+      {
+        "id": 27014,
+        "name": "Radical Vitality",
+        "descriptionraw": "(Passive) When the battle begins, this character gains <color=#FFFFFFFF>$[C127011]</color>.",
+        "descriptionreplaced": "(Passive) When the battle begins, this character gains <color=#FFFFFFFF>Radical Vitality</color>.",
+        "description": "(Passive) When the battle begins, this character gains Radical Vitality.",
+        "typetag": "GCG_SKILL_TAG_PASSIVE",
+        "type": "Passive Skill",
+        "playcost": []
+      }
+    ],
+    "image": {
+      "filename_tagsicon": [
+        "UI_Gcg_Tag_Element_Grass",
+        "UI_Gcg_Tag_Weapon_None",
+        "UI_Gcg_Tag_Faction_Monster"
+      ],
+      "filename_cardface": "UI_Gcg_CardFace_Char_Monster_Fungusgrass",
+      "filename_cardface_golden": "UI_Gcg_CardFace_Char_Monster_Fungusgrass_Golden",
+      "filename_cardface_HD": "UI_Gcg_CardFace_Char_Monster_Fungusgrass_HD",
+      "filename_icon": "UI_Gcg_Char_MonsterIcon_Fungusgrass"
+    }
+  }
+]

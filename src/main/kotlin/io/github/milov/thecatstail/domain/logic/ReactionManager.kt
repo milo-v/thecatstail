@@ -5,11 +5,15 @@ import io.github.milov.thecatstail.domain.model.Element
 data class ReactionResult(
     val name: String,
     val bonusDamage: Int = 0,
-    val isPiercing: Boolean = false, 
-    val nextElement: Element? = null, 
+    val isPiercing: Boolean = false,
+    val nextElement: Element? = null,
     val isFrozen: Boolean = false,
     val swirledElement: Element? = null,
-    val isSwirl: Boolean = false
+    val isSwirl: Boolean = false,
+    val forceOpponentSwitch: Boolean = false,
+    val createsCrystallizeShield: Boolean = false,
+    val createsBurningSummon: Boolean = false,
+    val createsBloomSummon: Boolean = false
 )
 
 object ReactionManager {
@@ -26,8 +30,8 @@ object ReactionManager {
                 ReactionResult("Vaporize", bonusDamage = 2)
             (current == Element.PYRO && incoming == Element.CRYO) || (current == Element.CRYO && incoming == Element.PYRO) -> 
                 ReactionResult("Melt", bonusDamage = 2)
-            (current == Element.PYRO && incoming == Element.ELECTRO) || (current == Element.ELECTRO && incoming == Element.PYRO) -> 
-                ReactionResult("Overloaded", bonusDamage = 2) // Also forces switch in real game
+            (current == Element.PYRO && incoming == Element.ELECTRO) || (current == Element.ELECTRO && incoming == Element.PYRO) ->
+                ReactionResult("Overloaded", bonusDamage = 2, forceOpponentSwitch = true)
             
             // Hydro reactions
             (current == Element.HYDRO && incoming == Element.ELECTRO) || (current == Element.ELECTRO && incoming == Element.HYDRO) -> 
@@ -36,10 +40,10 @@ object ReactionManager {
                 ReactionResult("Frozen", bonusDamage = 1, isFrozen = true)
             
             // Dendro reactions
-            (current == Element.DENDRO && incoming == Element.HYDRO) || (current == Element.HYDRO && incoming == Element.DENDRO) -> 
-                ReactionResult("Bloom", bonusDamage = 2)
-            (current == Element.DENDRO && incoming == Element.PYRO) || (current == Element.PYRO && incoming == Element.DENDRO) -> 
-                ReactionResult("Burning", bonusDamage = 1) // Also creates a summon usually
+            (current == Element.DENDRO && incoming == Element.HYDRO) || (current == Element.HYDRO && incoming == Element.DENDRO) ->
+                ReactionResult("Bloom", bonusDamage = 2, createsBloomSummon = true)
+            (current == Element.DENDRO && incoming == Element.PYRO) || (current == Element.PYRO && incoming == Element.DENDRO) ->
+                ReactionResult("Burning", bonusDamage = 1, createsBurningSummon = true)
             (current == Element.DENDRO && incoming == Element.ELECTRO) || (current == Element.ELECTRO && incoming == Element.DENDRO) -> 
                 ReactionResult("Quicken", bonusDamage = 2)
             
@@ -48,8 +52,8 @@ object ReactionManager {
                 ReactionResult("Swirl", bonusDamage = 0, swirledElement = current, isSwirl = true)
                 
             // Geo (Crystallize)
-            (incoming == Element.GEO && current in listOf(Element.PYRO, Element.HYDRO, Element.ELECTRO, Element.CRYO)) -> 
-                ReactionResult("Crystallize", bonusDamage = 1) // Usually gives a shield
+            (incoming == Element.GEO && current in listOf(Element.PYRO, Element.HYDRO, Element.ELECTRO, Element.CRYO)) ->
+                ReactionResult("Crystallize", bonusDamage = 1, createsCrystallizeShield = true)
 
             else -> null
         }

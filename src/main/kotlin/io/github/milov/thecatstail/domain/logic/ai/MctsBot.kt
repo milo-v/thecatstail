@@ -17,15 +17,20 @@ class MctsNode(
     val untriedMoves = MoveGenerator.getLegalMoves(matchState).toMutableList()
 
     fun isFullyExpanded() = untriedMoves.isEmpty()
-    fun isTerminal() = matchState.players.any { player -> player.characters.all { !it.isAlive } }
+    fun isTerminal() = matchState.winner != null ||
+        matchState.players.any { player -> player.characters.all { !it.isAlive } }
 }
 
-class MctsBot(private val iterations: Int = 100) {
+class MctsBot(
+    private val iterations: Int = 100,
+    private val timeBudgetMs: Long = 500L
+) {
 
     fun findBestMove(match: Match): Move? {
-        val root = MctsNode(match.deepCopy())
+        val root = MctsNode(match.deepCopy(forMcts = true))
 
-        repeat(iterations) {
+        val deadline = System.currentTimeMillis() + timeBudgetMs
+        while (System.currentTimeMillis() < deadline) {
             var node = root
             
             // 1. Selection
@@ -36,7 +41,7 @@ class MctsBot(private val iterations: Int = 100) {
             // 2. Expansion
             if (!node.isTerminal() && node.untriedMoves.isNotEmpty()) {
                 val move = node.untriedMoves.removeAt(Random.nextInt(node.untriedMoves.size))
-                val nextState = node.matchState.deepCopy()
+                val nextState = node.matchState.deepCopy(forMcts = true)
                 MatchManager.applyMove(nextState, nextState.getActivePlayer().userId, move)
                 val child = MctsNode(nextState, move, node)
                 node.children.add(child)
@@ -44,7 +49,7 @@ class MctsBot(private val iterations: Int = 100) {
             }
 
             // 3. Simulation
-            val result = simulateRandomPlayout(node.matchState.deepCopy())
+            val result = simulateRandomPlayout(node.matchState.deepCopy(forMcts = true))
 
             // 4. Backpropagation
             var backNode: MctsNode? = node
@@ -86,7 +91,6 @@ class MctsBot(private val iterations: Int = 100) {
             if (moves.isEmpty()) return "DRAW"
             
             val move = moves.random()
-            val stateBefore = currentMatch.deepCopy()
             MatchManager.applyMove(currentMatch, currentMatch.getActivePlayer().userId, move)
             
             // Check if state actually changed
@@ -103,12 +107,13 @@ class MctsBot(private val iterations: Int = 100) {
     }
 
     private fun getWinner(match: Match): String? {
+        if (match.winner != null) return match.winner
         val p1 = match.players[0]
         val p2 = match.players[1]
-        
+
         if (p1.characters.all { !it.isAlive }) return p2.userId
         if (p2.characters.all { !it.isAlive }) return p1.userId
-        
+
         return null
     }
 }

@@ -10,7 +10,8 @@ data class Skill(
     val energyGenerated: Int = 1,
     val description: String = "",
     val summonEffect: Summon? = null,
-    val applyStatus: CharacterStatus? = null
+    val applyStatus: CharacterStatus? = null,
+    val imageUrl: String = ""
 )
 
 data class DiceCost(

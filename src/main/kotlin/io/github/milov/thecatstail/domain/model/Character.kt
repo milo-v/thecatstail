@@ -14,7 +14,10 @@ class Character(
     var isAlive: Boolean = true,
     var isFront: Boolean = false,
     val appliedElements: MutableList<Element> = mutableListOf(),
-    val activeStatuses: MutableList<CharacterStatus> = mutableListOf()
+    val activeStatuses: MutableList<CharacterStatus> = mutableListOf(),
+    var equipment: CharacterEquipment = CharacterEquipment(),
+    val description: String = "",
+    val imageUrl: String = ""
 ) : DomainEntity(id) {
     fun deepCopy(): Character {
         return Character(
@@ -29,7 +32,10 @@ class Character(
             isAlive = isAlive,
             isFront = isFront,
             appliedElements = appliedElements.toMutableList(),
-            activeStatuses = activeStatuses.map { it.deepCopy() }.toMutableList()
+            activeStatuses = activeStatuses.map { it.deepCopy() }.toMutableList(),
+            equipment = equipment.deepCopy(),
+            description = description,
+            imageUrl = imageUrl
         )
     }
 }

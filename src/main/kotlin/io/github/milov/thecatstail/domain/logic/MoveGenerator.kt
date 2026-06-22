@@ -5,10 +5,15 @@ import io.github.milov.thecatstail.domain.model.Phase
 
 object MoveGenerator {
     fun getLegalMoves(match: Match): List<Move> {
+        // Auto-fast-forward the ROLL phase during MCTS simulation so that
+        // simulated playouts never stall waiting for dice confirmation.
+        if (match.phase == Phase.ROLL) {
+            for (p in match.players) {
+                MatchManager.confirmDice(match, p.userId)
+            }
+        }
         if (match.phase != Phase.ACTION) {
-            // For simplicity, MCTS only works on Action Phase for now
-            // Roll phase is automated or has simple logic
-            return listOf(Move.DeclareEnd)
+            return emptyList()
         }
 
         val player = match.getActivePlayer()
@@ -34,6 +39,8 @@ object MoveGenerator {
         val activeChar = player.getActiveCharacter()
         if (activeChar.isAlive) {
             for (skill in activeChar.skills) {
+                // Passives are never playable
+                if (skill.type == SkillType.PASSIVE) continue
                 // Check cost
                 if (CostValidator.canPay(player.dicePool, skill.cost)) {
                     // Check energy for Burst
@@ -58,20 +65,29 @@ object MoveGenerator {
             }
         }
 
-        // 3. Play Cards
+        // 3. Play Cards — only cards with a registered effect are considered legal.
         for (card in player.hand) {
+            if (!CardEffectRegistry.isRegistered(card.id)) continue
             if (CostValidator.canPay(player.dicePool, card.cost)) {
                 moves.add(Move.PlayCard(card.id))
             }
         }
 
-        // 4. Tuning
-        for (card in player.hand) {
-            // Find any non-omni die to discard
-            for (element in player.dicePool.keys) {
-                if (element != Element.OMNI && player.dicePool[element]!! > 0) {
-                    moves.add(Move.ElementalTuning(card.id, element))
-                }
+        // 4. Tuning -- capped at max 1 move per card. Heuristic: pick the non-OMNI die
+        //    element with the largest count that is NOT the active character's element.
+        //    Falls back to any non-OMNI element if only the active element has dice.
+        val activeElement = activeChar.element
+        val tuningCandidate: Element? = player.dicePool.entries
+            .filter { it.key != Element.OMNI && it.key != activeElement && it.value > 0 }
+            .maxByOrNull { it.value }
+            ?.key
+            ?: player.dicePool.entries
+                .filter { it.key != Element.OMNI && it.value > 0 }
+                .maxByOrNull { it.value }
+                ?.key
+        if (tuningCandidate != null) {
+            for (card in player.hand) {
+                moves.add(Move.ElementalTuning(card.id, tuningCandidate))
             }
         }
 

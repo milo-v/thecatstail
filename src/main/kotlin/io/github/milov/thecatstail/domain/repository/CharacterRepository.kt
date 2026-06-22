@@ -4,4 +4,5 @@ import io.github.milov.thecatstail.domain.model.Character
 
 interface CharacterRepository {
   fun getById(id: String): Character
+  fun getAll(): List<Character>
 }
