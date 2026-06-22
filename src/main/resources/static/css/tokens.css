@@ -7,11 +7,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&display=swap');
 
 :root {
-    /* Surfaces */
-    --surface-bg: #0f172a;
-    --surface-panel: #1e293b;
-    --surface-border: #334155;
-    --text-muted: #94a3b8;
+    /* Surfaces — light theme (default) */
+    --surface-bg: #f3e8d2;
+    --surface-panel: #ead9b4;
+    --surface-border: #cdb888;
+    --text-primary: #3a2f1f;
+    --text-muted: #8a7a5c;
 
     /* Accent / brand */
     --accent: #6366f1;
@@ -52,9 +53,25 @@
     --font-display: 'Rajdhani', sans-serif;
 }
 
+/* Dark theme override — applied when <html data-theme="dark"> */
+[data-theme="dark"] {
+    --surface-bg: #0f172a;
+    --surface-panel: #1e293b;
+    --surface-border: #334155;
+    --text-primary: #ffffff;
+    --text-muted: #94a3b8;
+}
+
 .font-display {
     font-family: var(--font-display);
 }
+
+/* Theme-aware neutral surfaces/text */
+.bg-surface { background-color: var(--surface-bg); }
+.bg-panel { background-color: var(--surface-panel); }
+.border-surface { border-color: var(--surface-border); }
+.text-primary { color: var(--text-primary); }
+.text-muted { color: var(--text-muted); }
 
 /* Predicted-element floating text (light variant) */
 .text-pyro { color: var(--el-pyro-text); }
