@@ -3,13 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>The Cat's Tail</title>
+    <script>document.documentElement.setAttribute('data-theme', localStorage.getItem('theme') || 'light');</script>
     <script src="https://unpkg.com/htmx.org@1.9.10"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="/css/tokens.css">
 </head>
-<body class="bg-slate-900">
+<body class="bg-surface text-primary">
 <div id="container">
     <div th:replace="~{game :: content}"></div>
 </div>
+<button id="theme-toggle" type="button"
+        class="fixed top-2 right-2 z-40 w-8 h-8 rounded-full bg-panel border border-surface text-primary text-[10px] font-bold flex items-center justify-center shadow"
+        aria-label="Toggle color theme">Dark</button>
+<script src="/js/theme.js"></script>
 </body>
 </html>
