@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>The Cat's Tail - Setup</title>
+    <script>document.documentElement.setAttribute('data-theme', localStorage.getItem('theme') || 'light');</script>
     <script src="https://unpkg.com/htmx.org@1.9.10"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="/css/tokens.css">
@@ -20,12 +21,12 @@
         .element-UNALIGNED { background: var(--el-unaligned); }
     </style>
 </head>
-<body class="bg-slate-900 text-white min-h-screen">
+<body class="bg-surface text-primary min-h-screen">
 <div class="max-w-7xl mx-auto p-6" id="container">
     <header class="flex items-center justify-between mb-6">
         <div>
             <h1 class="text-3xl font-display font-black text-indigo-400">Match Setup</h1>
-            <p class="text-sm text-slate-400">Pick 3 characters and build a 30-card deck.</p>
+            <p class="text-sm text-muted">Pick 3 characters and build a 30-card deck.</p>
         </div>
         <div class="flex items-center gap-3">
             <button type="button"
@@ -37,7 +38,7 @@
                     id="start-btn"
                     onclick="submitSetup()"
                     disabled
-                    class="bg-indigo-600 hover:bg-indigo-500 disabled:bg-slate-700 disabled:text-slate-400 text-white font-bold py-2 px-4 rounded">
+                    class="bg-indigo-600 hover:bg-indigo-500 disabled:bg-slate-700 disabled:text-muted text-white font-bold py-2 px-4 rounded">
                 Start Match
             </button>
         </div>
@@ -53,12 +54,12 @@
     <section class="mb-8">
         <div class="flex items-baseline justify-between mb-3">
             <h2 class="text-xl font-bold">Characters
-                <span class="text-sm text-slate-400">(<span id="char-count">0</span>/3)</span>
+                <span class="text-sm text-muted">(<span id="char-count">0</span>/3)</span>
             </h2>
         </div>
         <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-9 gap-3">
             <div th:each="c : ${characters}"
-                 class="char-card cursor-pointer bg-slate-800 rounded p-2 text-center transition"
+                 class="char-card cursor-pointer bg-panel rounded p-2 text-center transition"
                  th:attr="data-char-id=${c.id}, data-char-name=${c.name}"
                  onclick="toggleCharacter(this)">
                 <div class="relative aspect-[3/4] mb-1 bg-slate-700 rounded overflow-hidden">
@@ -77,14 +78,14 @@
     <section class="mb-8">
         <div class="flex items-baseline justify-between mb-3">
             <h2 class="text-xl font-bold">Deck
-                <span class="text-sm text-slate-400">(<span id="deck-count">0</span>/30)</span>
+                <span class="text-sm text-muted">(<span id="deck-count">0</span>/30)</span>
             </h2>
             <button type="button" onclick="clearDeck()"
                     class="text-xs bg-slate-700 hover:bg-slate-600 px-2 py-1 rounded">Clear deck</button>
         </div>
-        <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-2 max-h-[420px] overflow-y-auto p-1 bg-slate-950/40 rounded">
+        <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-2 max-h-[420px] overflow-y-auto p-1 bg-panel rounded">
             <div th:each="card : ${cards}"
-                 class="card-tile cursor-pointer bg-slate-800 rounded p-2 text-center hover:bg-slate-700 transition"
+                 class="card-tile cursor-pointer bg-panel rounded p-2 text-center hover:bg-slate-700 transition"
                  th:attr="data-card-id=${card.id}, data-card-name=${card.name}, data-talent=${card.isTalent}"
                  onclick="addCard(this)">
                 <div class="aspect-[3/4] bg-slate-700 rounded mb-1 overflow-hidden">
@@ -183,5 +184,9 @@
             });
     }
 </script>
+<button id="theme-toggle" type="button"
+        class="fixed top-2 right-2 z-40 w-8 h-8 rounded-full bg-panel border border-surface text-primary text-[10px] font-bold flex items-center justify-center shadow"
+        aria-label="Toggle color theme">Dark</button>
+<script src="/js/theme.js"></script>
 </body>
 </html>
